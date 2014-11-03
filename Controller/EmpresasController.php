@@ -15,8 +15,8 @@ class EmpresasController extends AppController {
  * @var array
  */
 	public $components = array('Paginator', 'Session','RequestHandler','Search.Prg');
-	public $helpers = array('Js'=>array('Jquery'));
-	
+	public $helpers = array('Js'=>array('Jquery','Ajax'));
+	public $uses= array('Empresa','Provincia','Departamento');	
 
 	var $paginate = array(
 		'limit' => 20, 
@@ -63,7 +63,14 @@ class EmpresasController extends AppController {
  * @return void
  */
 	public function add() {
-		if ($this->request->is('post')) {
+		/*$this->loadModel('Departamento');
+		$this->loadModel('Provincia');
+		$listadoProvincias = $this->Provincia->find('all', array('fields'=>array('id','nombre'),'order'=>'nombre ASC'));
+		$this->set('provincias', Set::combine($listadoProvincias, "{n}.Provincia.id","{n}.Provincia.nombre"));
+		$primera_provincia = $this->Provincia->find(null,null,'nombre ASC');
+		$listadoDepartamentos = $this->Departamento->find('all', array('fields'=>array('id','nombre'),'order'=>'nombre ASC','conditions'=>'Departamento.provincia_id='.$primera_provincia['Provincia']['id']));
+		$this->set('localidades', Set::combine($listadoDepartamentos, "{n}.Departamento.id","{n}.Departamento.nombre"));
+		*/if ($this->request->is('post')) {
 			$this->Empresa->create();
 			if ($this->Empresa->save($this->request->data)) {
 				$this->Session->setFlash(__('Empresa registrada satisfactoriamente'));
@@ -72,6 +79,21 @@ class EmpresasController extends AppController {
 				$this->Session->setFlash(__('Lo siento, no se pudo registrar la empresa'));
 			}
 		}
+	}
+
+	function update_select()
+	{
+		if (!empty($this->data['Departamento']['provincia_id']))
+		{
+			$provincia_id = $this->data['Departamento']['provincia_id'];
+			$departamentos = $this->Departamento->find('all', array('fields'=>array('id','nombre'),'order'=>'nombre ASC','conditions'=>array('provincia_id'=>$provincia_id)));
+		}
+		else
+		{
+			$localidades = $this->Departamento->find('all', array('fields'=>array('id','nombre'),'order'=>'nombre ASC'));
+		}
+		$this->set('options', Set::combine($departamentos, "{n}.Departamento.id","{n}.Departamento.nombre"));
+		$this->render('/elements/update_select', 'ajax');
 	}
 	public function add2() {
 		if ($this->request->is('post')) {
@@ -126,13 +148,12 @@ class EmpresasController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 
 			if ($this->Empresa->save($this->request->data['Empresa'])) {
-
 				$this->Firmante->saveAll($this->request->data['Firmante']);
-				//$this->Anexo->saveAll($this->request->data['Anexo']);	
+				$this->Anexo->save($this->request->data['Anexo']);	
 				$this->Session->setFlash(__('Se edito la empresa Sastifactoriamente.'));
 				return $this->redirect(array('controller' => 'empresas','action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('No se pudo suspender el convenio.'));
+				$this->Session->setFlash(__('No se a podido editar la empresa.'));
 			}
 		} else {
 			$options = array('conditions' => array('Empresa.' . $this->Empresa->primaryKey => $id));
@@ -140,7 +161,7 @@ class EmpresasController extends AppController {
 		}
 
 		$empresas = $this->Firmante->Empresa->find('list');
-		
+		//$localidades = $this->Localidades->Empresa->find('list');
         $this->set('empresa_id',$id); 
 
 		//$this->Firmante->Empresa->recursive=0;

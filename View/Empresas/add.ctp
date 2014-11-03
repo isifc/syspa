@@ -12,7 +12,7 @@
 		<tr>
 			<td class="mitd">
 				<?php
-					echo $this->Form->input('EmpresaCUIT',array('label'=>'CUIT: ', 'style'=>"width:107px;"));?>
+					echo $this->Form->input('EmpresaCUIT',array('label'=>'CUIT: ', 'empty' => '4','style'=>"width:107px;"));?>
 			</td>
 			<td class="mitd">
 				<?php
@@ -21,7 +21,18 @@
 		</tr>
 		<tr>
 			<td class="mitd">
-				<?php echo $this->Form->input('EmpresaActividad',array('label'=>'Actividad: '));?>
+			<?php 
+
+		 	echo $this->Form->input('localidade_id', array('label'=>'localidad','id' => "localidade_id"));
+					
+				//echo $this->Form->input('id_localidade');?>
+				<script>
+				$("#localidade_id").select2({
+							placeholder: "Seleccione Comuna",
+							width:'175px'	
+						});
+				</script>
+				
 			</td>
 			<td class="mitd">
 				<?php echo $this->Form->input('EmpresaDireccion',array('label'=>'Dirección: '));?>
@@ -37,13 +48,17 @@
 		</tr>
 		<tr>
 			<td class="mitd">
+					<?php echo $this->Form->input('EmpresaActividad',array('label'=>'Actividad: '));?>
+			
+			</td>
+			<td class="mitd">
 				<?php echo $this->Form->input('PorcentajeGasto',array('label'=>'Porcentaje Gasto: (%)', 'default' =>5, 'min'=>0, 'max'=>5));?>
 			</td>
 			
 		</tr>
 		</table>
+
 		</fieldset>
-		
 		<br>
 		<fieldset>
 		<legend ><b>Datos del contácto </b></legend>
@@ -89,17 +104,19 @@
 				
 				<?php 
 				echo "Fecha del convenio: ".$this->Form->inputText('ConvenioFecha',array(
-					'label'=>' ConvenioFecha ',
-					'id'=>'datepicker',
+					
+					'id'=>'fechaConvenio',
+					'dateFormat'=>'d-m-Y',
+					'class'=>'datepicker',
 					'style'=>"width:76px;",
 
 					));
 				?>
 				<Script> 
-					$(function () { 
-       				$("#datepicker")datepicker();. 
-					}); 
+					$("#fechaConvenio").datepicker();
 				</script>
+
+
 				</td>	
 							
 			</tr>	

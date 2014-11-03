@@ -10,10 +10,15 @@
             echo $this->Html->meta('icon');
             echo $this->Html->css(array('reset','style','jquery-ui-1.9.2.custom')); //
             echo $this->Html->script(array('jquery-1.8.3','jquery-ui-1.9.2.custom.min','http://code.jquery.com/ui/1.9.0/jquery-ui.js'));
+
+            $this->Html->script('http://localhost/syspa/select2/select2.min.js', false);
+            $this->Html->css('http://localhost/syspa/select2/select2.css', null, array('inline' => false));
+                        
           
             echo $this->fetch('meta');
             echo $this->fetch('css');
             echo $this->fetch('script');
+
 
         ?>
     <script>
@@ -26,7 +31,6 @@
                         </script>   
     <script>
     $(function() {
-    
         //Array para dar formato en español
           $.datepicker.regional['es'] = 
           {

@@ -53,7 +53,7 @@ class FirmantesController extends AppController {
 			$this->Firmante->create();
 			if ($this->Firmante->save($this->request->data)) {
 				$this->Session->setFlash(__('Se a registrado correctamente'));
-				return $this->redirect(array('controller' => 'empresas','action' => 'editar',$empresa_id));
+				//return $this->redirect(array('controller' => 'empresas','action' => 'editar',$empresa_id));
 			} else {
 				$this->Session->setFlash(__('Error en la carga'));
 			}

@@ -8,8 +8,35 @@
 	<table>
 		
 	
-	<tr >
 	
+	<tr bgcolor="D3DEF0">
+	
+		 	<td class="mitd"  >
+		 					<?php 
+		 						echo $this->Form->create('Conveniosparticulare');
+								echo $this->Form->input('Empresa');
+		 					?>
+		 				</td>
+		 				<td class="mitd" >
+		 					<?php 
+		 						echo $this->Form->create('Conveniosparticulare');
+								echo $this->Form->input('Alumno');
+		 					?>
+		 				</td>
+		 				<td class="mitd" >
+		 					<?php 
+		 						echo $this->Form->create('Conveniosparticulare');
+								echo $this->Form->input('Carrera');
+		 					?>
+		 				</td>
+		 				<td class="mitd">
+		 					<?php echo $this->Form->Button(__('Buscar'));
+							  //echo $this->Form->end();
+							  ?>
+							  <script>
+									$( "button" ).button();
+							  </script>
+		 				</td>
 			<td class = 'mitd'>
 			<p >Nuevo Convenio 
 			<?php echo $this->html->image("mi_form/Add.png", array(

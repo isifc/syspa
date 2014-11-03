@@ -29,8 +29,17 @@
 <legend>Suspención</legend>
 
 <?php 
-	echo $this->Form->input('ConvenioFechaBaja',array('label'=>'Fecha de baja'));
-	?><h4>Motivo: </h4>	<?php
+ 	echo "Fecha de baja: <b>(YYYY-MM-DD)</b> ".$this->Form->inputText('ConvenioFechaBaja',array(
+							'id'=>'fechaDeBaja',
+							'dateFormat'=>'d-m-Y',
+							//'default'=>date('d-m-Y'),
+							'class'=>'datepicker',
+							'style'=>"width:76px;")); 
+  						?> 
+  						<Script> 
+							$("#fechaDeBaja").datepicker();
+						</script>
+	<h4>Motivo: </h4><?php
 	echo $this->Form->textarea('MotivoBaja'); ?>
 	
 	

@@ -16,6 +16,29 @@ class Conveniosparticulare extends AppModel {
  *
  * @var string
  */
+
+
+ public $actsAs = array(
+        'Search.Searchable'
+    );
+   public $filterArgs = array(
+        'Empresa' => array(
+            'type' => 'like',
+            'field' => array('Empresa.EmpresaRazonSocial')
+        ),
+		'Alumno'=> array (
+			'type' =>'like',
+			'field'=>array('Alumno.Apellido','Alumno.Nombre')
+			
+		),
+		'Carrera'=> array (
+			'type' =>'like',
+			'field'=>array('Carrera.carrera')
+		) 		
+    );
+ 
+ 
+ 
 	public $displayField = 'id';
 
 

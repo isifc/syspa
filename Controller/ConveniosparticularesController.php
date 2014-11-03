@@ -12,9 +12,10 @@ class ConveniosparticularesController extends AppController {
 /**
  * Components
  *
- * @var array
- */
-	public $components = array('Paginator', 'Session');
+ * @var array	*/
+
+ 
+	public $components = array('Paginator', 'Session','Search.Prg');
 
 /**
  * index method
@@ -23,6 +24,8 @@ class ConveniosparticularesController extends AppController {
  */
 	public function index() {
 		$this->Conveniosparticulare->recursive = 0;
+		$this->Prg->commonProcess();
+        $this->Paginator->settings['conditions'] = $this->Conveniosparticulare->parseCriteria($this->Prg->parsedParams());
 		$this->set('conveniosparticulares', $this->Paginator->paginate());
 		
 	}
@@ -48,6 +51,8 @@ class ConveniosparticularesController extends AppController {
  * @return void
  */
 	public function add() {
+		//$this->loadModel('Alumno');
+	
 		if ($this->request->is('post')) {
 			$this->Conveniosparticulare->create();
 			if ($this->Conveniosparticulare->save($this->request->data)) {
@@ -57,22 +62,20 @@ class ConveniosparticularesController extends AppController {
 				$this->Session->setFlash(__('The conveniosparticulare could not be saved. Please, try again.'));
 			}
 		}
-		$ofertas = $this->Conveniosparticulare->Oferta->find('list');
+		$ofertas = $this->Conveniosparticulare->Oferta->find('list', array('fields' => array('OfertaDescripcion')));
 		//$empresas = $this->Conveniosparticulare->Empresa->find('list');
 		$empresas = $this->Conveniosparticulare->Empresa->find('list', array('fields' => array('EmpresaRazonSocial')));
-		//$alumnos = $this->Conveniosparticulare->Alumno->find('list');
-		$alumnos = $this->Conveniosparticulare->Alumno->find('list', array('fields' => array('NroLegajo')));
+		//$alumnos = $this->Conveniosparticulare->Alumno->find('list',array('fields' => array('Apellido')));
 		$carreras = $this->Conveniosparticulare->Carrera->find('list',array('fields' => array('carrera')));
-		$tutores = $this->Conveniosparticulare->Tutore->find('list');
+		$tutores = $this->Conveniosparticulare->Tutore->find('list',array('fields' => array('ApellidoNombre')));
+			
+		$alumnos = $this->Conveniosparticulare->Alumno->find('list', array('fields' => array('id','name')));
+
 		$this->set(compact('ofertas', 'empresas', 'alumnos', 'carreras', 'tutores'));
-		
-		/*var $virtualFields = array('nombre_y_nif' => 'CONCAT(User.nombre," - 
-",User.localidad)'); 
+	
 
-Y luego ya se puede usar el find('list') convencional: 
 
-$users = $this->user->find('list', array('fields' => 
-array('User.nombre_y_nif')));*/ 
+	
 	
 	}
 	
@@ -85,6 +88,7 @@ array('User.nombre_y_nif')));*/
  * @return void
  */
 	public function edit($id = null) {
+		$this->loadModel('Alumno');
 		if (!$this->Conveniosparticulare->exists($id)) {
 			throw new NotFoundException(__('Convenio particular invalido'));
 		}
@@ -105,9 +109,9 @@ array('User.nombre_y_nif')));*/
 		$ofertas = $this->Conveniosparticulare->Oferta->find('list');
 		//$empresas = $this->Conveniosparticulare->Empresa->find('list');
 		$empresas = $this->Conveniosparticulare->Empresa->find('list', array('fields' => array('EmpresaRazonSocial')));
-		//$alumnos = $this->Conveniosparticulare->Alumno->find('list');
+		$alumnos = $this->Conveniosparticulare->Alumno->find('all');
 		//$carreras = $this->Conveniosparticulare->Carrera->find('list');
-		$alumnos = $this->Conveniosparticulare->Alumno->find('list', array('fields' => array('NroLegajo')));
+		//$alumnos = $this->Conveniosparticulare->Alumno->find('list', array('fields' => array('NroLegajo')));
 		$carreras = $this->Conveniosparticulare->Carrera->find('list',array('fields' => array('carrera')));
 		$tutores = $this->Conveniosparticulare->Tutore->find('list');
 		$this->set(compact('ofertas', 'empresas', 'alumnos', 'carreras', 'tutores'));

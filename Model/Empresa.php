@@ -22,8 +22,12 @@ public $actsAs = array(
 		'RazonSocial'=> array (
 			'type' =>'like',
 			'field'=>'EmpresaRazonSocial'
-		)  
+		),
+		
     );
+ 
+
+
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
@@ -175,7 +179,7 @@ public $actsAs = array(
 			var $validate = array(
 
 					'EmpresaCUIT' => array(
-						'beetwen'=>array(
+						/*'beetwen'=>array(
 			 				'rule' => array('between', 11, 11),
 		        			'message' => 'Un CUIT debe  tener 11 caracteres.'
 		        		        ),
@@ -183,12 +187,12 @@ public $actsAs = array(
 		            		'rule' => 'isUnique',
 		           			'message' => 'Este CUIT ya existe.',
 		            		'last' => true
-		         				),
-						/*
+		         				),*/
+						
 						 'isValid'=> array(
 						 	 'rule'=> 'isValid',
 						 	 'message'=> 'CUIT invalido',
-						 	),*/
+						 	),
 											       	 		
 		             ),
 

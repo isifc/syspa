@@ -3,6 +3,14 @@
 	<fieldset>
 		<legend><?php echo __('Editar Convenio particular'); ?></legend>
 	
+	
+						<div id="dialog" title="Lista de alumnos">
+								<div class="alumnos index">
+	
+
+</div>
+</div>
+						
 <table>	
 
 
@@ -13,7 +21,7 @@
 		<dt><?php echo __('Empresa'); ?></dt>
 			<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($conveniosparticulare['Empresa']['EmpresaRazonSocial']); ?>&nbsp;</dd>
 		<dt><?php echo __('Legajo alumno'); ?></dt>
-		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($conveniosparticulare['Alumno']['NroLegajo']); ?>&nbsp;</dd>
+		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($conveniosparticulare['Alumno']['name']); ?>&nbsp;</dd>
 	
 </dl>
 </td>

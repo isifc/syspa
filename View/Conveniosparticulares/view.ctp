@@ -13,7 +13,7 @@
 	
 	<dt><?php echo __('Empresa'); ?></dt>
 		<dd><h3>
-			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo $this->Html->link($conveniosparticulare['Empresa']['EmpresaRazonSocial'], array('controller' => 'empresas', 'action' => 'view', $conveniosparticulare['Empresa']['id'])); ?>
+			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo $this->Html->link($conveniosparticulare['Empresa']['EmpresaRazonSocial'], array('controller' => 'empresas', 'action' => 'view', $conveniosparticulare['Empresa']['id'])); ?>
 			&nbsp;</h3>
 		</dd>
 			
@@ -93,7 +93,7 @@
 	<td class="mitdLeft">
 		<dt><?php echo __('Alumno'); ?></dt>
 		<dd><h3>
-		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	<?php echo $this->Html->link($conveniosparticulare['Alumno']['NroLegajo'], array('controller' => 'alumnos', 'action' => 'view', $conveniosparticulare['Alumno']['id'])); ?>
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	<?php echo $this->Html->link($conveniosparticulare['Alumno']['name'], array('controller' => 'alumnos', 'action' => 'view', $conveniosparticulare['Alumno']['id'])); ?>
 			&nbsp;</h3>
 		</dd>
 		<dt><?php echo __('Carrera'); ?></dt>
@@ -128,7 +128,10 @@
 
 </table>		
 </dl>
-
+<div class="related">
+	
+	<h3><?php echo __('Adendas Asociadas'); ?></h3>
+</div>
 </fieldset>
 
 
@@ -178,12 +181,10 @@
 	<?php endforeach; ?>
 
 	</table>
+	
 <?php endif; ?>-->
 <br><br>
-<div class="related">
-	
-	<h3><?php echo __('Adendas Asociados'); ?></h3>
-</div>
+
 </fieldset>
 <br>
 

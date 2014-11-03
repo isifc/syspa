@@ -1,3 +1,4 @@
+
 <div class="empresas index">
 
 
@@ -27,7 +28,7 @@
 		 					?>
 		 				</td>
 		 				<td class="mitd" >
-		 					<?php  $sizes = array('v' => 'Vigente', 'n' => 'no Vigente', 't' => 'todos');
+		 					<?php  $sizes = array('v' => 'Vigente', 'n' => 'no Vigente', 'nt'=>'Sin Convenio','t' => 'todos');
 							echo $this->Form->input(
     								'convenio vigente',
     								array('options' => $sizes, 'default' => 't')
@@ -42,7 +43,7 @@
 							  ?>
 							  <script>
 									$( "button" ).button();
-								</script>
+							  </script>
 		 				</td>		
 			<td valign="bottom" bgcolor="white">
 			<p >Nueva Empresa 
