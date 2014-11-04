@@ -1,22 +1,22 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Competencia Model
+ * Ofertascarrera Model
  *
- * @property Area $Area
- * @property Requisitoscompetencia $Requisitoscompetencia
+ * @property Oferta $Oferta
+ * @property Carrera $Carrera
  */
-class Competencia extends AppModel {
-    public $displayField = 'CompetenciaNombre';
+class Ofertascarrera extends AppModel {
+     public $dispalyField = 'OfertaDescripcion';
 /**
  * Validation rules
  *
  * @var array
  */
 	public $validate = array(
-		'CompetenciaNombre' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+		'oferta_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -24,7 +24,7 @@ class Competencia extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'area_id' => array(
+		'carrera_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -44,34 +44,19 @@ class Competencia extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Area' => array(
-			'className' => 'Area',
-			'foreignKey' => 'area_id',
+		'Oferta' => array(
+			'className' => 'Oferta',
+			'foreignKey' => 'oferta_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Carrera' => array(
+			'className' => 'Carrera',
+			'foreignKey' => 'carrera_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		)
 	);
-
-/**
- * hasMany associations
- *
- * @var array
- */
-	public $hasMany = array(
-		'Requisitoscompetencia' => array(
-			'className' => 'Requisitoscompetencia',
-			'foreignKey' => 'competencia_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		)
-	);
-
 }

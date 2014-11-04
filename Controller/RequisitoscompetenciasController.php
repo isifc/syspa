@@ -25,6 +25,21 @@ class RequisitoscompetenciasController extends AppController {
         $this->set('requisitoscompetencias', $this->Paginator->paginate());
     }
 
+            public function detallerequisitos($OfertaId){
+            $requisitos = $this->Requisitoscompetencia->find('all',
+                    array(
+                        'fields' => array(
+                            'id',
+                            'competencia_id',
+                            'Competencia.competencianombre'
+                        ),
+                        'conditions' => array('oferta_id =' => $OfertaId)
+                    )
+                );
+            $this->set('requisitos',$requisitos);
+            $this->set('OfertaId',$OfertaId);
+        }
+
 /**
  * view method
  *
@@ -51,7 +66,6 @@ class RequisitoscompetenciasController extends AppController {
                 if ($this->Requisitoscompetencia->save($this->request->data)) {
                     $this->Session->setFlash(__('The requisitoscompetencia has been saved.'));
                     return $this->redirect(array('controller' => 'ofertas','action' => 'view',4));
-                    return;
                 } else {
                     $this->Session->setFlash(__('The requisitoscompetencia could not be saved. Please, try again.'));
                 }
@@ -61,6 +75,22 @@ class RequisitoscompetenciasController extends AppController {
             $this->set(compact('ofertas', 'competencias'));
     }
 
+    public function addrequisitos($OfertaId){
+        if ($this->request->is('post')) {
+            $this->Requisitoscompetencia->create();
+            if ($this->Requisitoscompetencia->save($this->request->data)) {
+                $this->Session->setFlash(__('Se agregó el requisito a la oferta'));
+                return $this->redirect(array('action' => 'detallerequisitos',$OfertaId));
+            } else {
+                $this->Session->setFlash(__('El requisito no ha podido ser agregado a la oferta, intente de nuevo'));
+            }
+        }
+        $this->set('OfertaId',$OfertaId);
+        $ofertas = $this->Requisitoscompetencia->Oferta->find('list');
+        $competencias = $this->Requisitoscompetencia->Competencia->find('list');
+        $this->set(compact('ofertas', 'competencias'));
+
+    }
 /**
  * edit method
  *
@@ -108,4 +138,19 @@ class RequisitoscompetenciasController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+        
+        public function borrarrequisito($id = null,$OfertaId = null) {
+		$this->Requisitoscompetencia->id = $id;
+		if (!$this->Requisitoscompetencia->exists()) {
+			throw new NotFoundException(__('Requisito no válido'));
+		}
+		$this->request->allowMethod('post', 'delete');
+		if ($this->Requisitoscompetencia->delete()) {
+			$this->Session->setFlash(__('El requisito ha sido eliminado de la oferta.'));
+		} else {
+			$this->Session->setFlash(__('No se pudo borrar el requisito. Por favor, reintente.'));
+		}
+		return $this->redirect(array('action' => 'detallerequisitos',$OfertaId));
+	}
+
 }

@@ -2,6 +2,16 @@
     <br>
     <h3><?php echo __('Ofertas de Pasantías'); ?></h3>
     <br>
+     <td valign="bottom" >
+	<p align="right"> Nueva Oferta 
+            <?php echo $this->html->image("mi_form/Add.png", 
+                array('alt' => 'Agregar', 'title' =>"Agregar Oferta",'url' => 
+                    array('controller' => 'ofertas','action' => 'add')
+		)
+                    );
+            ?>
+	</p>
+    </td>
     <hr>
     <table cellpadding="0" cellspacing="0">
     <thead>
@@ -21,10 +31,22 @@
 		<td class="tabla"><?php echo h($oferta['Oferta']['OfertaVigenciaDesde']); ?>&nbsp;</td>
 		<td class="tabla"><?php echo h($oferta['Oferta']['OfertaVigenciaHasta']); ?>&nbsp;</td>
 		<td class="tabla"><?php echo h($oferta['Oferta']['OfertaDescripcion']); ?>&nbsp;</td>
-		<td class="tabla"><?php echo $this->Html->link($oferta['Empresa']['id'], 
-                        array('controller' => 'empresas', 'action' => 'view', $oferta['Empresa']['id'])); ?>
-		</td>
+		<td class="tabla"><?php echo h($oferta['Empresa']['EmpresaRazonSocial']);?></td>
 		<td class="tabla">
+                    <?php echo $this->html->image("mi_form/carreras.png", 
+                            array("alt" => "Ver", 'title' =>"Carreras",'url' => 
+                                array('controller' => 'Ofertascarreras','action' => 'detallecarreras',$oferta['Oferta']['id']), 
+                                    array('class'=>'view')
+				)
+                            ); 
+                    ?>
+                    <?php echo $this->html->image("mi_form/requisitos.png", 
+                            array("alt" => "Ver", 'title' =>"Requisitos",'url' => 
+                                array('controller' => 'Requisitoscompetencias','action' => 'detallerequisitos',$oferta['Oferta']['id']), 
+                                    array('class'=>'view')
+				)
+                            ); 
+                    ?>                                      
                     <?php echo $this->html->image("mi_form/view.png", 
                             array("alt" => "Ver", 'title' =>"Ver Oferta",'url' => 
                                 array('controller' => 'ofertas','action' => 'view',$oferta['Oferta']['id']), 
