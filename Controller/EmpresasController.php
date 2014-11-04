@@ -63,14 +63,8 @@ class EmpresasController extends AppController {
  * @return void
  */
 	public function add() {
-		/*$this->loadModel('Departamento');
-		$this->loadModel('Provincia');
-		$listadoProvincias = $this->Provincia->find('all', array('fields'=>array('id','nombre'),'order'=>'nombre ASC'));
-		$this->set('provincias', Set::combine($listadoProvincias, "{n}.Provincia.id","{n}.Provincia.nombre"));
-		$primera_provincia = $this->Provincia->find(null,null,'nombre ASC');
-		$listadoDepartamentos = $this->Departamento->find('all', array('fields'=>array('id','nombre'),'order'=>'nombre ASC','conditions'=>'Departamento.provincia_id='.$primera_provincia['Provincia']['id']));
-		$this->set('localidades', Set::combine($listadoDepartamentos, "{n}.Departamento.id","{n}.Departamento.nombre"));
-		*/if ($this->request->is('post')) {
+		//$this->load('localidade');
+		if ($this->request->is('post')) {
 			$this->Empresa->create();
 			if ($this->Empresa->save($this->request->data)) {
 				$this->Session->setFlash(__('Empresa registrada satisfactoriamente'));
@@ -148,10 +142,19 @@ class EmpresasController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 
 			if ($this->Empresa->save($this->request->data['Empresa'])) {
-				$this->Firmante->saveAll($this->request->data['Firmante']);
-				$this->Anexo->save($this->request->data['Anexo']);	
+				
+				//$this->Anexo->save($this->request->data['Anexo']);	
 				$this->Session->setFlash(__('Se edito la empresa Sastifactoriamente.'));
-				return $this->redirect(array('controller' => 'empresas','action' => 'index'));
+				return $this->redirect(array('controller' => 'anexos','action' => 'add',
+					$this->request->data['Anexo']['empresa_id'],
+					$this->request->data['Anexo']['EmpresaCUIT'],
+					$this->request->data['Anexo']['PorcentajeGastoAnterior'],
+					$this->request->data['Anexo']['PagaSeguroTrabajoAnterior'],
+					$this->request->data['Anexo']['PagaObraSocialAnterior'],
+					//$this->request->data['Anexo']['PagaAsignacionAnterior'],
+					//$this->request->data['Anexo']['ConvenioFechaAnterior']
+					
+					));
 			} else {
 				$this->Session->setFlash(__('No se a podido editar la empresa.'));
 			}

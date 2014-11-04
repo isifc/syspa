@@ -46,7 +46,14 @@ class AnexosController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function add($empresa_id,
+		$empresaCUIT,
+		$porcentajeGastoAnterior,
+		$pagaSeguroTrabajoAnterior,
+		$pagaObraSocialAnterior
+		//$pagaAsignacionAnterior,
+		//$convenioFechaAnterior
+		) {
 		if ($this->request->is('post')) {
 			$this->Anexo->create();
 			if ($this->Anexo->save($this->request->data)) {
@@ -56,11 +63,23 @@ class AnexosController extends AppController {
 				$this->Session->setFlash(__('The anexo could not be saved. Please, try again.'));
 			}
 		}
-		//$empresas = $this->Anexo->Empresa->find('list');
-		//$this->set('empresa_id',$Anexo['empresa_id']);
-		//$this->set('EmpresaCUIT',$Anexo['EmpresaCUIT']); 
-		//$this->set('empresa_id',$empresa_id); 		
-		$this->set(compact('empresas',$Anexo));
+
+		$empresas = $this->Anexo->Empresa->find('list');
+		$this->set('pagaSeguroTrabajoAnterior',$pagaSeguroTrabajoAnterior);
+		$this->set('pagaObraSocialAnterior',$pagaObraSocialAnterior);
+		//$this->set('convenioFechaAnterior',$convenioFechaAnterior);
+		//$this->set('pagaAsignacionAnterior',$pagaAsignacionAnterior);
+		$this->set('porcentajeGastoAnterior',$porcentajeGastoAnterior);
+		
+		$this->set('empresaCUIT',$empresaCUIT);
+        $this->set('empresa_id',$empresa_id); 
+
+		//$this->Firmante->Empresa->recursive=0;
+		//$empresas = $this->Firmante->Empresa->find('list');
+		//$anexos = $this->Firmante->Anexo->find('list');
+		
+		$this->set(compact('empresas', 'anexos'));
+		
 	}
 
 /**
