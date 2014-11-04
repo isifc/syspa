@@ -10,7 +10,7 @@ App::uses('AppModel', 'Model');
  * @property Oferta $Oferta
  */
 class Empresa extends AppModel {
-
+    public $displayField = 'EmpresaRazonSocial';
 public $actsAs = array(
         'Search.Searchable'
     );
