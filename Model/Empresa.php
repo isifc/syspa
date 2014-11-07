@@ -12,7 +12,7 @@ App::uses('AppModel', 'Model');
  */
 
 class Empresa extends AppModel {
-
+//public $displayField = 'EmpresaRazonSocial';
 public $actsAs = array(
         'Search.Searchable'
     );
