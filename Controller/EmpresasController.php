@@ -152,8 +152,7 @@ class EmpresasController extends AppController {
 					$this->request->data['Anexo']['PagaSeguroTrabajoAnterior'],
 					$this->request->data['Anexo']['PagaObraSocialAnterior'],
 					//$this->request->data['Anexo']['PagaAsignacionAnterior'],
-					//$this->request->data['Anexo']['ConvenioFechaAnterior']
-					
+					$this->request->data['Anexo']['ConvenioFechaAnterior']
 					));
 			} else {
 				$this->Session->setFlash(__('No se a podido editar la empresa.'));

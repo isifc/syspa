@@ -87763,3 +87763,970 @@ Request URL: /syspa/css/reset.css
 Stack Trace:
 #0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2014-11-12 12:34:02 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 12:34:11 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 12:34:15 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 12:34:18 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 12:34:32 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 12:34:40 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 12:34:50 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 12:34:57 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 12:35:01 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 12:35:15 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 12:38:42 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 12:38:46 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 12:38:52 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 13:01:10 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 13:04:16 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 13:04:24 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'ConvenioFechaAnterior' cannot be null
+Request URL: /syspa/anexos/add/107/30611977752/5/1/1
+Stack Trace:
+#0 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `sy...', Array)
+#2 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `sy...')
+#3 C:\wamp\cake\lib\Cake\Model\Model.php(1834): DboSource->create(Object(Anexo), Array, Array)
+#4 C:\wamp\www\syspa\Controller\AnexosController.php(64): Model->save(Array)
+#5 [internal function]: AnexosController->add('107', '30611977752', '5', '1', '1')
+#6 C:\wamp\cake\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(AnexosController), Array)
+#7 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(AnexosController), Object(CakeRequest))
+#9 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-11-12 13:04:24 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 13:04:34 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'ConvenioFechaAnterior' cannot be null
+Request URL: /syspa/anexos/add/107/30611977752/5/1/1
+Stack Trace:
+#0 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `sy...', Array)
+#2 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `sy...')
+#3 C:\wamp\cake\lib\Cake\Model\Model.php(1834): DboSource->create(Object(Anexo), Array, Array)
+#4 C:\wamp\www\syspa\Controller\AnexosController.php(64): Model->save(Array)
+#5 [internal function]: AnexosController->add('107', '30611977752', '5', '1', '1')
+#6 C:\wamp\cake\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(AnexosController), Array)
+#7 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(AnexosController), Object(CakeRequest))
+#9 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-11-12 13:04:34 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 13:05:12 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 13:05:15 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 13:05:21 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 13:05:27 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 13:05:29 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'ConvenioFechaAnterior' cannot be null
+Request URL: /syspa/anexos/add/107/30611977752/5/1/1
+Stack Trace:
+#0 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `sy...', Array)
+#2 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `sy...')
+#3 C:\wamp\cake\lib\Cake\Model\Model.php(1834): DboSource->create(Object(Anexo), Array, Array)
+#4 C:\wamp\www\syspa\Controller\AnexosController.php(65): Model->save(Array)
+#5 [internal function]: AnexosController->add('107', '30611977752', '5', '1', '1')
+#6 C:\wamp\cake\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(AnexosController), Array)
+#7 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(AnexosController), Object(CakeRequest))
+#9 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-11-12 13:05:29 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 13:06:21 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'ConvenioFechaAnterior' cannot be null
+Request URL: /syspa/anexos/add/107/30611977752/5/1/1
+Stack Trace:
+#0 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `sy...', Array)
+#2 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `sy...')
+#3 C:\wamp\cake\lib\Cake\Model\Model.php(1834): DboSource->create(Object(Anexo), Array, Array)
+#4 C:\wamp\www\syspa\Controller\AnexosController.php(65): Model->save(Array)
+#5 [internal function]: AnexosController->add('107', '30611977752', '5', '1', '1')
+#6 C:\wamp\cake\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(AnexosController), Array)
+#7 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(AnexosController), Object(CakeRequest))
+#9 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-11-12 13:06:21 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 13:08:17 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 13:08:20 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 13:08:23 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 13:08:27 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'ConvenioFechaAnterior' cannot be null
+Request URL: /syspa/anexos/add/1/12345678910/5/1
+Stack Trace:
+#0 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `sy...', Array)
+#2 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `sy...')
+#3 C:\wamp\cake\lib\Cake\Model\Model.php(1834): DboSource->create(Object(Anexo), Array, Array)
+#4 C:\wamp\www\syspa\Controller\AnexosController.php(61): Model->save(Array)
+#5 [internal function]: AnexosController->add('1', '12345678910', '5', '1')
+#6 C:\wamp\cake\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(AnexosController), Array)
+#7 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(AnexosController), Object(CakeRequest))
+#9 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-11-12 13:08:27 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 13:08:33 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 13:08:35 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'ConvenioFechaAnterior' cannot be null
+Request URL: /syspa/anexos/add/1/12345678910/5/1
+Stack Trace:
+#0 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `sy...', Array)
+#2 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `sy...')
+#3 C:\wamp\cake\lib\Cake\Model\Model.php(1834): DboSource->create(Object(Anexo), Array, Array)
+#4 C:\wamp\www\syspa\Controller\AnexosController.php(61): Model->save(Array)
+#5 [internal function]: AnexosController->add('1', '12345678910', '5', '1')
+#6 C:\wamp\cake\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(AnexosController), Array)
+#7 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(AnexosController), Object(CakeRequest))
+#9 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-11-12 13:08:36 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 13:49:17 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 13:49:23 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 13:49:25 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'ConvenioFechaAnterior' cannot be null
+Request URL: /syspa/anexos/add/107/30611977752/5/1/1
+Stack Trace:
+#0 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `sy...', Array)
+#2 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `sy...')
+#3 C:\wamp\cake\lib\Cake\Model\Model.php(1834): DboSource->create(Object(Anexo), Array, Array)
+#4 C:\wamp\www\syspa\Controller\AnexosController.php(61): Model->save(Array)
+#5 [internal function]: AnexosController->add('107', '30611977752', '5', '1', '1')
+#6 C:\wamp\cake\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(AnexosController), Array)
+#7 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(AnexosController), Object(CakeRequest))
+#9 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-11-12 13:49:25 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:00:11 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:00:14 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:00:19 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:00:21 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'ConvenioFechaAnterior' cannot be null
+Request URL: /syspa/anexos/add/107/30611977752/5/1/1
+Stack Trace:
+#0 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `sy...', Array)
+#2 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `sy...')
+#3 C:\wamp\cake\lib\Cake\Model\Model.php(1834): DboSource->create(Object(Anexo), Array, Array)
+#4 C:\wamp\www\syspa\Controller\AnexosController.php(61): Model->save(Array)
+#5 [internal function]: AnexosController->add('107', '30611977752', '5', '1', '1')
+#6 C:\wamp\cake\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(AnexosController), Array)
+#7 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(AnexosController), Object(CakeRequest))
+#9 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-11-12 14:00:22 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:06:52 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:06:54 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:06:58 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:07:00 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:07:11 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'ConvenioFechaAnterior' cannot be null
+Request URL: /syspa/anexos/add/107/30611977752/5/1/1
+Stack Trace:
+#0 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `sy...', Array)
+#2 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `sy...')
+#3 C:\wamp\cake\lib\Cake\Model\Model.php(1834): DboSource->create(Object(Anexo), Array, Array)
+#4 C:\wamp\www\syspa\Controller\AnexosController.php(64): Model->save(Array)
+#5 [internal function]: AnexosController->add('107', '30611977752', '5', '1', '1')
+#6 C:\wamp\cake\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(AnexosController), Array)
+#7 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(AnexosController), Object(CakeRequest))
+#9 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-11-12 14:07:11 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:07:24 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:07:27 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:07:31 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:07:34 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:08:10 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:08:13 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:08:16 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:08:20 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:08:24 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'ConvenioFechaAnterior' cannot be null
+Request URL: /syspa/anexos/add/107/30611977752/5/1/1
+Stack Trace:
+#0 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `sy...', Array)
+#2 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `sy...')
+#3 C:\wamp\cake\lib\Cake\Model\Model.php(1834): DboSource->create(Object(Anexo), Array, Array)
+#4 C:\wamp\www\syspa\Controller\AnexosController.php(64): Model->save(Array)
+#5 [internal function]: AnexosController->add('107', '30611977752', '5', '1', '1')
+#6 C:\wamp\cake\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(AnexosController), Array)
+#7 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(AnexosController), Object(CakeRequest))
+#9 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-11-12 14:08:25 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:08:53 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:09:19 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:12:25 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:12:29 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 14:12:31 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:08:41 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:08:47 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:08:51 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:09:26 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:13:33 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:13:37 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:13:40 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'ConvenioFechaAnterior' cannot be null
+Request URL: /syspa/anexos/add/107/30611977752/5/1/1
+Stack Trace:
+#0 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `sy...', Array)
+#2 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `sy...')
+#3 C:\wamp\cake\lib\Cake\Model\Model.php(1834): DboSource->create(Object(Anexo), Array, Array)
+#4 C:\wamp\www\syspa\Controller\AnexosController.php(64): Model->save(Array)
+#5 [internal function]: AnexosController->add('107', '30611977752', '5', '1', '1')
+#6 C:\wamp\cake\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(AnexosController), Array)
+#7 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(AnexosController), Object(CakeRequest))
+#9 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-11-12 17:13:40 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:14:10 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'ConvenioFechaAnterior' cannot be null
+Request URL: /syspa/anexos/add/107/30611977752/5/1/1
+Stack Trace:
+#0 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `sy...', Array)
+#2 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `sy...')
+#3 C:\wamp\cake\lib\Cake\Model\Model.php(1834): DboSource->create(Object(Anexo), Array, Array)
+#4 C:\wamp\www\syspa\Controller\AnexosController.php(64): Model->save(Array)
+#5 [internal function]: AnexosController->add('107', '30611977752', '5', '1', '1')
+#6 C:\wamp\cake\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(AnexosController), Array)
+#7 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(AnexosController), Object(CakeRequest))
+#9 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-11-12 17:14:10 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:14:16 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:14:19 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:14:23 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:14:33 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'ConvenioFechaAnterior' cannot be null
+Request URL: /syspa/anexos/add/107/30611977752/5/1/1/2014-11-03
+Stack Trace:
+#0 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `sy...', Array)
+#2 C:\wamp\cake\lib\Cake\Model\Datasource\DboSource.php(1012): DboSource->execute('INSERT INTO `sy...')
+#3 C:\wamp\cake\lib\Cake\Model\Model.php(1834): DboSource->create(Object(Anexo), Array, Array)
+#4 C:\wamp\www\syspa\Controller\AnexosController.php(64): Model->save(Array)
+#5 [internal function]: AnexosController->add('107', '30611977752', '5', '1', '1', '2014-11-03')
+#6 C:\wamp\cake\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(AnexosController), Array)
+#7 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\cake\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(AnexosController), Object(CakeRequest))
+#9 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-11-12 17:14:34 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:17:08 Error: Fatal Error (4): syntax error, unexpected '$convenioFechaAnterior' (T_VARIABLE), expecting ')' in [C:\wamp\www\syspa\Controller\AnexosController.php, line 55]
+2014-11-12 17:17:08 Error: [FatalErrorException] syntax error, unexpected '$convenioFechaAnterior' (T_VARIABLE), expecting ')'
+Request URL: /syspa/anexos/add/107/30611977752/5/1/1/2014-11-03
+Stack Trace:
+#0 C:\wamp\cake\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\wamp\www\sys...', 55)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\wamp\www\sys...', 55, Array)
+#2 C:\wamp\cake\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\wamp\www\sys...', 55, Array)
+#3 C:\wamp\cake\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-11-12 17:17:08 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:17:48 Error: Fatal Error (4): syntax error, unexpected '$convenioFechaAnterior' (T_VARIABLE), expecting ')' in [C:\wamp\www\syspa\Controller\AnexosController.php, line 55]
+2014-11-12 17:17:48 Error: [FatalErrorException] syntax error, unexpected '$convenioFechaAnterior' (T_VARIABLE), expecting ')'
+Request URL: /syspa/anexos/add/107/30611977752/5/1/1/2014-11-03
+Stack Trace:
+#0 C:\wamp\cake\lib\Cake\Error\ErrorHandler.php(204): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\wamp\www\sys...', 55)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\wamp\www\sys...', 55, Array)
+#2 C:\wamp\cake\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\wamp\www\sys...', 55, Array)
+#3 C:\wamp\cake\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-11-12 17:17:48 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:20:48 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:30:13 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:31:04 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:32:55 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:33:07 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:33:11 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:33:16 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:33:25 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:33:57 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:33:59 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:34:05 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:35:08 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:37:10 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:44:22 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:45:43 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-12 17:46:12 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /syspa/css/reset.css
+Stack Trace:
+#0 C:\wamp\www\syspa\webroot\index.php(101): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
