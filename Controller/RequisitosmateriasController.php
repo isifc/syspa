@@ -24,7 +24,22 @@ class RequisitosmateriasController extends AppController {
 		$this->Requisitosmateria->recursive = 0;
 		$this->set('requisitosmaterias', $this->Paginator->paginate());
 	}
-
+        
+        public function detallematerias($OfertasCarrerasId) {
+             $materias = $this->Requisitosmateria->find('all',
+                    array(
+                        'fields' => array(
+                            'id',
+                            'ofertascarreras_id',
+                            'RequisitoMateriaCondicion',
+                            'materia.materia'
+                        ),
+                        'conditions' => array('ofertascarreras_id = '=> $OfertasCarrerasId)
+                    )
+                );
+            $this->set('materias',$materias);
+            $this->set('OfertasCarrerasId',$OfertasCarrerasId);
+        }
 /**
  * view method
  *
@@ -39,7 +54,7 @@ class RequisitosmateriasController extends AppController {
 		$options = array('conditions' => array('Requisitosmateria.' . $this->Requisitosmateria->primaryKey => $id));
 		$this->set('requisitosmateria', $this->Requisitosmateria->find('first', $options));
 	}
-
+        
 /**
  * add method
  *
@@ -55,12 +70,29 @@ class RequisitosmateriasController extends AppController {
 				$this->Session->setFlash(__('The requisitosmateria could not be saved. Please, try again.'));
 			}
 		}
-		$ofertacarreas = $this->Requisitosmateria->Ofertacarrea->find('list');
-		$materias = $this->Requisitosmateria->Materium->find('list');
-		$this->set(compact('ofertacarreas', 'materias'));
+		$ofertascarreras = $this->Requisitosmateria->Ofertascarreras->find('list');
+		$materias = $this->Requisitosmateria->Materia->find('list');
+		$this->set(compact('ofertascarreras', 'materias'));
 	}
 
-/**
+	public function addmateria($OfertasCarrerasId) {
+		if ($this->request->is('post')) {
+			$this->Requisitosmateria->create();
+			if ($this->Requisitosmateria->save($this->request->data)) {
+				$this->Session->setFlash(__('La materia ha sido agregada.'));
+				return $this->redirect(array('action' => 'detallematerias',$OfertasCarrerasId));
+			} else {
+				$this->Session->setFlash(__('The requisitosmateria could not be saved. Please, try again.'));
+			}
+            }
+            $this->set('OfertasCarrerasId',$OfertasCarrerasId);
+            $ofertascarreras = $this->Requisitosmateria->Ofertascarreras->find('list');
+            $materias = $this->Requisitosmateria->Materia->find('list');
+            $this->set(compact('ofertascarreras', 'materias'));
+
+        }
+
+ /**
  * edit method
  *
  * @throws NotFoundException
@@ -82,9 +114,9 @@ class RequisitosmateriasController extends AppController {
 			$options = array('conditions' => array('Requisitosmateria.' . $this->Requisitosmateria->primaryKey => $id));
 			$this->request->data = $this->Requisitosmateria->find('first', $options);
 		}
-		$ofertacarreas = $this->Requisitosmateria->Ofertacarrea->find('list');
+		$ofertascarreras = $this->Requisitosmateria->Ofertascarrera->find('list');
 		$materias = $this->Requisitosmateria->Materium->find('list');
-		$this->set(compact('ofertacarreas', 'materias'));
+		$this->set(compact('ofertascarreras', 'materias'));
 	}
 
 /**

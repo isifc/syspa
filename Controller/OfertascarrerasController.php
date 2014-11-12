@@ -23,6 +23,24 @@ class OfertascarrerasController extends AppController {
 		$this->Ofertascarrera->recursive = 0;
 		$this->set('ofertascarreras', $this->Paginator->paginate());
 	}
+        
+        public function detallecarreras($OfertaId) {
+            $carreras = $this->Ofertascarrera->find('all',
+                    array(
+                        'fields' => array(
+                            'id',
+                            'carrera_id',
+                            'Carrera.carrera'
+                        ),
+                        'conditions' => array('oferta_id = '=> $OfertaId)
+                    )
+                );
+            $oferta = $this->Ofertascarrera->Oferta->find('list',array('fields' => 'Oferta.OfertaDescripcion'));
+            $this->set('carreras',$carreras);
+            $this->set('OfertaId',$OfertaId);
+            $this->set('oferta',$oferta);
+        }
+
 
 /**
  * view method
@@ -58,7 +76,24 @@ class OfertascarrerasController extends AppController {
         $carreras = $this->Ofertascarrera->Carrera->find('list');
         $this->set(compact('ofertas', 'carreras'));
     }
-
+    
+    public function addcarrera($OfertaId){
+        
+        if ($this->request->is('post')) {
+            $this->Ofertascarrera->create();
+            if ($this->Ofertascarrera->Save($this->request->data)) {
+                $this->Session->setFlash(__('La carrrera ha sido agregada a la oferta'));
+                return $this->redirect(array('action' => 'detallecarreras',$OfertaId));
+            } else {
+                $this->Session->SetFlash(__('La carrera no pudo ser guardada, intente de nuevo'));
+            }           
+        }
+        $ofertas = $this->Ofertascarrera->Oferta->find('list');
+        $carreras = $this->Ofertascarrera->Carrera->find('list');
+        $this->set(compact('ofertas', 'carreras'));
+        $this->set('OfertaId',$OfertaId);
+ 
+    }
 /**
  * edit method
  *
@@ -104,6 +139,20 @@ class OfertascarrerasController extends AppController {
 		} else {
 			$this->Session->setFlash(__('The ofertascarrera could not be deleted. Please, try again.'));
 		}
-		return $this->redirect(array('action' => 'index'));
+		return $this->redirect(array('action' => 'detallecarreras'));
 	}
+        
+        public function borrarcarrera($id = null,$OfertaId = null) {
+            $this->Ofertascarrera->id = $id;
+            if (!$this->Ofertascarrera->exists()) {
+                throw new NotFoundException(__('Oferta carrera no válida'));
+            }
+            $this->request->allowMethod('post','delete');
+            if ($this->Ofertascarrera->delete()) {
+                $this->Session->SetFlash(__('Se eliminó la carrera de la oferta'));
+            } else {
+                $this->Session->setFlash(__('La carrera no pudo ser eliminada de la oferta, intenta de nuevo'));
+            }
+            return $this->redirect(array('action' => 'detallecarreras',$OfertaId));
+        }
 }

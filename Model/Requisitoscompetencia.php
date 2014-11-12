@@ -8,6 +8,7 @@ App::uses('AppModel', 'Model');
  */
 class Requisitoscompetencia extends AppModel {
     public $name = 'Requisitoscompetencias';
+    public $displayField = 'Competencianombre';
 /**
  * Validation rules
  *

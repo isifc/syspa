@@ -62,7 +62,7 @@ class AnexosController extends AppController {
 			} else {
 				$this->Session->setFlash(__('The anexo could not be saved. Please, try again.'));
 			}
-		}
+		}else
 
 		$empresas = $this->Anexo->Empresa->find('list');
 		$this->set('pagaSeguroTrabajoAnterior',$pagaSeguroTrabajoAnterior);

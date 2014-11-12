@@ -3,7 +3,7 @@ App::uses('AppModel', 'Model');
 /**
  * Requisitosmateria Model
  *
- * @property Ofertacarreas $Ofertacarreas
+ * @property Ofertascarreras $Ofertascarreras
  * @property Materia $Materia
  */
 class Requisitosmateria extends AppModel {
@@ -24,7 +24,7 @@ class Requisitosmateria extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'ofertacarreas_id' => array(
+		'ofertascarreras_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -54,9 +54,9 @@ class Requisitosmateria extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Ofertacarreas' => array(
-			'className' => 'Ofertacarreas',
-			'foreignKey' => 'ofertacarreas_id',
+		'Ofertascarreras' => array(
+			'className' => 'Ofertascarreras',
+			'foreignKey' => 'ofertascarreras_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

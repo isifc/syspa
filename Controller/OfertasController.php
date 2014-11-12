@@ -14,7 +14,7 @@ class OfertasController extends AppController {
  * @var array
  */
 	public $components = array('Paginator');
-
+        
 /**
  * index method
  *
@@ -50,7 +50,7 @@ class OfertasController extends AppController {
             $this->Oferta->create();
                 if ($this->Oferta->save($this->request->data)) {
                     $this->Session->setFlash(__('La oferta ha sido guardada.'));
-                    return $this->redirect(array('controller' => 'empresas','action' => 'index'));
+                    return $this->redirect(array('controller' => 'ofertas','action' => 'index'));
                 } 
                 else {
                     $this->Session->setFlash(__('The oferta could not be saved. Please, try again.'));

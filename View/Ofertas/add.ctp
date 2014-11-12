@@ -1,7 +1,8 @@
-<div class="actions" align="right">    
+<div class="actions" align="right">
+    <br>
     <td>
         <?php echo $this->Html->link(__('<< Volver'), 
-            array('controller' => 'Empresas', 'action' => 'index')); ?>
+            array('controller' => 'Ofertas', 'action' => 'index')); ?>
     </td>
 </div>
 
@@ -10,37 +11,45 @@
 	<fieldset>
             <legend><?php echo __('Agregar Oferta'); ?></legend>
             <br>
-            <td><?php echo $this->Form->input('OfertaVigenciaDesde',
-                    array('label' => 'Vigencia Desde',
-                          'dateFormat' => 'DMY'
-                    ));?></td>
+           <td><?php echo $this->Form->input('empresa_id');?></td>
+            <br> 
+            <td>
+            	<?php 
+                    echo "Vigencia desde: <b>(YYYY-MM-DD)</b> ".$this->Form->inputText('OfertaVigenciaDesde',array(
+			'label' => 'OfertaVigenciaDesde',
+			'class'=>'datepicker',
+			'style'=>"width:76px;"
+                                )
+                            );
+		?>
+            </td>    
             <br>
-            <td><?php echo $this->Form->input('OfertaVigenciaHasta',
-                    array('label' => 'Vigencia Hasta',
-                         'dateFormat' => 'DMY'  
-                        ));?></td>
+            <br>
+            <td>
+                <?php 
+                    echo "Vigencia hasta: <b>(YYYY-MM-DD)</b> ".$this->Form->inputText('OfertaVigenciaHasta',array(
+			'label' => 'OfertaVigenciaHasta',
+			'class'=>'datepicker',
+			'style'=>"width:76px;"
+                                )
+                            );
+		?>
+            </td>
+            <br>
             <br>
             <td><?php echo $this->Form->input('OfertaDescripcion',array('label' => 'Descripción','rows' => 3));?></td>
             <br>
-            <td><?php echo $this->Form->input('empresa_id');?></td>
-            <br>
-	</fieldset>
+ 	</fieldset>
     <?php echo $this->Form->end(__('Registrar')); ?>
-</div>
+    <script>
+        $(function() {
+        $( "#datepicker" ).datepicker();
+        });
+    </script>
 
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Empresas'), array('controller' => 'empresas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Empresa'), array('controller' => 'empresas', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Conveniosparticulares'), array('controller' => 'conveniosparticulares', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Conveniosparticulare'), array('controller' => 'conveniosparticulares', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Ofertascarreras'), array('controller' => 'ofertascarreras', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Ofertascarrera'), array('controller' => 'ofertascarreras', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Postulaciones'), array('controller' => 'postulaciones', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Postulacione'), array('controller' => 'postulaciones', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Requisitoscompetencias'), array('controller' => 'requisitoscompetencias', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Requisitoscompetencia'), array('controller' => 'requisitoscompetencias', 'action' => 'add')); ?> </li>
-	</ul>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </div>
