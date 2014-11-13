@@ -27,6 +27,7 @@
     <tbody>
 	<?php foreach ($ofertas as $oferta): ?>
             <tr>
+        <?php if(($oferta['Oferta']['id'])!=1) {?>
 		<td class="tabla"><?php echo h($oferta['Oferta']['id']); ?>&nbsp;</td>
 		<td class="tabla"><?php echo h($oferta['Oferta']['OfertaVigenciaDesde']); ?>&nbsp;</td>
 		<td class="tabla"><?php echo h($oferta['Oferta']['OfertaVigenciaHasta']); ?>&nbsp;</td>
@@ -70,7 +71,9 @@
 
 		</td>
 	</tr>
-<?php endforeach; ?>
+    <?php } ?>
+<?php endforeach;
+?>
 	</tbody>
 	</table>
 	<p>

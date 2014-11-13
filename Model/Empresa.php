@@ -16,7 +16,7 @@ App::uses('AppModel', 'Model');
 //public $displayField = 'EmpresaRazonSocial';
 
 class Empresa extends AppModel {
-    //public $displayField = 'EmpresaRazonSocial';
+    public $displayField = 'EmpresaRazonSocial';
 
 public $actsAs = array(
         'Search.Searchable'
@@ -42,7 +42,7 @@ public $actsAs = array(
  *
  * @var string
  */
-	public $displayField = 'id';
+	//public $displayField = 'id';
 
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
