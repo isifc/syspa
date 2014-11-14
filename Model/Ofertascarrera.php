@@ -7,7 +7,6 @@ App::uses('AppModel', 'Model');
  * @property Carrera $Carrera
  */
 class Ofertascarrera extends AppModel {
-     public $dispalyField = 'OfertaDescripcion';
 /**
  * Validation rules
  *

@@ -9,13 +9,33 @@
     <?php echo $this->Form->create('Ofertascarrera'); ?>
     <fieldset>
         <legend><?php echo __('Agregar Carrera'); ?></legend>
+        <dl>
+            <dt>
+                <?php echo __('Empresa: ')?>  
+            </dt>
+            <dd>
+                <h3><?php echo $oferta['Empresa']['EmpresaRazonSocial'];?></h3>
+            </dd>
+            <dt>
+                <?php echo __('Oferta: ')?>  
+            </dt>
+            <dd>
+                <strong><?php echo $oferta['Oferta']['OfertaDescripcion'];?></strong>
+            </dd>
+            
+        </dl>    
         <?php
-            echo "<br>";
-            echo $this->Form->input('oferta_id',array('value'=>$OfertaId,'default'=>$OfertaId));
-            echo "<br>";
-            echo $this->Form->input('carrera_id');
+            echo $this->Form->hidden('oferta_id',array('value'=>$OfertaId,'default'=>$OfertaId));
+            echo $this->Form->input('carrera_id', array('label'=>'Seleccione una Carrera','id' => "carrera_id"));
             echo "<br>";
         ?>
+        <script>
+            $("#carrera_id").select2({
+                placeholder: "Seleccione Comuna",
+                width:'150px'	
+        });
+        </script>
+        
     </fieldset>
     <?php echo $this->Form->end(__('Registrar')); ?>
     <br>

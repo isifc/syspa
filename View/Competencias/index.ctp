@@ -16,7 +16,7 @@
             <tr>
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('CompetenciaNombre'); ?></th>
-		<th><?php echo $this->Paginator->sort('area_id'); ?></th>
+		<th><?php echo $this->Paginator->sort('Area'); ?></th>
 		<th class="actions"><?php echo __('Acciones'); ?></th>
             </tr>
 	</thead>
@@ -25,11 +25,7 @@
             <tr>
 		<td class="tabla"><?php echo h($competencia['Competencia']['id']); ?>&nbsp;</td>
 		<td class="tabla"><?php echo h($competencia['Competencia']['CompetenciaNombre']); ?>&nbsp;</td>
-		<td class="tabla">
-                    <?php echo $this->Html->link($competencia['Area']['id'], 
-                        array('controller' => 'areas', 'action' => 'view', $competencia['Area']['id'])); 
-                    ?>
-		</td>
+		<td class="tabla"><?php echo h($competencia['Area']['AreaDescripcion']); ?></td>
 		<td class="tabla">
                     <?php echo $this->html->image("mi_form/view.png",
                             array("alt" => "Ver", 'title' => "Ver Competencia", 'url' => 
@@ -46,7 +42,8 @@
                                 );
                     ?>
                     <?php 
-                        echo $this->Form->postLink(__('Delete'), 
+                        echo $this->Form->postLink($this->html->image("mi_form/edit.png",
+                                array("alt" => "Eliminar",'title' => "Eliminar competencia")), 
                             array('action' => 'delete', $competencia['Competencia']['id']), 
                                 array(), __('Esta seguro que desea eliminar esta competencia? ', $competencia['Competencia']['id'])); 
                     ?>

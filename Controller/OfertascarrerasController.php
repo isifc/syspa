@@ -13,7 +13,7 @@ class OfertascarrerasController extends AppController {
  * @var array
  */
     public $components = array('Paginator');
-
+    
 /**
  * index method
  *
@@ -35,7 +35,17 @@ class OfertascarrerasController extends AppController {
                         'conditions' => array('oferta_id = '=> $OfertaId)
                     )
                 );
-            $oferta = $this->Ofertascarrera->Oferta->find('list',array('fields' => 'Oferta.OfertaDescripcion'));
+            $this->LoadModel('Oferta');
+            $this->Oferta->recursive = 0;
+            $oferta = $this->Oferta->find('first',array(
+                'fields' => array(
+                    'Oferta.OfertaDescripcion',
+                    'Oferta.OfertaVigenciaDesde',
+                    'Empresa.EmpresaRazonSocial'
+                    ),
+                'conditions' => array('Oferta.id =' => $OfertaId)
+                )
+            );
             $this->set('carreras',$carreras);
             $this->set('OfertaId',$OfertaId);
             $this->set('oferta',$oferta);
@@ -90,6 +100,18 @@ class OfertascarrerasController extends AppController {
         }
         $ofertas = $this->Ofertascarrera->Oferta->find('list');
         $carreras = $this->Ofertascarrera->Carrera->find('list');
+        $this->LoadModel('Oferta');
+        $this->Oferta->recursive = 0;
+        $oferta = $this->Oferta->find('first',array(
+            'fields' => array(
+                'Oferta.OfertaDescripcion',
+                'Oferta.OfertaVigenciaDesde',
+                'Empresa.EmpresaRazonSocial'
+                ),
+            'conditions' => array('Oferta.id =' => $OfertaId)
+            )
+        );
+        $this->set('oferta',$oferta);
         $this->set(compact('ofertas', 'carreras'));
         $this->set('OfertaId',$OfertaId);
  
