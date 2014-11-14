@@ -1,15 +1,45 @@
-<div class="anexos form">
+
+
 <?php echo $this->Form->create('Anexo'); ?>
-	<fieldset>
-		<legend><?php echo __('Add Anexo'); ?></legend>
+	
+<div id="tabs">
+  <ul>
+    <p>Registrar un anexo</p>
+    
+  </ul>
+  <div>
+    <p>¿Desea Registrar un anexo?</p>
+  </div>
+ </div>
 	<?php
-		echo $this->Form->input('AnexoConvenioMarco');
-		echo $this->Form->input('empresa_id');
-		echo $this->Form->input('EmpresaCUIT');
-		echo $this->Form->input('ConvenioFechaAnterior');
-		echo $this->Form->input('PorcentajeGastoAnterior');
-		echo $this->Form->input('PagaObraSocialAnterior');
-		echo $this->Form->input('PagaSeguroTrabajoAnterior');
-		echo $this->Form->input('PagaAsignacionEstimuloAnterior');
+		echo $this->Form->hidden('AnexoConvenioMarco');
+		echo $this->Form->hidden('empresa_id',array('value'=>$empresa_id,'default'=>$empresa_id)); 
+		echo $this->Form->hidden('EmpresaCUIT',array('value'=>$empresaCUIT,'default'=>$empresaCUIT));
+		echo $this->Form->hidden('ConvenioFechaAnterior',array('value'=>$convenioFechaAnterior,'default'=>$convenioFechaAnterior));
+		echo $this->Form->hidden('PorcentajeGastoAnterior',array('value'=>$porcentajeGastoAnterior,'default'=>$porcentajeGastoAnterior));
+		echo $this->Form->hidden('PagaObraSocialAnterior',array('value'=>$pagaObraSocialAnterior,'default'=>$pagaObraSocialAnterior));
+		echo $this->Form->hidden('PagaSeguroTrabajoAnterior',array('value'=>$pagaSeguroTrabajoAnterior,'default'=>$pagaSeguroTrabajoAnterior));
+		echo $this->Form->hidden('PagaAsignacionAnterior');//,array('value'=>$pagaAsignacionAnterior,'default'=>$pagaAsignacionAnterior));
 	?>
-</fieldset>
+	
+	<div class="submit" align="center">
+         <?php echo $this->Form->Button(__('Si', true), array('name' => 'ok', 'div' => false)); ?>
+         <?php echo $this->Form->Button(__('No', true), array('name' => 'cancel','div' => false)); ?>
+     </div>
+     </fieldset>                   
+ <?php echo $this->Form->end();?>
+<?php //echo $this->Form->button(__('SI')); ?>
+<?php //echo $this->Form->button("NO"); ?>
+							 
+</div>
+ <script>
+	$("button").button();
+	
+</script>
+<script>
+    $( "#tabs" ).tabs();
+  </script>
+<br>
+<br>
+<br>
+<br>

@@ -53,6 +53,21 @@ class Firmante extends AppModel {
 					 'rule' => 'notEmpty',
 					 'message' => 'Falta completar'
 					 ),
+		 'FirmanteNombre'=> array(
+					 'rule' => 'notEmpty',
+					 'message' => 'Falta completar'
+					 ),
+
+		'FirmanteDireccion'=> array(
+					 'rule' => 'notEmpty',
+					 'message' => 'Falta completar'
+					 ),
+
+		'FirmanteApellido'=> array(
+					 'rule' => 'notEmpty',
+					 'message' => 'Falta completar'
+					 ),
+
 
 		 
 

@@ -3,14 +3,21 @@ App::uses('AppModel', 'Model');
 /**
  * Empresa Model
  *
+ * @property Localidade $Localidade
  * @property Anexo $Anexo
  * @property Conveniosparticulare $Conveniosparticulare
  * @property Estadocuenta $Estadocuenta
  * @property Firmante $Firmante
  * @property Oferta $Oferta
  */
+
+
+//class Empresa extends AppModel {
+//public $displayField = 'EmpresaRazonSocial';
+
 class Empresa extends AppModel {
     public $displayField = 'EmpresaRazonSocial';
+
 public $actsAs = array(
         'Search.Searchable'
     );
@@ -30,6 +37,31 @@ public $actsAs = array(
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
+/**
+ * Display field
+ *
+ * @var string
+ */
+	//public $displayField = 'id';
+
+
+	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
+/**
+ * belongsTo associations
+ *
+ * @var array
+ */
+	/*public $belongsTo = array(
+		'Localidade' => array(
+			'className' => 'Localidade',
+			'foreignKey' => 'localidade_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
+*/
 /**
  * hasMany associations
  *
@@ -188,18 +220,14 @@ public $actsAs = array(
 		           			'message' => 'Este CUIT ya existe.',
 		            		'last' => true
 		         				),*/
-						
+						/*
 						 'isValid'=> array(
 						 	 'rule'=> 'isValid',
 						 	 'message'=> 'CUIT invalido',
 						 	),
-											       	 		
+									*/		       	 		
 		             ),
-
 					
-
-					 
-
 					 'EmpresaRazonSocial'=> array(
 			 			'rule' => 'notEmpty',
 			 			'message' => 'Falta completar'
@@ -244,7 +272,5 @@ public $actsAs = array(
 					  	),
 
 					 );
-
-
-
 }
+

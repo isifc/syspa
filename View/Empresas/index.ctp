@@ -31,12 +31,18 @@
 		 					<?php  $sizes = array('v' => 'Vigente', 'n' => 'no Vigente', 'nt'=>'Sin Convenio','t' => 'todos');
 							echo $this->Form->input(
     								'convenio vigente',
-    								array('options' => $sizes, 'default' => 't')
+    								array('id'=>'sele','options' => $sizes, 'default' => 't')
 							);
 							
 							?>
 		 					
 		 				</td>
+		 				<script>
+				$("#sele").select2({
+							placeholder: "Seleccione Comuna",
+							width:'105px'	
+						});
+				</script>
 		 				<td class="mitd">
 		 					<?php echo $this->Form->Button(__('Buscar'));
 							  //echo $this->Form->end();
@@ -112,17 +118,22 @@
 			    		"alt" => "Ver", 'title' =>"Ver Empresa",
 			    		'url' => array('controller' => 'empresas','action' => 'view',$empresa['Empresa']['id']), array('class'=>'view')
 						)); ?>
-					
-				
-				
+						<?php if (is_null($empresa['Empresa']['ConvenioFechaBaja'])){
+ 
+					 echo $this->html->image("mi_form/addFirmante.png", array(
+			    		"alt" => "Editar", 'title' =>"Agregar Firmante",
+			    		'url' => array('controller' => 'firmantes','action' => 'add',$empresa['Empresa']['id'])));
+			    		   }?>
 					<?php echo $this->html->image("mi_form/edit.png", array(
 			    		"alt" => "Editar", 'title' =>"Editar Empresa",
 			    		'url' => array('controller' => 'empresas','action' => 'editar',$empresa['Empresa']['id']), array('class'=>'editar')
 						)); ?>
-					<?php echo $this->html->image("mi_form/suspendConvenio.png", array(
+				<?php if (is_null($empresa['Empresa']['ConvenioFechaBaja'])){
+
+				echo $this->html->image("mi_form/suspendConvenio.png", array(
 			    		"alt" => "Suspender", 'title' =>"Suspender Convenio Marco",
 			    		'url' => array('controller' => 'empresas','action' => 'suspenderConvenio',$empresa['Empresa']['id']), array('class'=>'suspenderConvenio')
-						)); ?>
+				)); }?>
 				
 
 		</td>

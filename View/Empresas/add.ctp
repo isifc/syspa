@@ -25,7 +25,7 @@
 
 		 	echo $this->Form->input('localidade_id', array('label'=>'localidad','id' => "localidade_id"));
 					
-				//echo $this->Form->input('id_localidade');?>
+			//echo $this->Form->input('id_localidade');?>
 				<script>
 				$("#localidade_id").select2({
 							placeholder: "Seleccione Comuna",

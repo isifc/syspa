@@ -86,7 +86,7 @@
                                 <li>
                                     <?php 
                                         echo $this->Html->link('Marcos',
-                                            array('controller'=>'Empresas','action'=>'indexConvenio')
+                                            array('controller'=>'Empresas','action'=>'index')
                                                 )
                                     ?>
                                 </li>

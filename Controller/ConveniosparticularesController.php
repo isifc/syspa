@@ -55,7 +55,11 @@ class ConveniosparticularesController extends AppController {
 	
 		if ($this->request->is('post')) {
 			$this->Conveniosparticulare->create();
+			if ($this->request->data['Conveniosparticulare']['tutore_id']== 1){
+					$this->request->data['Conveniosparticulare']['tutore_id']= NULL;
+			}
 			if ($this->Conveniosparticulare->save($this->request->data)) {
+
 				$this->Session->setFlash(__('The conveniosparticulare has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {

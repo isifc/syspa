@@ -99,7 +99,13 @@
 						)); ?>
 					
 				
-				
+					<?php 
+						if (is_null($conveniosparticulare['Conveniosparticulare']['tutore_id'])){
+							 echo $this->html->image("mi_form/addFirmante.png", array(
+			    		"alt" => "Ver", 'title' =>"agregar tutor",
+			    		'url' => array('controller' => 'firmantes','action' => 'add',$conveniosparticulare['Conveniosparticulare']['id']), array('class'=>'view')
+						)); 	}
+					 ?>
 					<?php echo $this->html->image("mi_form/edit.png", array(
 			    		"alt" => "Editar", 'title' =>"Editar Convenio",
 			    		'url' => array('controller' => 'conveniosparticulares','action' => 'edit',$conveniosparticulare['Conveniosparticulare']['id']), array('class'=>'edit')
