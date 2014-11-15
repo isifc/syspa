@@ -4,8 +4,8 @@
 		<legend><?php echo __('Edit Materia'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('CarreraId');
-		echo $this->Form->input('Materia');
+		echo $this->Form->input('carrera_id');
+		echo $this->Form->input('materia');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
@@ -16,6 +16,8 @@
 
 		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Materia.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('Materia.id'))); ?></li>
 		<li><?php echo $this->Html->link(__('List Materias'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Carreras'), array('controller' => 'carreras', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Carrera'), array('controller' => 'carreras', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Alumnosmaterias'), array('controller' => 'alumnosmaterias', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Alumnosmateria'), array('controller' => 'alumnosmaterias', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Requisitosmaterias'), array('controller' => 'requisitosmaterias', 'action' => 'index')); ?> </li>

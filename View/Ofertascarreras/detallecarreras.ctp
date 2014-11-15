@@ -51,7 +51,7 @@
 		<td><?php echo h($carrera['Ofertascarrera']['carrera_id']); ?>&nbsp</td>-->
                 <td><?php echo h($carrera['Carrera']['carrera']); ?>&nbsp</td>
 		<td class="actions">
-                    <?php echo $this->Html->link(__('Materias'), array('controller' => 'Requisitosmaterias','action' => 'detallematerias', $carrera['Ofertascarrera']['id'])); ?>
+                    <?php echo $this->Html->link(__('Materias'), array('controller' => 'Requisitosmaterias','action' => 'detallematerias',$OfertaId,$carrera['Ofertascarrera']['id'])); ?>
                     <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'borrarcarrera',$carrera['Ofertascarrera']['id'],$OfertaId), array(), __('Eliminar esta carrera de la oferta? ', $carrera['Carrera']['carrera'])); ?>
 		</td>
             </tr>

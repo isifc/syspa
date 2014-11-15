@@ -8,7 +8,7 @@ App::uses('AppModel', 'Model');
  * @property Requisitosmateria $Requisitosmateria
  */
 class Materia extends AppModel {
-    public $displayField = 'materia';
+    public $displayField = 'Materia';
 /**
  * Validation rules
  *

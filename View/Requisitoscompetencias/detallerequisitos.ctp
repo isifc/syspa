@@ -1,10 +1,27 @@
-<div align="right">
-    <br>
-    <td><?php echo $this->Html->link(__('<< Volver'), array('controller' => 'ofertas','action' => 'index')); ?> </td>
+<div class="actions" align="right">
+    <tr>
+        <td>
+            <?php echo $this->Html->link(__('Volver a Ofertas'), array('controller' => 'ofertas','action' => 'index')); ?>
+            <br>
+            <br>
+            <?php echo $this->Html->link(__('Ver Carreras'), array('controller' => 'OfertasCarreras','action' => 'detallecarreras',$OfertaId)); ?>
+        </td>
+    </tr>
 </div>
 <div class="ofertascarreras index">
-    <h3><?php echo __('Requisitos para la oferta de pasantía'); ?></h3>
-    <br>
+    <dl>
+        <dt>
+            <?php echo __('Empresa')?>
+        </dt>
+        <dd>
+            <h3><?php echo $oferta['Empresa']['EmpresaRazonSocial'];?> </h3>
+        </dd>
+        <dt><?php echo __('Oferta Pasantía') ?></dt>
+        <dd>
+            <strong><?php echo $oferta['Oferta']['OfertaDescripcion'] ;?></strong>
+        </dd>
+    </dl>    
+    <h4><?php echo __('Requisitos para la oferta de pasantía'); ?></h4>
     <td valign="bottom" >
 	<p align="right"> Agregar Requisito
             <?php echo $this->html->image("mi_form/Add.png", 

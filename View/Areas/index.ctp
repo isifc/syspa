@@ -15,7 +15,7 @@
         <hr>
 	<thead>
             <tr>
-		<th><?php echo $this->Paginator->sort('id','Código'); ?></th>
+		<!--<th><?php echo $this->Paginator->sort('id','Código'); ?></th>-->
 		<th><?php echo $this->Paginator->sort('AreaDescripcion','Area'); ?></th>
 		<th class="actions"><?php echo __('Acciones'); ?></th>
             </tr>
@@ -23,7 +23,7 @@
 	<tbody>
             <?php foreach ($areas as $area): ?>
             <tr>
-		<td class="tabla"><?php echo h($area['Area']['id']);?></td>
+		<!--<td class="tabla"><?php echo h($area['Area']['id']);?></td>-->
 		<td class="tabla"><?php echo h($area['Area']['AreaDescripcion']);?></td>
 		<td class="tabla">
                     <?php 

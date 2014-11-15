@@ -14,7 +14,7 @@
     <table cellpadding="0" cellspacing="0">
 	<thead>
             <tr>
-		<th><?php echo $this->Paginator->sort('id'); ?></th>
+		<!--<th><?php echo $this->Paginator->sort('id'); ?></th>-->
 		<th><?php echo $this->Paginator->sort('CompetenciaNombre'); ?></th>
 		<th><?php echo $this->Paginator->sort('Area'); ?></th>
 		<th class="actions"><?php echo __('Acciones'); ?></th>
@@ -23,7 +23,7 @@
         <tbody>
             <?php foreach ($competencias as $competencia): ?>
             <tr>
-		<td class="tabla"><?php echo h($competencia['Competencia']['id']); ?>&nbsp;</td>
+		<!--<td class="tabla"><?php echo h($competencia['Competencia']['id']); ?>&nbsp;</td>-->
 		<td class="tabla"><?php echo h($competencia['Competencia']['CompetenciaNombre']); ?>&nbsp;</td>
 		<td class="tabla"><?php echo h($competencia['Area']['AreaDescripcion']); ?></td>
 		<td class="tabla">
@@ -42,8 +42,7 @@
                                 );
                     ?>
                     <?php 
-                        echo $this->Form->postLink($this->html->image("mi_form/edit.png",
-                                array("alt" => "Eliminar",'title' => "Eliminar competencia")), 
+                        echo $this->Form->postLink(__('Eliminar'), 
                             array('action' => 'delete', $competencia['Competencia']['id']), 
                                 array(), __('Esta seguro que desea eliminar esta competencia? ', $competencia['Competencia']['id'])); 
                     ?>

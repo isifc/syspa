@@ -16,7 +16,7 @@
     <table cellpadding="0" cellspacing="0">
     <thead>
 	<tr>
-        <th><?php echo $this->Paginator->sort('id'); ?></th>
+        <!--<th><?php echo $this->Paginator->sort('id'); ?></th>-->
         <th><?php echo $this->Paginator->sort('OfertaVigenciaDesde','Vigencia Desde'); ?></th>
         <th><?php echo $this->Paginator->sort('OfertaVigenciaHasta','Vigencia Hasta'); ?></th>
         <th><?php echo $this->Paginator->sort('OfertaDescripcion','Descripción'); ?></th>
@@ -28,7 +28,7 @@
 	<?php foreach ($ofertas as $oferta): ?>
             <tr>
         <?php if(($oferta['Oferta']['id'])!=1) {?>
-		<td class="tabla"><?php echo h($oferta['Oferta']['id']); ?>&nbsp;</td>
+		<!--<td class="tabla"><?php echo h($oferta['Oferta']['id']); ?>&nbsp;</td>-->
 		<td class="tabla"><?php echo h($oferta['Oferta']['OfertaVigenciaDesde']); ?>&nbsp;</td>
 		<td class="tabla"><?php echo h($oferta['Oferta']['OfertaVigenciaHasta']); ?>&nbsp;</td>
 		<td class="tabla"><?php echo h($oferta['Oferta']['OfertaDescripcion']); ?>&nbsp;</td>
@@ -64,7 +64,7 @@
                     ?>
  
                     <?php 
-                        echo $this->Form->postLink(__('Delete'), 
+                        echo $this->Form->postLink(__('Eliminar'), 
                             array('action' => 'delete', $oferta['Oferta']['id']), 
                                 array(), __('Esta seguro que desea eliminar esta Oferta? ', $oferta['Oferta']['id'])); 
                     ?>

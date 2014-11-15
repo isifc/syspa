@@ -32,13 +32,39 @@ class OfertasController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
-		if (!$this->Oferta->exists($id)) {
-			throw new NotFoundException(__('Invalid oferta'));
-		}
-		$options = array('conditions' => array('Oferta.' . $this->Oferta->primaryKey => $id));
-		$this->set('oferta', $this->Oferta->find('first', $options));
-	}
+    public function view($id = null) {
+        if (!$this->Oferta->exists($id)) {
+            throw new NotFoundException(__('Invalid oferta'));
+        }
+        $options = array('conditions' => array('Oferta.' . $this->Oferta->primaryKey => $id));
+        $this->set('oferta', $this->Oferta->find('first', $options));
+        $this->LoadModel('Ofertascarrera');
+        $carreras = $this->Ofertascarrera->find('all',
+                array(
+                    'fields' => array(
+                        'id',
+                        'carrera_id',
+                        'Carrera.carrera'
+                    ),
+                    'conditions' => array('oferta_id = '=> $id)
+                )
+            );  
+        $this->set('carreras',$carreras);
+
+        $this->LoadModel('Requisitoscompetencia');
+        $requisitos = $this->Requisitoscompetencia->find('all',
+            array(
+                'fields' => array(
+                    'id',
+                    'competencia_id',
+                    'Competencia.competencianombre'
+                ),
+                'conditions' => array('oferta_id =' => $id)
+            )
+        );
+        $this->set('requisitos',$requisitos);
+        
+    }
 
 /**
  * add method

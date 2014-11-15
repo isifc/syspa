@@ -25,7 +25,7 @@ class RequisitosmateriasController extends AppController {
 		$this->set('requisitosmaterias', $this->Paginator->paginate());
 	}
         
-        public function detallematerias($OfertasCarrerasId) {
+        public function detallematerias($OfertaId,$OfertasCarrerasId) {
              $materias = $this->Requisitosmateria->find('all',
                     array(
                         'fields' => array(
@@ -37,6 +37,19 @@ class RequisitosmateriasController extends AppController {
                         'conditions' => array('ofertascarreras_id = '=> $OfertasCarrerasId)
                     )
                 );
+            $this->LoadModel('Oferta');
+            $this->Oferta->recursive = 0;
+            $oferta = $this->Oferta->find('first',array(
+                'fields' => array(
+                    'Oferta.OfertaDescripcion',
+                    'Oferta.OfertaVigenciaDesde',
+                    'Empresa.EmpresaRazonSocial'
+                    ),
+                'conditions' => array('Oferta.id =' => $OfertaId)
+                )
+            );
+            $this->set('OfertaId',$OfertaId);
+            $this->set('oferta',$oferta);
             $this->set('materias',$materias);
             $this->set('OfertasCarrerasId',$OfertasCarrerasId);
         }
@@ -75,16 +88,17 @@ class RequisitosmateriasController extends AppController {
 		$this->set(compact('ofertascarreras', 'materias'));
 	}
 
-	public function addmateria($OfertasCarrerasId) {
+	public function addmateria($OfertaId,$OfertasCarrerasId) {
 		if ($this->request->is('post')) {
 			$this->Requisitosmateria->create();
 			if ($this->Requisitosmateria->save($this->request->data)) {
 				$this->Session->setFlash(__('La materia ha sido agregada.'));
-				return $this->redirect(array('action' => 'detallematerias',$OfertasCarrerasId));
+				return $this->redirect(array('action' => 'detallematerias',$OfertaId,$OfertasCarrerasId));
 			} else {
 				$this->Session->setFlash(__('The requisitosmateria could not be saved. Please, try again.'));
 			}
             }
+            $this->set('OfertaId',$OfertaId);
             $this->set('OfertasCarrerasId',$OfertasCarrerasId);
             $ofertascarreras = $this->Requisitosmateria->Ofertascarreras->find('list');
             $materias = $this->Requisitosmateria->Materia->find('list');
@@ -139,4 +153,19 @@ class RequisitosmateriasController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+        
+	public function borrarmateria($OfertaId,$OfertasCarrerasId,$id = null) {
+		$this->Requisitosmateria->id = $id;
+		if (!$this->Requisitosmateria->exists()) {
+			throw new NotFoundException(__('No existe la materia'));
+		}
+		$this->request->allowMethod('post', 'delete');
+		if ($this->Requisitosmateria->delete()) {
+			$this->Session->setFlash(__('La materia ha sido eliminada.'));
+		} else {
+			$this->Session->setFlash(__('La materia no pudo ser eliminada. Por favor, intente de nuevo.'));
+		}
+		return $this->redirect(array('action' => 'detallematerias',$OfertaId,$OfertasCarrerasId));
+	}
+        
 }

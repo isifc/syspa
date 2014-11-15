@@ -11,7 +11,14 @@
 	<fieldset>
             <legend><?php echo __('Agregar Oferta'); ?></legend>
             <br>
-           <td><?php echo $this->Form->input('empresa_id');?></td>
+           <td><?php echo $this->Form->input('empresa_id',array('label' => 'Empresa','id' => "empresa_id"));?></td>
+            <script>
+               $("#empresa_id").select2({
+                placeholder: "Empresa",
+                width:'150px'	
+            });
+        </script>
+
             <br> 
             <td>
             	<?php 

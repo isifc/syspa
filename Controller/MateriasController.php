@@ -55,6 +55,8 @@ class MateriasController extends AppController {
 				$this->Session->setFlash(__('The materia could not be saved. Please, try again.'));
 			}
 		}
+		$carreras = $this->Materia->Carrera->find('list');
+		$this->set(compact('carreras'));
 	}
 
 /**
@@ -79,6 +81,8 @@ class MateriasController extends AppController {
 			$options = array('conditions' => array('Materia.' . $this->Materia->primaryKey => $id));
 			$this->request->data = $this->Materia->find('first', $options);
 		}
+		$carreras = $this->Materia->Carrera->find('list');
+		$this->set(compact('carreras'));
 	}
 
 /**

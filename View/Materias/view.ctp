@@ -6,14 +6,14 @@
 			<?php echo h($materia['Materia']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('CarreraId'); ?></dt>
+		<dt><?php echo __('Carrera'); ?></dt>
 		<dd>
-			<?php echo h($materia['Materia']['CarreraId']); ?>
+			<?php echo $this->Html->link($materia['Carrera']['carrera'], array('controller' => 'carreras', 'action' => 'view', $materia['Carrera']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Materia'); ?></dt>
 		<dd>
-			<?php echo h($materia['Materia']['Materia']); ?>
+			<?php echo h($materia['Materia']['materia']); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -25,6 +25,8 @@
 		<li><?php echo $this->Form->postLink(__('Delete Materia'), array('action' => 'delete', $materia['Materia']['id']), array(), __('Are you sure you want to delete # %s?', $materia['Materia']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Materias'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Materia'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Carreras'), array('controller' => 'carreras', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Carrera'), array('controller' => 'carreras', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Alumnosmaterias'), array('controller' => 'alumnosmaterias', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Alumnosmateria'), array('controller' => 'alumnosmaterias', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Requisitosmaterias'), array('controller' => 'requisitosmaterias', 'action' => 'index')); ?> </li>

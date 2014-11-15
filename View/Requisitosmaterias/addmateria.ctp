@@ -1,23 +1,31 @@
-<div class="requisitosmaterias form">
-<?php echo $this->Form->create('Requisitosmateria'); ?>
-	<fieldset>
-		<legend><?php echo __('Add Requisitosmateria'); ?></legend>
-	<?php
-		echo $this->Form->input('RequisitoMateriaCondicion');
-		echo $this->Form->input('ofertascarreras_id',array('value' => $OfertasCarrerasId,'default' => $OfertasCarrerasId));
-		echo $this->Form->input('materia_id');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<div align="right">
+    <br>
+    <td><?php echo $this->Html->link(__('<<Volver'), 
+        array('controller' => 'Requisitosmaterias', 'action' => 'detallematerias',$OfertaId,$OfertasCarrerasId)); ?> 
+    </td>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Requisitosmaterias'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Ofertascarreras'), array('controller' => 'ofertascarreras', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Ofertascarreras'), array('controller' => 'ofertascarreras', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Materias'), array('controller' => 'materias', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Materia'), array('controller' => 'materias', 'action' => 'add')); ?> </li>
-	</ul>
+<div class="requisitosmaterias form">
+    <?php echo $this->Form->create('Requisitosmateria'); ?>
+	<fieldset>
+            <legend><?php echo __('Agregar Materia'); ?></legend>
+            <?php
+                echo "<br>";
+		echo $this->Form->hidden('ofertascarreras_id',array('value' => $OfertasCarrerasId,'default' => $OfertasCarrerasId));
+		echo $this->Form->input('materia_id',array('label' => 'Materia','id' => 'materia_id'));
+                echo "<br>";
+                echo $this->Form->input('RequisitoMateriaCondicion');
+            ?>
+	</fieldset>
+        <script>
+            $("#materia_id").select2({
+            placeholder: "Seleccione Comuna",
+            width:'150px'	
+            });
+        </script>
+    <?php echo $this->Form->end(__('Registrar')); ?>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </div>

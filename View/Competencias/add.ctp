@@ -14,8 +14,14 @@
                 <br>
                 <tr><?php echo $this->Form->input('CompetenciaNombre',array('label' => 'Nombre'));?></tr>
                 <br>
-                <tr><?php echo $this->Form->input('area_id');?></tr>
-            </table>    
+                <tr><?php echo $this->Form->input('area_id',array('label' => 'Area','id' => "area_id"));?></tr>
+            </table>
+            <script>
+               $("#area_id").select2({
+                placeholder: "Area",
+                width:'150px'	
+                });
+            </script>
         </fieldset>
     <?php echo $this->Form->end(__('Registrar')); ?>
     <br>

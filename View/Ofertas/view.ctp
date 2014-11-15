@@ -6,71 +6,51 @@
     <br>
     <h3><?php echo __('Oferta'); ?></h3>
 	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($oferta['Oferta']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Vigencia Desde'); ?></dt>
-		<dd>
-			<?php echo h($oferta['Oferta']['OfertaVigenciaDesde']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Vigencia Hasta'); ?></dt>
-		<dd>
-			<?php echo h($oferta['Oferta']['OfertaVigenciaHasta']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Descripción'); ?></dt>
-		<dd>
-			<?php echo h($oferta['Oferta']['OfertaDescripcion']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Empresa'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($oferta['Empresa']['id'], array('controller' => 'empresas', 'action' => 'view', $oferta['Empresa']['id'])); ?>
-			&nbsp;
-		</dd>
+            <dt><?php echo __('Empresa'); ?></dt>
+            <dd><?php echo h($oferta['Empresa']['EmpresaRazonSocial']); ?>&nbsp;</dd>
+            
+            <dt><?php echo __('Vigencia Desde'); ?></dt>
+            <dd><?php echo h($oferta['Oferta']['OfertaVigenciaDesde']); ?>&nbsp;</dd>
+	
+            <dt><?php echo __('Vigencia Hasta'); ?></dt>
+            <dd><?php echo h($oferta['Oferta']['OfertaVigenciaHasta']); ?>&nbsp;</dd>
+		
+            <dt><?php echo __('Descripción'); ?></dt>
+            <dd><?php echo h($oferta['Oferta']['OfertaDescripcion']); ?>&nbsp;</dd>
 	</dl>
 </div>
 <hr>
 <!--Ofertas-->
-<div class="related">
-    <h3><?php echo __('Carreras'); ?></h3>    
-    <td valign="bottom" >
-	<p align="right"> Agregar 
-            <?php echo $this->html->image("mi_form/Add.png", 
-                array('alt' => 'Agregar', 'title' =>"Agregar Carrera",'url' => 
-                    array('controller' => 'ofertascarreras','action' => 'add')
-		)
-                    );
-            ?>
-	</p>
-    </td>
-
-    <?php if (!empty($oferta['Ofertascarrera'])): ?>
-    <table cellpadding = "0" cellspacing = "0">
-	<tr>
-            <th><?php echo __('Id'); ?></th>
-            <th><?php echo __('Oferta Id'); ?></th>
-            <th><?php echo __('Carrera Id'); ?></th>
-            <th class="actions"><?php echo __('Acciones'); ?></th>
+<table > 
+    <?php if (!empty($carreras)): ?>
+    <table cellpadding = "0" cellspacing = "0" >
+	<tr align="right">
+            <th ><?php echo __('Carreras'); ?></th>
 	</tr>
-	<?php foreach ($oferta['Ofertascarrera'] as $ofertascarrera): ?>
+	<?php foreach ($carreras as $carrera): ?>
             <tr>
-                <td><?php echo $ofertascarrera['id']; ?></td>
-                <td><?php echo $ofertascarrera['oferta_id']; ?></td>
-                <td><?php echo $ofertascarrera['carrera_id']; ?></td>
-                <td class="actions">
-                    <?php echo $this->Html->link(__('View'), array('controller' => 'ofertascarreras', 'action' => 'view', $ofertascarrera['id'])); ?>
-                    <?php echo $this->Html->link(__('Edit'), array('controller' => 'ofertascarreras', 'action' => 'edit', $ofertascarrera['id'])); ?>
-                    <?php echo $this->Form->postLink(__('Delete'), array('controller' => 'ofertascarreras', 'action' => 'delete', $ofertascarrera['id']), array(), __('Are you sure you want to delete # %s?', $ofertascarrera['id'])); ?>
-                </td>
+                <td class="tabla" align="right"><?php echo $carrera['Carrera']['carrera']; ?></td>
             </tr>
 	<?php endforeach; ?>
     </table>
     <?php endif; ?>
+</table>
+<hr>
+<div class="related">
+    <?php if (!empty($requisitos)): ?>
+    <table cellpadding = "0" cellspacing = "0">
+        <tr>
+            <th><?php echo __('Competencias'); ?></th>
+        </tr>
+        <?php foreach ($requisitos as $requisito): ?>
+            <tr>
+                <td><?php echo $requisito['Competencia']['competencianombre']; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+    <?php endif; ?>
 </div>
+
 <!--
 <div class="related">
 	<h3><?php echo __('Related Postulaciones'); ?></h3>
@@ -110,39 +90,3 @@
 	</div>
 </div>
 -->
-<div class="related">
-    <h3><?php echo __('Requisitos'); ?></h3>
-    <td valign="bottom" >
-	<p align="right"> Agregar 
-            <?php echo $this->html->image("mi_form/Add.png", 
-                array('alt' => 'Agregar', 'title' =>"Agregar Requisito",'url' => 
-                    array('controller' => 'requisitoscompetencias','action' => 'add')
-		)
-                    );
-            ?>
-	</p>
-    </td>
-
-        <?php if (!empty($oferta['Requisitoscompetencia'])): ?>
-        <table cellpadding = "0" cellspacing = "0">
-        <tr>
-            <th><?php echo __('Id'); ?></th>
-            <th><?php echo __('Oferta Id'); ?></th>
-            <th><?php echo __('Competencia Id'); ?></th>
-            <th class="actions"><?php echo __('Acciones'); ?></th>
-            </tr>
-            <?php foreach ($oferta['Requisitoscompetencia'] as $requisitoscompetencia): ?>
-                <tr>
-                    <td><?php echo $requisitoscompetencia['id']; ?></td>
-                    <td><?php echo $requisitoscompetencia['oferta_id']; ?></td>
-                    <td><?php echo $requisitoscompetencia['competencia_id']; ?></td>
-                    <td class="actions">
-                        <?php echo $this->Html->link(__('View'), array('controller' => 'requisitoscompetencias', 'action' => 'view', $requisitoscompetencia['id'])); ?>
-                        <?php echo $this->Html->link(__('Edit'), array('controller' => 'requisitoscompetencias', 'action' => 'edit', $requisitoscompetencia['id'])); ?>
-                        <?php echo $this->Form->postLink(__('Delete'), array('controller' => 'requisitoscompetencias', 'action' => 'delete', $requisitoscompetencia['id']), array(), __('Are you sure you want to delete # %s?', $requisitoscompetencia['id'])); ?>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </table>
-    <?php endif; ?>
-</div>

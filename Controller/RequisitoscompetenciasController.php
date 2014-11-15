@@ -25,20 +25,32 @@ class RequisitoscompetenciasController extends AppController {
         $this->set('requisitoscompetencias', $this->Paginator->paginate());
     }
 
-            public function detallerequisitos($OfertaId){
-            $requisitos = $this->Requisitoscompetencia->find('all',
-                    array(
-                        'fields' => array(
-                            'id',
-                            'competencia_id',
-                            'Competencia.competencianombre'
-                        ),
-                        'conditions' => array('oferta_id =' => $OfertaId)
-                    )
-                );
-            $this->set('requisitos',$requisitos);
-            $this->set('OfertaId',$OfertaId);
-        }
+    public function detallerequisitos($OfertaId){
+    $requisitos = $this->Requisitoscompetencia->find('all',
+            array(
+                'fields' => array(
+                    'id',
+                    'competencia_id',
+                    'Competencia.competencianombre'
+                ),
+                'conditions' => array('oferta_id =' => $OfertaId)
+            )
+        );
+        $this->LoadModel('Oferta');
+        $this->Oferta->recursive = 0;
+        $oferta = $this->Oferta->find('first',array(
+            'fields' => array(
+                'Oferta.OfertaDescripcion',
+                'Oferta.OfertaVigenciaDesde',
+                'Empresa.EmpresaRazonSocial'
+                ),
+            'conditions' => array('Oferta.id =' => $OfertaId)
+                )
+        );
+    $this->set('oferta',$oferta);
+    $this->set('requisitos',$requisitos);
+    $this->set('OfertaId',$OfertaId);
+}
 
 /**
  * view method
@@ -85,6 +97,18 @@ class RequisitoscompetenciasController extends AppController {
                 $this->Session->setFlash(__('El requisito no ha podido ser agregado a la oferta, intente de nuevo'));
             }
         }
+            $this->LoadModel('Oferta');
+            $this->Oferta->recursive = 0;
+            $oferta = $this->Oferta->find('first',array(
+                'fields' => array(
+                    'Oferta.OfertaDescripcion',
+                    'Oferta.OfertaVigenciaDesde',
+                    'Empresa.EmpresaRazonSocial'
+                    ),
+                'conditions' => array('Oferta.id =' => $OfertaId)
+                    )
+            );
+        $this->set('oferta',$oferta);        
         $this->set('OfertaId',$OfertaId);
         $ofertas = $this->Requisitoscompetencia->Oferta->find('list');
         $competencias = $this->Requisitoscompetencia->Competencia->find('list');
