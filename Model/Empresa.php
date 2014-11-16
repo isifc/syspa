@@ -1,5 +1,7 @@
 <?php
 App::uses('AppModel', 'Model');
+App::uses('Departamento', 'Model');
+App::uses('Provincia', 'Model');
 /**
  * Empresa Model
  *
@@ -16,7 +18,7 @@ App::uses('AppModel', 'Model');
 //public $displayField = 'EmpresaRazonSocial';
 
 class Empresa extends AppModel {
-    public $displayField = 'EmpresaRazonSocial';
+    //public $displayField = 'EmpresaRazonSocial';
 
 public $actsAs = array(
         'Search.Searchable'
@@ -52,7 +54,7 @@ public $actsAs = array(
  *
  * @var array
  */
-	/*public $belongsTo = array(
+	public $belongsTo = array(
 		'Localidade' => array(
 			'className' => 'Localidade',
 			'foreignKey' => 'localidade_id',
@@ -61,7 +63,7 @@ public $actsAs = array(
 			'order' => ''
 		)
 	);
-*/
+
 /**
  * hasMany associations
  *

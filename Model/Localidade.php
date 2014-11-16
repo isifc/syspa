@@ -8,7 +8,7 @@ App::uses('AppModel', 'Model');
  */
 class Localidade extends AppModel {
 
-public $virtualFields = array('name' => 'CONCAT(Localidade.nombre," ", Departamento.nombre, " ", Provincia.nombre)');
+public $virtualFields = array('name' => 'CONCAT(Localidade.nombre)');
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**

@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+
 /**
  * Empresas Controller
  *
@@ -8,7 +9,7 @@ App::uses('AppController', 'Controller');
  * @property SessionComponent $Session
  */
 class EmpresasController extends AppController {
-
+ 
 /**
  * Components
  *
@@ -16,7 +17,7 @@ class EmpresasController extends AppController {
  */
 	public $components = array('Paginator', 'Session','RequestHandler','Search.Prg');
 	public $helpers = array('Js'=>array('Jquery','Ajax'));
-	public $uses= array('Empresa','Provincia','Departamento');	
+	public $uses= array('Empresa');
 
 	var $paginate = array(
 		'limit' => 20, 
@@ -57,6 +58,15 @@ class EmpresasController extends AppController {
 		$this->set('empresa', $this->Empresa->find('first', $options));
 	}
 
+
+/*
+para ir borrando provincias
+DELETE FROM localidades 
+WHERE departamento_id in(select id
+from departamentos
+where provincia_id in (select id
+from provincias
+where nombre='JUJUY'))*/
 /**
  * add method
  *
@@ -73,6 +83,8 @@ class EmpresasController extends AppController {
 				$this->Session->setFlash(__('Lo siento, no se pudo registrar la empresa'));
 			}
 		}
+		$localidades = $this->Empresa->Localidade->find('list',array('fields' => array('nombre')));
+		$this->set(compact('localidades'));
 	}
 
 	function update_select()
