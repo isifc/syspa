@@ -128,12 +128,18 @@
 			    		"alt" => "Editar", 'title' =>"Editar Empresa",
 			    		'url' => array('controller' => 'empresas','action' => 'editar',$empresa['Empresa']['id']), array('class'=>'editar')
 						)); ?>
-				<?php if (is_null($empresa['Empresa']['ConvenioFechaBaja'])){
-
-				echo $this->html->image("mi_form/suspendConvenio.png", array(
-			    		"alt" => "Suspender", 'title' =>"Suspender Convenio Marco",
-			    		'url' => array('controller' => 'empresas','action' => 'suspenderConvenio',$empresa['Empresa']['id']), array('class'=>'suspenderConvenio')
-				)); }?>
+				<?php		if (($empresa['Empresa']['ConvenioFecha'])=="0000-00-00"){
+						
+							echo $this->html->image("mi_form/addConvenio.png", array(
+			    			"alt" => "Agregar", 'title' =>"Agregar Convenio Marco",
+			    			'url' => array('controller' => 'empresas','action' => 'editar',$empresa['Empresa']['id']), array('class'=>'edit')
+						));}else {
+								if (is_null($empresa['Empresa']['ConvenioFechaBaja'])){
+									echo $this->html->image("mi_form/suspendConvenio.png", array(
+			    					"alt" => "Suspender", 'title' =>"Suspender Convenio Marco",
+			    					'url' => array('controller' => 'empresas','action' => 'suspenderConvenio',$empresa['Empresa']['id']), array('class'=>'suspenderConvenio')
+										)); 
+								} }?>
 				
 
 		</td>

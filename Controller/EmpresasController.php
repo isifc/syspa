@@ -74,8 +74,13 @@ where nombre='JUJUY'))*/
  */
 	public function add() {
 		//$this->load('localidade');
+		
 		if ($this->request->is('post')) {
+
 			$this->Empresa->create();
+			if (empty($this->request->data['Empresa']['ConvenioFecha'])) {
+			$this->request->data['Empresa']['ConvenioFecha']='0000-00-00';
+			}
 			if ($this->Empresa->save($this->request->data)) {
 				$this->Session->setFlash(__('Empresa registrada satisfactoriamente'));
 				return $this->redirect(array('action' => 'index'));

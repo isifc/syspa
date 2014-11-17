@@ -59,13 +59,15 @@ class AnexosController extends AppController {
 			// abort if cancel button was pressed  
             if (isset($this->request->data['cancel'])) {
                     $this->Session->setFlash(__('No se registro anexo.'));
-                    return $this->redirect( array( 'action' => 'index' ));
+                    //return $this->redirect( array( 'action' => 'index' ));
+                    return $this->redirect(array('controller' => 'empresas','action' => 'index'));
                 }
 			if ($this->Anexo->save($this->request->data)) {
 				
 
 				$this->Session->setFlash(__('The anexo has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				//return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('controller' => 'empresas','action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The anexo could not be saved. Please, try again.'));
 			}
@@ -106,7 +108,8 @@ class AnexosController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Anexo->save($this->request->data)) {
 				$this->Session->setFlash(__('The anexo has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				//return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('controller' => 'empresas','action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The anexo could not be saved. Please, try again.'));
 			}
@@ -136,6 +139,7 @@ class AnexosController extends AppController {
 		} else {
 			$this->Session->setFlash(__('The anexo could not be deleted. Please, try again.'));
 		}
-		return $this->redirect(array('action' => 'index'));
+		//return $this->redirect(array('action' => 'index'));
+		return $this->redirect(array('controller' => 'empresas','action' => 'index'));
 	}
 }

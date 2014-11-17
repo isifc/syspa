@@ -3,43 +3,7 @@
 <table>
 	<tr class="mitr">
 		<td class="mitdBotton">
-				<?php 
-				echo $this->html->image("mi_form/edit.png", array(
-			    		"alt" => "Editar", 'title' =>"Editar Empresa",
-			    		'url' => array('controller' => 'empresas','action' => 'editar',$empresa['Empresa']['id']), array('class'=>'editar')
-					)); 
-				?>	
-			<?php 
-					if (($empresa['Empresa']['ConvenioFecha'])=="0000-00-00"){
-						
-							echo $this->html->image("mi_form/addConvenio.png", array(
-			    			"alt" => "Agregar", 'title' =>"Agregar Convenio Marco",
-			    			'url' => array('controller' => 'empresas','action' => 'edit',$empresa['Empresa']['id']), array('class'=>'edit')
-						));}else {
-								if (is_null($empresa['Empresa']['ConvenioFechaBaja'])){
-									echo $this->html->image("mi_form/suspendConvenio.png", array(
-			    					"alt" => "Suspender", 'title' =>"Suspender Convenio Marco",
-			    					'url' => array('controller' => 'empresas','action' => 'suspenderConvenio',$empresa['Empresa']['id']), array('class'=>'suspenderConvenio')
-										)); 
-								}
-						
-						 
-					
-			 						
-			
-							echo $this->html->image("mi_form/convenio.png", array(
-			    				"alt" => "Pdf", 'title' =>"PDF Convenio Marco",
-			    				'url' => array('controller' => 'empresas','action' => 'pdf',$empresa['Empresa']['id']), array('class'=>'edit')
-									)); 
-									
-						
-					
-						 
-								}
-			
-
-						?>
-		
+				
 
 		
 	</tr>
@@ -298,8 +262,63 @@ if (($empresa['Empresa']['ConvenioFecha'])=="0000-00-00"){
 <br><br>
 <div class="related">
 	
+	<div class="related">
+	
 	<h3><?php echo __('Anexos Asociados'); ?></h3>
-	<?php echo "no hay anexos"; ?>
+		<?php if (empty($empresa['Anexos'])){ ?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr class="mitr">		
+		<th><?php echo __('CUIT'); ?></th>
+		<th><?php echo __('Paga Asignacion Estimulo'); ?></th>
+		<th><?php echo __('Paga obra social') ?></th>
+		<th><?php echo __('Paga ART'); ?></th>
+		<th><?php echo __('% gasto'); ?></th>
+
+		<th><?php echo "Acciones"; ?></th>
+		
+		
+	</tr>
+	<?php foreach ($empresa['Anexo'] as $anexo): ?>
+		<tr class="mitr">
+			<td><?php echo $anexo['EmpresaCUIT']; ?>&nbsp;</td>
+			<td><?php echo "si";//$anexo['PagaAsignacionEstimuloAnterior']""; ?>&nbsp;</td>
+			<td><?php 
+
+			if  ($anexo['PagaObraSocialAnterior'] ==1) {
+				echo "si";
+				}else{
+					echo "no";
+					}  ?>&nbsp;</td>
+			<td><?php 
+					if  ($anexo['PagaSeguroTrabajoAnterior'] ==1) {
+				echo "si";
+				}else{
+					echo "no";
+				}
+				 ?>&nbsp;</td>
+			<td><?php echo $anexo['PorcentajeGastoAnterior']; ?>&nbsp;</td>
+			<td class="tabla">
+			
+				<?php echo $this->html->image("mi_form/view.png", array(
+			    		"alt" => "Agregar",
+			    		'title' =>"ver Anexo",
+			    		'url' => array('controller' => 'anexos', 'action' => 'view', $anexo['id']))
+						); 
+
+				
+					?>
+
+			
+		</tr>
+	<?php endforeach; ?>
+
+	</table>
+<?php }else{
+	echo "Anexos";
+	} ?>
+</div>
+</fieldset>
+
 </div>
 </fieldset>
 <br>

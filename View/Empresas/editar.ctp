@@ -233,7 +233,57 @@
 <div class="related">
 	
 	<h3><?php echo __('Anexos Asociados'); ?></h3>
-	<?php echo "no hay anexos"; ?>
+		<?php if (empty($empresa['Anexos'])){ ?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr class="mitr">		
+		<th><?php echo __('CUIT'); ?></th>
+		<th><?php echo __('Paga Asignacion Estimulo'); ?></th>
+		<th><?php echo __('Paga obra social') ?></th>
+		<th><?php echo __('Paga ART'); ?></th>
+		<th><?php echo __('% gasto'); ?></th>
+
+		<th><?php echo "Acciones"; ?></th>
+		
+		
+	</tr>
+	<?php foreach ($empresa['Anexo'] as $anexo): ?>
+		<tr class="mitr">
+			<td><?php echo $anexo['EmpresaCUIT']; ?>&nbsp;</td>
+			<td><?php echo "si";//$anexo['PagaAsignacionEstimuloAnterior']""; ?>&nbsp;</td>
+			<td><?php 
+
+			if  ($anexo['PagaObraSocialAnterior'] ==1) {
+				echo "si";
+				}else{
+					echo "no";
+					}  ?>&nbsp;</td>
+			<td><?php 
+					if  ($anexo['PagaSeguroTrabajoAnterior'] ==1) {
+				echo "si";
+				}else{
+					echo "no";
+				}
+				 ?>&nbsp;</td>
+			<td><?php echo $anexo['PorcentajeGastoAnterior']; ?>&nbsp;</td>
+			<td class="tabla">
+			
+				<?php echo $this->html->image("mi_form/view.png", array(
+			    		"alt" => "Agregar",
+			    		'title' =>"ver Anexo",
+			    		'url' => array('controller' => 'anexos', 'action' => 'view', $anexo['id']))
+						); 
+
+				
+					?>
+
+			
+		</tr>
+	<?php endforeach; ?>
+
+	</table>
+<?php }else{
+	echo "Anexos";
+	} ?>
 </div>
 </fieldset>
 

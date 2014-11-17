@@ -47,12 +47,14 @@ class FirmantesController extends AppController {
  * @return void
  */
 	public function add($empresa_id) {
-
+		//$this->loadModel('Localidade');
 		
 		if ($this->request->is('post')) {
 			$this->Firmante->create();
+
 			if ($this->Firmante->save($this->request->data)) {
 				$this->Session->setFlash(__('Se a registrado correctamente'));
+				return $this->redirect(array('controller' => 'empresas','action' => 'index'));
 				//return $this->redirect(array('controller' => 'empresas','action' => 'editar',$empresa_id));
 			} else {
 				$this->Session->setFlash(__('Error en la carga'));
@@ -60,14 +62,14 @@ class FirmantesController extends AppController {
 		}
 
 		$empresas = $this->Firmante->Empresa->find('list');
-		
+		$anexo_id=2;
         $this->set('empresa_id',$empresa_id); 
-
+        $this->set('anexo_id',$anexo_id);
 		//$this->Firmante->Empresa->recursive=0;
 		//$empresas = $this->Firmante->Empresa->find('list');
-		//$anexos = $this->Firmante->Anexo->find('list');
-		
-		$this->set(compact('empresas', 'anexos'));
+		$anexos = $this->Firmante->Anexo->find('list');
+		$localidades = $this->Firmante->Localidade->find('list',array('fields' => array('nombre')));
+		$this->set(compact('empresas', 'anexos','localidades'));
 	}
 
 /**
@@ -82,9 +84,10 @@ class FirmantesController extends AppController {
 			throw new NotFoundException(__('Invalid firmante'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
+
 			if ($this->Firmante->save($this->request->data)) {
 				$this->Session->setFlash(__('The firmante has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('controller' => 'empresas','action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The firmante could not be saved. Please, try again.'));
 			}
@@ -93,7 +96,7 @@ class FirmantesController extends AppController {
 			$this->request->data = $this->Firmante->find('first', $options);
 		}
 		$empresas = $this->Firmante->Empresa->find('list');
-		$anexos = $this->Firmante->Anexo->find('list');
+		$anexos = $this->Firmante->Anexo->find('fist');
 		$this->set(compact('empresas', 'anexos'));
 	}
 
@@ -115,6 +118,6 @@ class FirmantesController extends AppController {
 		} else {
 			$this->Session->setFlash(__('The firmante could not be deleted. Please, try again.'));
 		}
-		return $this->redirect(array('action' => 'index'));
+		return $this->redirect(array('controller' => 'empresas','action' => 'index'));
 	}
 }

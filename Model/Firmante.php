@@ -31,6 +31,13 @@ class Firmante extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'Localidade' => array(
+			'className' => 'Localidade',
+			'foreignKey' => 'localidade_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
 

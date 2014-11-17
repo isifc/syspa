@@ -30,7 +30,15 @@
 		</tr>
 		<tr>
 			<td class="mitd">
-				<?php echo $this->Form->input('FirmanteTelefono',array('label'=>'Teléfono'));?>
+			<?php echo $this->Form->input('localidade_id', array('label'=>'localidad','id' => "localidade_id")); ?>
+
+				<script>
+				$("#localidade_id").select2({
+							placeholder: "Seleccione Comuna",
+							width:'175px'	
+						});
+				</script>
+				
 			</td>
 			<td class="mitd">
 				<?php echo $this->Form->input('FirmanteDireccion',array('label'=>'Dirección '));?>
@@ -41,7 +49,7 @@
 				<?php echo $this->Form->input('FirmanteCorreo',array('label'=>'E-mail '));?>
 			</td>
 			<td class="mitd">
-				
+				<?php echo $this->Form->input('FirmanteTelefono',array('label'=>'Teléfono'));?>
 			</td>
 		</tr>
 		<tr>
@@ -50,7 +58,8 @@
 				
 			</td>
 			<td class="mitd">
-				<?php //echo $this->Form->input('EmpresaCUIT',array('value'=>$empresa_id)); ?>
+
+				<?php echo $this->Form->hidden('anexo_id',array('value'=>$anexo_id,'default'=>$anexo_id));; ?>
 			</td>
 		</tr>
 		</table>
