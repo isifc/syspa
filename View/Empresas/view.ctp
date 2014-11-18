@@ -115,14 +115,14 @@
 </dl>
 </fieldset>
 <?php  // aca miro si tiene convenio o no ....
-if (($empresa['Empresa']['ConvenioFecha'])!="0000-00-00"){
+if (!is_null($empresa['Empresa']['ConvenioFecha'])){
 ?>
 
 
 <fieldset>
 <legend>Datos del Convenio Marco </legend>
 <?php  // aca miro si tiene convenio o no ....
-if (($empresa['Empresa']['ConvenioFecha'])=="0000-00-00"){
+if (!is_null($empresa['Empresa']['ConvenioFecha'])){
 	?> <h3 class="rojo">No tiene convenio</h3> <?php
 } elseif (!is_null($empresa['Empresa']['ConvenioFechaBaja'])){
  ?><h3 class="rojo" align="center">Convenio no vigente</h3> <?php
@@ -241,7 +241,7 @@ if (($empresa['Empresa']['ConvenioFecha'])=="0000-00-00"){
 		<th><?php echo __('Nombre'); ?></th>
 		<th><?php echo __('Apellido'); ?></th>
 		<th><?php echo __('FirmanteCargo'); ?></th>
-		
+		<th><?php echo __('Acciones'); ?></th>
 		
 	</tr>
 	<?php foreach ($empresa['Firmante'] as $firmante): ?>
@@ -250,7 +250,23 @@ if (($empresa['Empresa']['ConvenioFecha'])=="0000-00-00"){
 			<td><?php echo $firmante['FirmanteNombre']; ?></td>
 			<td><?php echo $firmante['FirmanteApellido']; ?></td>		
 			<td><?php echo $firmante['FirmanteCargo']; ?></td>
+			<td class="tabla">
 			
+				<?php echo $this->html->image("mi_form/view.png", array(
+			    		"alt" => "Agregar",
+			    		'title' =>"ver firmante",
+			    		'url' => array('controller' => 'firmantes', 'action' => 'view', $firmante['id'])
+						)); 
+
+				echo $this->html->image("mi_form/edit.png", array(
+			    		"alt" => "Agregar",
+			    		'title' =>"editar firmante",
+			    		'url' => array('controller' => 'firmantes', 'action' => 'edit', $firmante['id'])
+						)); 
+
+
+					?>
+
 		</tr>
 	<?php endforeach; ?>
 

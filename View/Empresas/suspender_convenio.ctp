@@ -28,13 +28,14 @@
 <fieldset>
 <legend>Suspención</legend>
 
-<?php 
- 	echo "Fecha de baja: <b>(YYYY-MM-DD)</b> ".$this->Form->inputText('ConvenioFechaBaja',array(
+<?php	
+						echo "Fecha de baja: <b>(DD-MM-AAAA)</b> ".$this->Form->inputText('Empresa.ConvenioFechaBaja',array(
 							'id'=>'fechaDeBaja',
 							'dateFormat'=>'d-m-Y',
-							//'default'=>date('d-m-Y'),
 							'class'=>'datepicker',
-							'style'=>"width:76px;")); 
+							'style'=>"width:76px;",
+							'rule' => 'notempty',
+							)); 
   						?> 
   						<Script> 
 							$("#fechaDeBaja").datepicker();

@@ -46,7 +46,7 @@
           dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
           dayNamesShort: ['Dom','Lun','Mar','Mie','Jue','Vie','Sáb'],
           dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sa'],
-          dateFormat: 'yy-mm-dd', firstDay: 0, 
+          dateFormat: 'dd-mm-yy', firstDay: 0, 
           initStatus: 'Selecciona la fecha', isRTL: false};
         $.datepicker.setDefaults($.datepicker.regional['es']);
  

@@ -1,10 +1,10 @@
 <div class="firmantes form">
-<h2>Editar Firmante</h2>
+<h2>Firmante</h2>
 <?php echo $this->Form->create('Firmante'); ?>
 <?php
 					echo $this->Form->hidden('id');?>
 <fieldset>
-		<legend><?php echo __('Nuevo Firmante'); ?></legend>
+		<legend><?php echo __('Datos del Firmante'); ?></legend>
 		<table>
 		<tr>
 			<td class="mitd">
@@ -46,16 +46,12 @@
 		</tr>
 		<tr>
 			<td class="mitd">
-			 	<?php echo $this->Form->input('empresa_id');?>
-				
-			</td>
-			<td class="mitd">
 				<?php //echo $this->Form->input('anexo_id');?>
 			</td>
 		</tr>
 		</table>
 </fieldset>
-<fieldset></fieldset>
+
 	
 <?php echo $this->Form->end(__('Registrar')); ?>
 <br>

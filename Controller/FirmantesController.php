@@ -86,17 +86,17 @@ class FirmantesController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 
 			if ($this->Firmante->save($this->request->data)) {
-				$this->Session->setFlash(__('The firmante has been saved.'));
+				$this->Session->setFlash(__('No se pudieron guardar los cambios'));
 				return $this->redirect(array('controller' => 'empresas','action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The firmante could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('Los cambios de guardaron satisfactoriamente '));
 			}
 		} else {
 			$options = array('conditions' => array('Firmante.' . $this->Firmante->primaryKey => $id));
 			$this->request->data = $this->Firmante->find('first', $options);
 		}
 		$empresas = $this->Firmante->Empresa->find('list');
-		$anexos = $this->Firmante->Anexo->find('fist');
+		$anexos = $this->Firmante->Anexo->find('list');
 		$this->set(compact('empresas', 'anexos'));
 	}
 

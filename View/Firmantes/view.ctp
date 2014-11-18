@@ -1,19 +1,8 @@
 <div class="firmantes view">
-<table>
-	<tr>
-		<td class="mitdBotton">
-				<?php 
-				echo $this->html->image("mi_form/edit.png", array(
-			    		"alt" => "Agregar",
-			    		'title'=>"Editar Firmante",
-			    		'url' => array('action' => 'edit', $firmante['Firmante']['id']))); ?>	
 
-		
-	</tr>
-</table>
-
+<h2>	<?php echo "Firmante" ?></h2>
 <fieldset>
-<legend><?php echo "Firmante" ?></legend>
+
 <legend><?php echo h($firmante['Empresa']['EmpresaRazonSocial']); ?></legend>
 <dl>
 <table cellspacing="2" >
@@ -84,16 +73,8 @@
 </fieldset>
 
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Firmante'), array('action' => 'edit', $firmante['Firmante']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Firmante'), array('action' => 'delete', $firmante['Firmante']['id']), array(), __('Are you sure you want to delete # %s?', $firmante['Firmante']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Firmantes'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Firmante'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Empresas'), array('controller' => 'empresas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Empresa'), array('controller' => 'empresas', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Anexos'), array('controller' => 'anexos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Anexo'), array('controller' => 'anexos', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+<br>
+<br>
+<br>
+<br>
+<br>

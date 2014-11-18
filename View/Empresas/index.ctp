@@ -70,7 +70,7 @@
 			
 			<th ><?php echo $this->Paginator->sort('EmpresaCUIT','CUIT'); ?></th>
 			<th><?php echo $this->Paginator->sort('EmpresaRazonSocial','Razon Social'); ?></th>		
-			<th><?php echo $this->Paginator->sort('RepresentanteNombre','Nombre del Representante');?></th>
+			<th><?php echo $this->Paginator->sort('ContactoNombre','Nombre de Contacto');?></th>
 			<th><?php echo $this->Paginator->sort('EmpresaCorreo','E-mail'); ?></th>
 			<th><?php echo $this->Paginator->sort('EmpresaTelefono','Teléfono'); ?></th>
 			
@@ -95,7 +95,7 @@
 		</td>
 		<td class="tabla">
 			<?php 
-				echo $empresa['Empresa']['RepresentanteNombre']; 
+				echo $empresa['Empresa']['ContactoNombre']; 
 			?>
 		</td>
 		
@@ -120,25 +120,30 @@
 						)); ?>
 						<?php if (is_null($empresa['Empresa']['ConvenioFechaBaja'])){
  
-					 echo $this->html->image("mi_form/addFirmante.png", array(
-			    		"alt" => "Editar", 'title' =>"Agregar Firmante",
-			    		'url' => array('controller' => 'firmantes','action' => 'add',$empresa['Empresa']['id'])));
+					
 			    		   }?>
 					<?php echo $this->html->image("mi_form/edit.png", array(
 			    		"alt" => "Editar", 'title' =>"Editar Empresa",
 			    		'url' => array('controller' => 'empresas','action' => 'editar',$empresa['Empresa']['id']), array('class'=>'editar')
 						)); ?>
-				<?php		if (($empresa['Empresa']['ConvenioFecha'])=="0000-00-00"){
+				<?php		if (is_null($empresa['Empresa']['ConvenioFecha'])){
 						
 							echo $this->html->image("mi_form/addConvenio.png", array(
 			    			"alt" => "Agregar", 'title' =>"Agregar Convenio Marco",
 			    			'url' => array('controller' => 'empresas','action' => 'editar',$empresa['Empresa']['id']), array('class'=>'edit')
 						));}else {
 								if (is_null($empresa['Empresa']['ConvenioFechaBaja'])){
+
+									echo $this->html->image("mi_form/addFirmante.png", array(
+			    				"alt" => "Editar", 'title' =>"Agregar Firmante",
+			    				'url' => array('controller' => 'firmantes','action' => 'add',$empresa['Empresa']['id']))); 
+									
 									echo $this->html->image("mi_form/suspendConvenio.png", array(
 			    					"alt" => "Suspender", 'title' =>"Suspender Convenio Marco",
 			    					'url' => array('controller' => 'empresas','action' => 'suspenderConvenio',$empresa['Empresa']['id']), array('class'=>'suspenderConvenio')
-										)); 
+										));
+
+								
 								} }?>
 				
 

@@ -11,6 +11,7 @@
  */
 
 App::uses('Controller', 'Controller');
+App::uses('CakeEmail', 'Network/Email');
 
 /**
  * Application Controller
@@ -23,6 +24,13 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-
+public $components = array(
+    'Users.RememberMe',
+    'Auth'
+);
+public function beforeFilter() {
+    parent::beforeFilter();
+    $this->RememberMe->restoreLoginFromCookie();
+}
 	
 }

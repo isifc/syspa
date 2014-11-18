@@ -16,7 +16,7 @@ class EmpresasController extends AppController {
  * @var array
  */
 	public $components = array('Paginator', 'Session','RequestHandler','Search.Prg');
-	public $helpers = array('Js'=>array('Jquery','Ajax'));
+	public $helpers = array('Time','Js'=>array('Jquery','Ajax'));
 	public $uses= array('Empresa');
 
 	var $paginate = array(
@@ -78,8 +78,12 @@ where nombre='JUJUY'))*/
 		if ($this->request->is('post')) {
 
 			$this->Empresa->create();
-			if (empty($this->request->data['Empresa']['ConvenioFecha'])) {
-			$this->request->data['Empresa']['ConvenioFecha']='0000-00-00';
+			if (!empty($this->request->data['Empresa']['ConvenioFecha'])) {
+				$fecha=$this->request->data['Empresa']['ConvenioFecha'];
+				$this->request->data['Empresa']['ConvenioFecha']=date("Y-m-d",strtotime($fecha));
+				
+			}else{
+				$this->request->data['Empresa']['ConvenioFecha']=NULL;
 			}
 			if ($this->Empresa->save($this->request->data)) {
 				$this->Session->setFlash(__('Empresa registrada satisfactoriamente'));
@@ -131,6 +135,7 @@ where nombre='JUJUY'))*/
 		}
 
 		if ($this->request->is(array('post', 'put'))) {
+		
 			if ($this->Empresa->save($this->request->data)) {
 				$this->Session->setFlash(__('Se guardaron los cambios satisfactoriamente'));
 				//$this->Anexos->add($CUIT,$convenioFecha,$PorcentajeGasto,$PagaObraSocial,$PagaseguroTrabajo,$PagaAsignacionEstimulo);
@@ -157,7 +162,18 @@ where nombre='JUJUY'))*/
 		$this->set('empresa', $this->Empresa->find('first', $options));
 		//aca suspendo
 		if ($this->request->is(array('post', 'put'))) {
-
+				if (!empty($this->request->data['Empresa']['ConvenioFecha'])) {
+				$fecha2=$this->request->data['Empresa']['ConvenioFecha'];
+				$this->request->data['Empresa']['ConvenioFecha']=date("Y-m-d",strtotime($fecha2));
+				
+			}
+			if (!empty($this->request->data['Empresa']['ConvenioFechaBaja'])) {
+				$fecha3=$this->request->data['Empresa']['ConvenioFechaBaja'];
+				$this->request->data['Empresa']['ConvenioFechaBaja']=date("Y-m-d",strtotime($fecha3));
+				
+			}else{
+				$this->request->data['Empresa']['ConvenioFechaBaja']=NULL;
+			}
 			if ($this->Empresa->save($this->request->data['Empresa'])) {
 				
 				//$this->Anexo->save($this->request->data['Anexo']);	
@@ -182,6 +198,13 @@ where nombre='JUJUY'))*/
 		$empresas = $this->Firmante->Empresa->find('list');
 		//$localidades = $this->Localidades->Empresa->find('list');
         $this->set('empresa_id',$id); 
+        $fecha=date("d-m-Y",strtotime($this->request->data['Empresa']['ConvenioFecha']));
+        if (!is_null($this->request->data['Empresa']['ConvenioFecha'])){
+        	  $fechabaja=date("d-m-Y",strtotime($this->request->data['Empresa']['ConvenioFechaBaja']));
+        	  $this->set('fechabaja',$fechabaja);
+        }
+        $fecha=date("d-m-Y",strtotime($this->request->data['Empresa']['ConvenioFecha']));
+      	$this->set('fecha',$fecha);
 
 		//$this->Firmante->Empresa->recursive=0;
 		//$empresas = $this->Firmante->Empresa->find('list');
@@ -223,9 +246,16 @@ where nombre='JUJUY'))*/
 		$this->set('empresa', $this->Empresa->find('first', $options));
 		//aca suspendo
 		if ($this->request->is(array('post', 'put'))) {
+			if (!empty($this->request->data['Empresa']['ConvenioFechaBaja'])) {
+				$fecha4=$this->request->data['Empresa']['ConvenioFechaBaja'];
+				$this->request->data['Empresa']['ConvenioFechaBaja']=date("Y-m-d",strtotime($fecha4));}
 			if ($this->Empresa->save($this->request->data)) {
-				$this->Session->setFlash(__('Se suspendio el convenio Satisfactoriamente'));
-				return $this->redirect(array('action' => 'index'));
+				if (!empty($this->request->data['Empresa']['ConvenioFechaBaja'])) {
+					$this->Session->setFlash(__('Se suspendio el convenio Satisfactoriamente'));
+					return $this->redirect(array('action' => 'index'));
+				} else {
+				$this->Session->setFlash(__('No se pudo suspender el convenio. debe cargar una fecha'));
+				}
 			} else {
 				$this->Session->setFlash(__('No se pudo suspender el convenio.'));
 			}
@@ -244,7 +274,7 @@ where nombre='JUJUY'))*/
     }
 
 
-	    public function pdf($id = null){
+	 public function pdf($id = null){
 	    	if (!$this->Empresa->exists($id)) {
 			throw new NotFoundException(__('Empresa invalida'));
 			}

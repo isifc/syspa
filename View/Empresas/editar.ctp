@@ -110,14 +110,26 @@
 				<td class="mitd">
 				
 				<?php 
-				echo "Fecha de alta: <b>(YYYY-MM-DD)</b>".$this->Form->inputText('Empresa.ConvenioFecha',array(
-					
+				if (!(is_null($empresa['Empresa']['ConvenioFechaBaja']))){
+				echo "Fecha de alta: <b>(DD-MM-AAAA)</b>".$this->Form->inputText('Empresa.ConvenioFecha',array(
+					'dateFormat'=>'d-m-Y',
 					'id'=>'fechaConvenio',
 					'class'=>'datepicker',
 					'style'=>"width:76px;",
-
+					'value'=>$fecha,
+					'default'=>$fecha
 					));
-				?>
+				}else{
+				echo "Fecha de alta: <b>(DD-MM-AAAA)</b>".$this->Form->inputText('Empresa.ConvenioFecha',array(
+					'dateFormat'=>'d-m-Y',
+					'id'=>'fechaConvenio',
+					'class'=>'datepicker',
+					'style'=>"width:76px;",
+					//'value'=>$fecha,
+					//'default'=>$fecha
+					));
+				}?>
+
 				<Script> 
 					$("#fechaConvenio").datepicker();
 				</script>
@@ -128,10 +140,15 @@
 				<?php if (!(is_null($empresa['Empresa']['ConvenioFechaBaja']))){
  						
 						
-						echo "Fecha de baja: <b>(YYYY-MM-DD)</b> ".$this->Form->inputText('Empresa.ConvenioFechaBaja',array(
+						echo "Fecha de baja: <b>(DD-MM-AAAA)</b> ".$this->Form->inputText('Empresa.ConvenioFechaBaja',array(
 							'id'=>'fechaDeBaja',
+							'dateFormat'=>'d-m-Y',
+					
 							'class'=>'datepicker',
-							'style'=>"width:76px;")); 
+							'style'=>"width:76px;",
+							'value'=>$fechabaja,
+							'default'=>$fechabaja
+							)); 
   						?> 
   						<Script> 
 							$("#fechaDeBaja").datepicker();
