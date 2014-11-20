@@ -140,7 +140,7 @@ INSERT INTO `anexos` (`id`, `empresa_id`, `PagaSeguroTrabajoAnterior`, `PagaObra
 
 CREATE TABLE IF NOT EXISTS `areas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_carrera` int(11) NOT NULL,
+  `id_carrera` int(11) NULL,
   `AreaDescripcion` varchar(512) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `Ref1064` (`id_carrera`)

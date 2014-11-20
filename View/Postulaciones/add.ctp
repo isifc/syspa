@@ -1,25 +1,56 @@
-<div class="postulaciones form">
-<?php echo $this->Form->create('Postulacion'); ?>
-	<fieldset>
-		<legend><?php echo __('Agregar Postulación'); ?></legend>
-	<?php
-		echo $this->Form->input('FechaPostulacion');
-		echo $this->Form->input('FechaSeleccion');
-		echo $this->Form->input('CumpleRequisitosAcademicos');
-		echo $this->Form->input('alumno_id');
-		echo $this->Form->input('oferta_id');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Registrar')); ?>
+<div align="right">
+    <br>
+    <td><?php echo $this->Html->link(__('<<Volver'), 
+        array('controller' => 'postulaciones', 'action' => 'index')); ?> 
+    </td>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<div class="postulaciones form">
+    <?php echo $this->Form->create('Postulacione'); ?>
+	<fieldset>
+            <legend><?php echo __('Agregar Postulación'); ?></legend>
+            <?php
+                echo "<br>";
+                echo $this->Form->hidden('oferta_id');
+                echo "<br>";
+                echo $this->Form->input('alumno_id',array('label'=>'Seleccione un Alumno','id' => "alumno_id"));
+                echo "<br>";
+		echo "Fecha Postulación: ".$this->Form->inputText('FechaPostulacion',array(
+                    'id'=>'FechaPostulacion',
+                    'dateFormat'=>'d-m-Y',
+                    'class'=>'datepicker',
+                    'style'=>"width:76px;",
+                        )
+                    );                
+		echo "<br>";
+                echo "<br>";
+                echo "Fecha Selección: ".$this->Form->inputText('FechaSeleccion',array(
+                    'id'=>'FechaSeleccion',	
+                    'dateFormat' => 'd-m-Y',
+                    'class'=>'datepicker',
+                    'style'=>"width:76px;"
+                                )
+                            );
+                echo "<br>";
+                echo "<br>";
+                echo "Cumple Requisitos Académicos ".$this->Form->checkbox('CumpleRequisitosAcademicos');
+            ?>
+	</fieldset>
+        <Script> 
+                $("#FechaPostulacion").datepicker();
+                $("#FechaSeleccion").datepicker();
+        </script>
 
-		<li><?php echo $this->Html->link(__('List Postulaciones'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Alumno'), array('controller' => 'alumnos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Ofertas'), array('controller' => 'ofertas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Oferta'), array('controller' => 'ofertas', 'action' => 'add')); ?> </li>
-	</ul>
+        <script>
+            $("#alumno_id").select2({
+                placeholder: "Seleccione Comuna",
+                width:'150px'	
+        });
+        </script>
+    
+    <?php echo $this->Form->end(__('Registrar')); ?>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </div>

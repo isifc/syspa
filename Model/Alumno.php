@@ -9,13 +9,14 @@ App::uses('AppModel', 'Model');
  * @property Postulacione $Postulacione
  */
 class Alumno extends AppModel {
-
+    public $displayField = 'name';
 /**
  * Validation rules
  *
  * @var array
  */
-public $virtualFields = array('name' => 'CONCAT(Alumno.NroLegajo," ", Alumno.Apellido, " ", Alumno.Nombre)');
+   
+    public $virtualFields = array('name' => 'CONCAT(Alumno.Apellido, " ", Alumno.Nombre)');
  
 	public $validate = array(
 		'NroLegajo' => array(

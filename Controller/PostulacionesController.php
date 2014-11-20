@@ -7,7 +7,7 @@ App::uses('AppController', 'Controller');
  * @property PaginatorComponent $Paginator
  */
 class PostulacionesController extends AppController {
-    public $name = 'Postulaciones';
+
 /**
  * Components
  *
@@ -47,19 +47,17 @@ class PostulacionesController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
-			$this->Postulacion->create();
-			if ($this->Postulacion->save($this->request->data)) {
+			$this->Postulacione->create();
+			if ($this->Postulacione->save($this->request->data)) {
 				$this->Session->setFlash(__('The postulacione has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The postulacione could not be saved. Please, try again.'));
 			}
 		}
-                /**
-		$alumnos = $this->Postulacion->Alumno->find('list');
-		$ofertas = $this->Postulacion->Ofertum->find('list');
+		$alumnos = $this->Postulacione->Alumno->find('list');
+		$ofertas = $this->Postulacione->Oferta->find('list');
 		$this->set(compact('alumnos', 'ofertas'));
-                 */
 	}
 
 /**
@@ -85,7 +83,7 @@ class PostulacionesController extends AppController {
 			$this->request->data = $this->Postulacione->find('first', $options);
 		}
 		$alumnos = $this->Postulacione->Alumno->find('list');
-		$ofertas = $this->Postulacione->Ofertum->find('list');
+		$ofertas = $this->Postulacione->Oferta->find('list');
 		$this->set(compact('alumnos', 'ofertas'));
 	}
 

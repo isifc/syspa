@@ -1,36 +1,41 @@
 <div class="postulaciones index">
-	<h2><?php echo __('Postulaciones'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
+    <h3><?php echo __('Postulaciones'); ?></h3>
+     <td valign="bottom" >
+	<p align="right"> Nueva Postualción 
+            <?php echo $this->html->image("mi_form/Add.png", 
+                array('alt' => 'Agregar', 'title' =>"Agregar Postulación",'url' => 
+                    array('controller' => 'postulaciones','action' => 'add')
+		)
+                    );
+            ?>
+	</p>
+    </td>
+    <hr>    
+    <table cellpadding="0" cellspacing="0">
 	<thead>
-	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('FechaPostulacion'); ?></th>
-			<th><?php echo $this->Paginator->sort('FechaSeleccion'); ?></th>
-			<th><?php echo $this->Paginator->sort('CumpleRequisitosAcademicos'); ?></th>
-			<th><?php echo $this->Paginator->sort('alumno_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('oferta_id'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
+            <tr>
+                <th><?php echo $this->Paginator->sort('Oferta Descripción'); ?></th>
+                <th><?php echo $this->Paginator->sort('Alumno'); ?></th>
+                <th><?php echo $this->Paginator->sort('FechaPostulacion'); ?></th>
+                <th><?php echo $this->Paginator->sort('FechaSeleccion'); ?></th>
+                <th><?php echo $this->Paginator->sort('CumpleRequisitosAcademicos'); ?></th>
+                <th class="actions"><?php echo __('Acciones'); ?></th>
+            </tr>
 	</thead>
 	<tbody>
-	<?php foreach ($postulaciones as $postulacion): ?>
-	<tr>
-		<td><?php echo h($postulacion['Postulacione']['id']); ?>&nbsp;</td>
-		<td><?php echo h($postulacion['Postulacione']['FechaPostulacion']); ?>&nbsp;</td>
-		<td><?php echo h($postulacion['Postulacione']['FechaSeleccion']); ?>&nbsp;</td>
-		<td><?php echo h($postulacion['Postulacione']['CumpleRequisitosAcademicos']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($postulacion['Alumno']['id'], array('controller' => 'alumnos', 'action' => 'view', $postulacion['Alumno']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($postulacion['Oferta']['id'], array('controller' => 'ofertas', 'action' => 'view', $postulacion['Oferta']['id'])); ?>
-		</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $postulacion['Postulacione']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $postulacion['Postulacione']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $postulacion['Postulacione']['id']), array(), __('Are you sure you want to delete # %s?', $postulacion['Postulacione']['id'])); ?>
-		</td>
-	</tr>
+            <?php foreach ($postulaciones as $postulacione): ?>
+                <tr>
+                    <td><?php echo h($postulacione['Oferta']['OfertaDescripcion']); ?>&nbsp;</td>
+                    <td><?php echo h($postulacione['Alumno']['name']); ?>&nbsp;</td>
+                    <td><?php echo h($postulacione['Postulacione']['FechaPostulacion']); ?>&nbsp;</td>
+                    <td><?php echo h($postulacione['Postulacione']['FechaSeleccion']); ?>&nbsp;</td>
+                    <td><?php echo h($postulacione['Postulacione']['CumpleRequisitosAcademicos']); ?>&nbsp;</td>
+                    <td class="actions">
+                            <?php echo $this->Html->link(__('View'), array('action' => 'view', $postulacione['Postulacione']['id'])); ?>
+                            <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $postulacione['Postulacione']['id'])); ?>
+                            <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $postulacione['Postulacione']['id']), array(), __('Are you sure you want to delete # %s?', $postulacione['Postulacione']['id'])); ?>
+                    </td>
+                </tr>
 <?php endforeach; ?>
 	</tbody>
 	</table>

@@ -41,7 +41,7 @@
                             )
                         ); 
                     ?>			
-                    <?php echo $this->Form->postLink(__('Delete'), 
+                    <?php echo $this->Form->postLink(__("Eliminar"), 
                         array('action' => 'delete', $area['Area']['id']), 
                             array(), __('Está seguro que desea eliminar esta área?'
                                     )

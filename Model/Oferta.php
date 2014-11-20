@@ -21,25 +21,18 @@ class Oferta extends AppModel {
                     'hidden' => true,
                 ),
 		'OfertaVigenciaDesde' => array(
-			'date' => array(
-				'rule' => array('date'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+                    'rule'=>'date',
+                    'required' => true,
+                    'allowEmpty' => false,
+                    'message'=> 'la fecha debe ser de formato AAAA-MM-DD'
 		),
 		'OfertaVigenciaHasta' => array(
-			'date' => array(
-				'rule' => array('date'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+                    'rule'=>'date',
+                    'required' => true,
+                    'allowEmpty' => false,
+                    'message'=> 'la fecha debe ser de formato AAAA-MM-DD'
 		),
+            
 		'OfertaDescripcion' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),

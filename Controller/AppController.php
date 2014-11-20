@@ -26,7 +26,8 @@ class AppController extends Controller {
 
 public $components = array(
     'Users.RememberMe',
-    'Auth'
+    'Auth',
+    'Session'
 );
 public function beforeFilter() {
     parent::beforeFilter();

@@ -27,7 +27,6 @@
     <tbody>
 	<?php foreach ($ofertas as $oferta): ?>
             <tr>
-        <?php if(($oferta['Oferta']['id'])!=1) {?>
 		<!--<td class="tabla"><?php echo h($oferta['Oferta']['id']); ?>&nbsp;</td>-->
 		<td class="tabla"><?php echo h($oferta['Oferta']['OfertaVigenciaDesde']); ?>&nbsp;</td>
 		<td class="tabla"><?php echo h($oferta['Oferta']['OfertaVigenciaHasta']); ?>&nbsp;</td>
@@ -71,7 +70,6 @@
 
 		</td>
 	</tr>
-    <?php } ?>
 <?php endforeach;
 ?>
 	</tbody>
@@ -90,20 +88,3 @@
 	?>
 	</div>
 </div>
-<!--
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>	
-            <li><?php echo $this->Html->link(__('List Empresas'), array('controller' => 'empresas', 'action' => 'index')); ?> </li>
-            <li><?php echo $this->Html->link(__('New Empresa'), array('controller' => 'empresas', 'action' => 'add')); ?> </li>
-            <li><?php echo $this->Html->link(__('List Conveniosparticulares'), array('controller' => 'conveniosparticulares', 'action' => 'index')); ?> </li>
-            <li><?php echo $this->Html->link(__('New Conveniosparticulare'), array('controller' => 'conveniosparticulares', 'action' => 'add')); ?> </li>
-            <li><?php echo $this->Html->link(__('List Ofertascarreras'), array('controller' => 'ofertascarreras', 'action' => 'index')); ?> </li>
-            <li><?php echo $this->Html->link(__('New Ofertascarrera'), array('controller' => 'ofertascarreras', 'action' => 'add')); ?> </li>
-            <li><?php echo $this->Html->link(__('List Postulaciones'), array('controller' => 'postulaciones', 'action' => 'index')); ?> </li>
-            <li><?php echo $this->Html->link(__('New Postulacione'), array('controller' => 'postulaciones', 'action' => 'add')); ?> </li>
-            <li><?php echo $this->Html->link(__('List Requisitoscompetencias'), array('controller' => 'requisitoscompetencias', 'action' => 'index')); ?> </li>
-            <li><?php echo $this->Html->link(__('New Requisitoscompetencia'), array('controller' => 'requisitoscompetencias', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
--->
