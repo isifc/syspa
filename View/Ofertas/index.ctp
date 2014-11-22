@@ -17,21 +17,21 @@
     <thead>
 	<tr>
         <!--<th><?php echo $this->Paginator->sort('id'); ?></th>-->
-        <th><?php echo $this->Paginator->sort('OfertaVigenciaDesde','Vigencia Desde'); ?></th>
-        <th><?php echo $this->Paginator->sort('OfertaVigenciaHasta','Vigencia Hasta'); ?></th>
-        <th><?php echo $this->Paginator->sort('OfertaDescripcion','Descripción'); ?></th>
         <th><?php echo $this->Paginator->sort('empresa_id'); ?></th>
+        <th><?php echo $this->Paginator->sort('OfertaDescripcion','Descripción de la Oferta'); ?></th>
+        <th><?php echo $this->Paginator->sort('OfertaVigenciaDesde','Vigencia Desde'); ?></th>
+        <th><?php echo $this->Paginator->sort('OfertaVigenciaHasta','Vigencia Hasta'); ?></th>        
         <th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
     </thead>
     <tbody>
 	<?php foreach ($ofertas as $oferta): ?>
             <tr>
-		<!--<td class="tabla"><?php echo h($oferta['Oferta']['id']); ?>&nbsp;</td>-->
-		<td class="tabla"><?php echo h($oferta['Oferta']['OfertaVigenciaDesde']); ?>&nbsp;</td>
-		<td class="tabla"><?php echo h($oferta['Oferta']['OfertaVigenciaHasta']); ?>&nbsp;</td>
-		<td class="tabla"><?php echo h($oferta['Oferta']['OfertaDescripcion']); ?>&nbsp;</td>
 		<td class="tabla"><?php echo h($oferta['Empresa']['EmpresaRazonSocial']);?></td>
+                <td class="tabla"><?php echo h($oferta['Oferta']['OfertaDescripcion']); ?>&nbsp;</td>
+                <td class="tabla"><?php echo h(dateFormat("d-m-Y",$oferta['Oferta']['OfertaVigenciaDesde'])); ?>&nbsp;</td>
+		<td class="tabla"><?php echo h($oferta['Oferta']['OfertaVigenciaHasta']); ?>&nbsp;</td>
+		
 		<td class="tabla">
                     <?php echo $this->html->image("mi_form/carreras.png", 
                             array("alt" => "Ver", 'title' =>"Carreras",'url' => 
@@ -63,9 +63,9 @@
                     ?>
  
                     <?php 
-                        echo $this->Form->postLink(__('Eliminar'), 
+                        echo $this->Form->postLink($this->html->image("mi_form/no.png"), 
                             array('action' => 'delete', $oferta['Oferta']['id']), 
-                                array(), __('Esta seguro que desea eliminar esta Oferta? ', $oferta['Oferta']['id'])); 
+                                array('escape' => false), __('Esta seguro que desea eliminar esta Oferta? ', $oferta['Oferta']['id'])); 
                     ?>
 
 		</td>

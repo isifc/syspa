@@ -99,18 +99,25 @@ class OfertasController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
-		if (!$this->Oferta->exists($id)) {
-			throw new NotFoundException(__('Invalid oferta'));
-		}
-		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Oferta->save($this->request->data)) {
-				$this->Session->setFlash(__('The oferta has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The oferta could not be saved. Please, try again.'));
-			}
-		} else {
+    public function edit($id = null) {
+        if (!$this->Oferta->exists($id)) {
+            throw new NotFoundException(__('Invalid oferta'));
+        }
+            if ($this->request->is(array('post', 'put'))) {
+ 
+                $vigenciaDesde=$this->request->data['Oferta']['OfertaVigenciaDesde'];
+                $this->request->data['Oferta']['OfertaVigenciaDesde']=date("Y-m-d",strtotime($vigenciaDesde));
+                $vigenciaHasta=$this->request->data['Oferta']['OfertaVigenciaHasta'];
+                $this->request->data['Oferta']['OfertaVigenciaHasta']=date("Y-m-d",strtotime($vigenciaHasta));
+                
+                if ($this->Oferta->save($this->request->data)) {
+                    
+                    $this->Session->setFlash(__('La oferta ha sido guardada.'));
+                    return $this->redirect(array('action' => 'index'));
+                } else {
+                    $this->Session->setFlash(__('The oferta could not be saved. Please, try again.'));
+                }
+            } else {
 			$options = array('conditions' => array('Oferta.' . $this->Oferta->primaryKey => $id));
 			$this->request->data = $this->Oferta->find('first', $options);
 		}

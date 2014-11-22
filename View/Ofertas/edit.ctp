@@ -7,30 +7,38 @@
     <?php echo $this->Form->create('Oferta'); ?>
     <fieldset>
         <legend><?php echo __('Editar Oferta'); ?></legend>
-	<?php echo $this->Form->input('empresa_id');?>
+	<?php echo $this->Form->input('empresa_id',array('readonly' => "readonly"));?>
         <br>        
         <?php echo $this->Form->input('id');?>
            <td>
             	<?php 
-                    echo "Vigencia desde: <b>(YYYY-MM-DD)</b> ".$this->Form->inputText('OfertaVigenciaDesde',array(
-			'label' => 'OfertaVigenciaDesde',
-			'class'=>'datepicker',
-			'style'=>"width:76px;"
-                                )
-                            );
+                    echo "Vigencia desde: ".$this->Form->inputText('OfertaVigenciaDesde',array(
+			'id'=>'OfertaVigenciaDesde',
+                        'dateFormat'=>'d-m-Y',
+                        'class'=>'datepicker',
+                        'style'=>"width:76px;",
+                            )
+                        );
 		?>
+                <Script> 
+                    $("#OfertaVigenciaDesde").datepicker();
+                </script>
             </td>    
             <br>
             <br>
             <td>
                 <?php 
-                    echo "Vigencia hasta: <b>(YYYY-MM-DD)</b> ".$this->Form->inputText('OfertaVigenciaHasta',array(
-			'label' => 'OfertaVigenciaHasta',
+                    echo "Vigencia hasta: ".$this->Form->inputText('OfertaVigenciaHasta',array(
+			'id' => 'OfertaVigenciaHasta',
+                        'dateFormat' => 'd-m-Y',
 			'class'=>'datepicker',
 			'style'=>"width:76px;"
                                 )
                             );
 		?>
+                <Script> 
+                    $("#OfertaVigenciaHasta").datepicker();
+                </script>
             </td>
             <br>
          <br>

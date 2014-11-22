@@ -41,9 +41,17 @@
                             )
                         ); 
                     ?>			
-                    <?php echo $this->Form->postLink(__("Eliminar"), 
+                    <?php 
+                        $imagendelete = $this->Html->image(
+                           "mi_form/no.png", ///aqui se coloca el nombre del archivo de la imagen 
+                            array(
+                                 'alt'=>__('Borrar'), 
+                                 'title' => "Borrar Oferta"
+                            )
+                        );            
+                        echo $this->Form->postLink($imagendelete, 
                         array('action' => 'delete', $area['Area']['id']), 
-                            array(), __('Está seguro que desea eliminar esta área?'
+                            array('escape' => false), __('Está seguro que desea eliminar esta área?'
                                     )
                         ); 
                     ?>

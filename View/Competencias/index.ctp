@@ -42,9 +42,9 @@
                                 );
                     ?>
                     <?php 
-                        echo $this->Form->postLink(__('Eliminar'), 
+                        echo $this->Form->postLink($this->html->image("mi_form/no.png"), 
                             array('action' => 'delete', $competencia['Competencia']['id']), 
-                                array(), __('Esta seguro que desea eliminar esta competencia? ', $competencia['Competencia']['id'])); 
+                                array('escape' => false), __('Esta seguro que desea eliminar esta competencia? ', $competencia['Competencia']['id'])); 
                     ?>
 		</td>
             </tr>
