@@ -29,7 +29,7 @@
             <tr>
 		<td class="tabla"><?php echo h($oferta['Empresa']['EmpresaRazonSocial']);?></td>
                 <td class="tabla"><?php echo h($oferta['Oferta']['OfertaDescripcion']); ?>&nbsp;</td>
-                <td class="tabla"><?php echo h(dateFormat("d-m-Y",$oferta['Oferta']['OfertaVigenciaDesde'])); ?>&nbsp;</td>
+                <td class="tabla"><?php echo h($oferta['Oferta']['OfertaVigenciaDesde']); ?>&nbsp;</td>
 		<td class="tabla"><?php echo h($oferta['Oferta']['OfertaVigenciaHasta']); ?>&nbsp;</td>
 		
 		<td class="tabla">
