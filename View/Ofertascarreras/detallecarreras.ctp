@@ -40,7 +40,7 @@
  <!--               <th><?php echo __('id'); ?></th>
                 <th><?php echo __('carrera_id'); ?></th>-->
                 <th><?php echo __('Carreras'); ?></th>
-                <th class="actions"><?php echo __('Acciones'); ?></th>
+                <th><?php echo __('Acciones'); ?></th>
             </tr>
 	</thead>
 	<tbody>
@@ -50,9 +50,25 @@
 		<!--<td><?php echo h($carrera['Ofertascarrera']['id']); ?>&nbsp;</td>
 		<td><?php echo h($carrera['Ofertascarrera']['carrera_id']); ?>&nbsp</td>-->
                 <td><?php echo h($carrera['Carrera']['carrera']); ?>&nbsp</td>
-		<td class="actions">
-                    <?php echo $this->Html->link(__('Materias'), array('controller' => 'Requisitosmaterias','action' => 'detallematerias',$OfertaId,$carrera['Ofertascarrera']['id'])); ?>
-                    <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'borrarcarrera',$carrera['Ofertascarrera']['id'],$OfertaId), array(), __('Eliminar esta carrera de la oferta? ', $carrera['Carrera']['carrera'])); ?>
+		<td>
+                    <?php echo $this->Html->image("mi_form/materia.png",
+                        array("alt" => "Agregar", 'title' => "Ver Materias", 'url' => 
+                                array('controller' => 'Requisitosmaterias','action' => 'detallematerias',$OfertaId,$carrera['Ofertascarrera']['id']),
+                                    array('class' => 'edit')
+                                    )
+                                );
+                    ?>
+                    <?php 
+                        $imagendelete = $this->Html->image(
+                           "mi_form/no.png", ///aqui se coloca el nombre del archivo de la imagen 
+                            array(
+                                 'alt'=>__('Eliminar'), 
+                                 'title' => "Eliminar Carrera"
+                            )
+                        );            
+                        echo $this->Form->postLink($imagendelete, 
+                            array('action' => 'borrarcarrera',$carrera['Ofertascarrera']['id'],$OfertaId), 
+                                array('escape' => false), __('Eliminar esta carrera de la oferta? ', $carrera['Carrera']['carrera'])); ?>
 		</td>
             </tr>
             <?php endforeach; ?>

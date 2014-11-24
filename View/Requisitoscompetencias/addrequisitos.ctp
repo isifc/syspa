@@ -29,7 +29,7 @@
             <script>
                 $("#competencia_id").select2({
                     placeholder: "Seleccione una competencia",
-                    width:'200px'	
+                    width:'300px'	
                 });
             </script>        
 	</fieldset>

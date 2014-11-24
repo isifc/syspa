@@ -22,6 +22,8 @@
 <hr>
 <!--Ofertas-->
 <table > 
+    <!--<pre><?php print_r($carrera); ?></pre>-->
+    
     <?php if (!empty($carreras)): ?>
     <table cellpadding = "0" cellspacing = "0" >
 	<tr align="right">
@@ -29,7 +31,24 @@
 	</tr>
 	<?php foreach ($carreras as $carrera): ?>
             <tr>
-                <td class="tabla" align="right"><?php echo $carrera['Carrera']['carrera']; ?></td>
+                <td class="tabla" align="right"><?php echo $carrera['Carrera']['carrera']; ?>
+                    <table>
+                        <tr>
+                            <th>
+                                <?php echo __('Materias');?>
+                            </th>
+                            <th>
+                                <?php echo __('Condición');?>
+                            </th>
+                        </tr>
+                        <?php foreach ($carrera['Requisitosmateria'] as $materia): ?>
+                        <tr>
+                            <td><?php echo $materia['materia_id'];?></td>
+                            <td><?php echo $materia['RequisitoMateriaCondicion']; ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </td>
             </tr>
 	<?php endforeach; ?>
     </table>

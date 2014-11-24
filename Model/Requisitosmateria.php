@@ -54,8 +54,8 @@ class Requisitosmateria extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Ofertascarreras' => array(
-			'className' => 'Ofertascarreras',
+		'Ofertascarrera' => array(
+			'className' => 'Ofertascarrera',
 			'foreignKey' => 'ofertascarreras_id',
 			'conditions' => '',
 			'fields' => '',
@@ -69,4 +69,5 @@ class Requisitosmateria extends AppModel {
 			'order' => ''
 		)
 	);
+        
 }

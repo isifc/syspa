@@ -32,7 +32,7 @@
         <script>
             $("#carrera_id").select2({
                 placeholder: "Seleccione Comuna",
-                width:'150px'	
+                width:'300px'	
         });
         </script>
         

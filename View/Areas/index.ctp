@@ -46,7 +46,7 @@
                            "mi_form/no.png", ///aqui se coloca el nombre del archivo de la imagen 
                             array(
                                  'alt'=>__('Borrar'), 
-                                 'title' => "Borrar Oferta"
+                                 'title' => "Eliminar Area "
                             )
                         );            
                         echo $this->Form->postLink($imagendelete, 

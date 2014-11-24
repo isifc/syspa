@@ -13,13 +13,19 @@
 		echo $this->Form->hidden('ofertascarreras_id',array('value' => $OfertasCarrerasId,'default' => $OfertasCarrerasId));
 		echo $this->Form->input('materia_id',array('label' => 'Materia','id' => 'materia_id'));
                 echo "<br>";
-                echo $this->Form->input('RequisitoMateriaCondicion');
+                
+                echo $this->Form->input('RequisitoMateriaCondicion', array(
+                    'options' => array(1 => "Aprobada" ,
+                                       2 => "Regularizada")
+                    )
+                );
+                
             ?>
 	</fieldset>
         <script>
             $("#materia_id").select2({
             placeholder: "Seleccione Comuna",
-            width:'150px'	
+            width:'250px'	
             });
         </script>
     <?php echo $this->Form->end(__('Registrar')); ?>

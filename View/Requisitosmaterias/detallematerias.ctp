@@ -39,9 +39,31 @@
             <?php foreach ($materias as $materia): ?>
                 <tr>
                     <td><?php echo h($materia['Materia']['materia']); ?>&nbsp;</td>
-                    <td><?php echo h($materia['Requisitosmateria']['RequisitoMateriaCondicion']); ?>&nbsp;</td>
+                    <td>
+                        <?php
+                            $Condicion = $materia['Requisitosmateria']['RequisitoMateriaCondicion'];
+                            $options = array(1 => 'Aprobada', 2 => 'Regularizada');
+                            echo $this->Form->select($Condicion,
+                                        $options,
+                                        array('escape' => false,
+                                               'value' => $Condicion, 
+                                               'disabled' => true)
+                                        
+                                    );
+                            //echo h($materia['Requisitosmateria']['RequisitoMateriaCondicion']); 
+                        ?>&nbsp;
+                    </td>
                     <td class="actions">
-                        <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'borrarmateria',$OfertaId,$OfertasCarrerasId,$materia['Requisitosmateria']['id']), array(), __('Eliminar la materia?', $materia['Requisitosmateria']['id'])); ?>
+                        <?php 
+                            $imagendelete = $this->Html->image("mi_form/no.png", ///aqui se coloca el nombre del archivo de la imagen 
+                            array(
+                                 'alt'=>__('Eliminar'), 
+                                 'title' => "Eliminar Materia"
+                            )
+                        );            
+                         echo $this->Form->postLink($imagendelete, 
+                            array('action' => 'borrarmateria',$OfertaId,$OfertasCarrerasId,$materia['Requisitosmateria']['id']), 
+                                array('escape' => false), __('Eliminar la materia?', $materia['Requisitosmateria']['id'])); ?>
                     </td>
                 </tr>
             <?php endforeach; ?>

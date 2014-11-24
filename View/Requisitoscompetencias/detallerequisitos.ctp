@@ -51,7 +51,19 @@
 		<td><?php echo h($requisito['Requisitoscompetencia']['carrera_id']); ?>&nbsp</td>-->
                 <td><?php echo h($requisito['Competencia']['competencianombre']); ?>&nbsp</td>
 		<td class="actions">
-                    <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'borrarrequisito',$requisito['Requisitoscompetencia']['id'],$OfertaId), array(), __('Eliminar este requisito de la oferta? ')); ?>
+                    <?php 
+                    
+                        $imagendelete = $this->Html->image(
+                           "mi_form/no.png", ///aqui se coloca el nombre del archivo de la imagen 
+                            array(
+                                 'alt'=>__('Eliminar'), 
+                                 'title' => "Eliminar Requisito"
+                            )
+                        );            
+                        echo $this->Form->postLink($imagendelete, 
+                            array('action' => 'borrarrequisito',$requisito['Requisitoscompetencia']['id'],$OfertaId), 
+                                array('escape' => false), __('Eliminar este requisito de la oferta? ')); 
+                    ?>                    
 		</td>
             </tr>
             <?php endforeach; ?>

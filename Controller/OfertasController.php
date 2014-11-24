@@ -33,12 +33,14 @@ class OfertasController extends AppController {
  * @return void
  */
     public function view($id = null) {
+        $this->Oferta->recursive = 0;
         if (!$this->Oferta->exists($id)) {
             throw new NotFoundException(__('Invalid oferta'));
         }
         $options = array('conditions' => array('Oferta.' . $this->Oferta->primaryKey => $id));
         $this->set('oferta', $this->Oferta->find('first', $options));
         $this->LoadModel('Ofertascarrera');
+        $this->Ofertascarrera->recursive = 1;
         $carreras = $this->Ofertascarrera->find('all',
                 array(
                     'fields' => array(

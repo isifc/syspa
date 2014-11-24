@@ -58,4 +58,20 @@ class Ofertascarrera extends AppModel {
 			'order' => ''
 		)
 	);
+        
+	public $hasMany = array(
+		'Requisitosmateria' => array(
+			'className' => 'Requisitosmateria',
+			'foreignKey' => 'ofertascarreras_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+        );    
 }

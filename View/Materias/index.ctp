@@ -14,7 +14,7 @@
 	<tr>
 		<td><?php echo h($materia['Materia']['id']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($materia['Carrera']['carrera'], array('controller' => 'carreras', 'action' => 'view', $materia['Carrera']['id'])); ?>
+			<?php echo $this->Html->link($materia['Carrera']['id'], array('controller' => 'carreras', 'action' => 'view', $materia['Carrera']['id'])); ?>
 		</td>
 		<td><?php echo h($materia['Materia']['materia']); ?>&nbsp;</td>
 		<td class="actions">
