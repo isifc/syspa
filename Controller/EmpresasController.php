@@ -199,19 +199,24 @@ where nombre='JUJUY'))*/
 		//$localidades = $this->Localidades->Empresa->find('list');
         $this->set('empresa_id',$id); 
         $fecha=date("d-m-Y",strtotime($this->request->data['Empresa']['ConvenioFecha']));
+      	$this->set('fecha',$fecha);
+        //$fecha=date("d-m-Y",strtotime($this->request->data['Empresa']['ConvenioFecha']));
         if (!is_null($this->request->data['Empresa']['ConvenioFecha'])){
         	  $fechabaja=date("d-m-Y",strtotime($this->request->data['Empresa']['ConvenioFechaBaja']));
         	  $this->set('fechabaja',$fechabaja);
         }
-        $fecha=date("d-m-Y",strtotime($this->request->data['Empresa']['ConvenioFecha']));
-      	$this->set('fecha',$fecha);
-
+        
+        $localidades = $this->Empresa->Localidade->find('list',array('fields' => array('nombre')));
+		$this->set(compact('localidades'));
 		//$this->Firmante->Empresa->recursive=0;
 		//$empresas = $this->Firmante->Empresa->find('list');
 		//$anexos = $this->Anexo->Empresa->find('list');
 		
 		$this->set(compact('empresas'));
 	}
+
+
+
 
 
 /**
@@ -302,5 +307,13 @@ where nombre='JUJUY'))*/
 	    $this->set($params);
  
 }
+
+	public function add_firmante($id = null){
+		if (!$this->Empresa->exists($id)) {
+			throw new NotFoundException(__('Empresa invalida'));
+		}
+		$options = array('conditions' => array('Empresa.' . $this->Empresa->primaryKey => $id));
+		$this->set('empresa', $this->Empresa->find('first', $options));
+	}
     
 }

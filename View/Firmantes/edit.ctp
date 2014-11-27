@@ -1,5 +1,23 @@
 <div class="firmantes form">
-<h2>Firmante</h2>
+<h3>Editar Firmante</h3>
+<table>
+<tr>
+<td class="mitdLeft">
+<dl>
+		<dt><?php echo __('CUIT'); ?></dt>
+		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+			<?php echo h($firmante['Empresa']['EmpresaCUIT']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Razon Social'); ?></dt>
+			<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($firmante['Empresa']['EmpresaRazonSocial']); ?>&nbsp;</dd>
+
+			
+	
+</dl>
+</td>
+</tr>
+</table>
 <?php echo $this->Form->create('Firmante'); ?>
 <?php
 					echo $this->Form->hidden('id');?>

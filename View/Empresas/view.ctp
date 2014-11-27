@@ -1,16 +1,19 @@
 <div class="empresas view">
 
+
+
 <table>
-	<tr class="mitr">
-		<td class="mitdBotton">
-				
+	<tr>
+		<td class="mitdLeft"><h3>Ver Empresa</h3></td>
+		<td>
 
-		
+    <td class="mitd">
+        <?php echo $this->Html->link(__('<< Volver'), 
+            array('controller' => 'empresas', 'action' => 'index')); ?>
+    </td>
+</td>
 	</tr>
-
 </table>
-
-
 <fieldset>
 <legend> Datos de la empresa</legend>
 
@@ -164,10 +167,10 @@ if (!is_null($empresa['Empresa']['ConvenioFecha'])){
 				<b><?php echo __('¿Paga Obra Social? '); ?></b>
 					<?php
 			if ($empresa['Empresa']['PagaObraSocial']== 1){
-					//echo $this->html->image("mi_form/ok.png");
+					
 				echo "Si";
 			}else{
-				//echo $this->html->image("mi_form/no.png");
+				
 				echo "No";
 				} ?>
 			</td>
@@ -175,10 +178,10 @@ if (!is_null($empresa['Empresa']['ConvenioFecha'])){
 				<b><?php echo __('¿Paga Seguro Trabajo? '); ?></b>
 				<?php
 				if ($empresa['Empresa']['PagaSeguroTrabajo']== 1){
-					//echo $this->html->image("mi_form/ok.png");
+					
 					echo "Si";
 				}else {
-					 //echo $this->html->image("mi_form/no.png");
+					 
 					echo "No";
 					} ?>
 			</td>
@@ -186,10 +189,10 @@ if (!is_null($empresa['Empresa']['ConvenioFecha'])){
 				<b><?php echo __('¿Paga Asignacion Estimulo? '); ?></b>
 		
 			<?php if ($empresa['Empresa']['PagaAsignacionEstimulo']== 1){
-					//echo $this->html->image("mi_form/ok.png");
+					
 					echo "Si";
 				}else{
-					//echo $this->html->image("mi_form/no.png");
+					
 					echo "No";
 					} ?>
 			&nbsp;
@@ -241,7 +244,7 @@ if (!is_null($empresa['Empresa']['ConvenioFecha'])){
 		<th><?php echo __('Nombre'); ?></th>
 		<th><?php echo __('Apellido'); ?></th>
 		<th><?php echo __('FirmanteCargo'); ?></th>
-		<th><?php echo __('Acciones'); ?></th>
+		<th><?php echo __('Teléfono'); ?></th>
 		
 	</tr>
 	<?php foreach ($empresa['Firmante'] as $firmante): ?>
@@ -250,23 +253,8 @@ if (!is_null($empresa['Empresa']['ConvenioFecha'])){
 			<td><?php echo $firmante['FirmanteNombre']; ?></td>
 			<td><?php echo $firmante['FirmanteApellido']; ?></td>		
 			<td><?php echo $firmante['FirmanteCargo']; ?></td>
-			<td class="tabla">
+			<td><?php echo $firmante['FirmanteTelefono']; ?></td>
 			
-				<?php echo $this->html->image("mi_form/view.png", array(
-			    		"alt" => "Agregar",
-			    		'title' =>"ver firmante",
-			    		'url' => array('controller' => 'firmantes', 'action' => 'view', $firmante['id'])
-						)); 
-
-				echo $this->html->image("mi_form/edit.png", array(
-			    		"alt" => "Agregar",
-			    		'title' =>"editar firmante",
-			    		'url' => array('controller' => 'firmantes', 'action' => 'edit', $firmante['id'])
-						)); 
-
-
-					?>
-
 		</tr>
 	<?php endforeach; ?>
 
@@ -288,9 +276,9 @@ if (!is_null($empresa['Empresa']['ConvenioFecha'])){
 		<th><?php echo __('Paga Asignacion Estimulo'); ?></th>
 		<th><?php echo __('Paga obra social') ?></th>
 		<th><?php echo __('Paga ART'); ?></th>
+		<th><?php echo __('Fecha'); ?></th>
 		<th><?php echo __('% gasto'); ?></th>
 
-		<th><?php echo "Acciones"; ?></th>
 		
 		
 	</tr>
@@ -312,17 +300,9 @@ if (!is_null($empresa['Empresa']['ConvenioFecha'])){
 					echo "no";
 				}
 				 ?>&nbsp;</td>
+			<td><?php echo $anexo['ConvenioFechaAnterior']; ?>&nbsp;</td>
 			<td><?php echo $anexo['PorcentajeGastoAnterior']; ?>&nbsp;</td>
-			<td class="tabla">
 			
-				<?php echo $this->html->image("mi_form/view.png", array(
-			    		"alt" => "Agregar",
-			    		'title' =>"ver Anexo",
-			    		'url' => array('controller' => 'anexos', 'action' => 'view', $anexo['id']))
-						); 
-
-				
-					?>
 
 			
 		</tr>

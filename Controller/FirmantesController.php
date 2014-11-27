@@ -47,7 +47,7 @@ class FirmantesController extends AppController {
  * @return void
  */
 	public function add($empresa_id) {
-		//$this->loadModel('Localidade');
+		$this->loadModel('Empresa');
 		
 		if ($this->request->is('post')) {
 			$this->Firmante->create();
@@ -65,8 +65,10 @@ class FirmantesController extends AppController {
 		$anexo_id=2;
         $this->set('empresa_id',$empresa_id); 
         $this->set('anexo_id',$anexo_id);
-		//$this->Firmante->Empresa->recursive=0;
-		//$empresas = $this->Firmante->Empresa->find('list');
+		
+        $options = array('conditions' => array('Empresa.' . $this->Empresa->primaryKey => $empresa_id));
+		$this->set('empresa', $this->Empresa->find('first', $options));
+
 		$anexos = $this->Firmante->Anexo->find('list');
 		$localidades = $this->Firmante->Localidade->find('list',array('fields' => array('nombre')));
 		$this->set(compact('empresas', 'anexos','localidades'));
@@ -98,6 +100,8 @@ class FirmantesController extends AppController {
 		$empresas = $this->Firmante->Empresa->find('list');
 		$anexos = $this->Firmante->Anexo->find('list');
 		$this->set(compact('empresas', 'anexos'));
+		$options = array('conditions' => array('Firmante.' . $this->Firmante->primaryKey => $id));
+		$this->set('firmante', $this->Firmante->find('first', $options));
 	}
 
 /**

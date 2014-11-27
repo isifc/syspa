@@ -1,9 +1,26 @@
 <div class="firmantes view">
+<h3>	<?php echo "Firmante" ?></h3>
+<table>
+<tr>
+<td class="mitdLeft">
+<dl>
+		<dt><?php echo __('CUIT'); ?></dt>
+		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+			<?php echo h($firmante['Empresa']['EmpresaCUIT']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Razon Social'); ?></dt>
+			<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($firmante['Empresa']['EmpresaRazonSocial']); ?>&nbsp;</dd>
+		
+	
+</dl>
+</td>
+</tr>
+</table>
 
-<h2>	<?php echo "Firmante" ?></h2>
 <fieldset>
 
-<legend><?php echo h($firmante['Empresa']['EmpresaRazonSocial']); ?></legend>
+<legend><?php echo "Datos del Firmante" ?></legend>
 <dl>
 <table cellspacing="2" >
 <tr >

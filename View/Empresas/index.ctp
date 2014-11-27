@@ -13,21 +13,21 @@
 	 <table>
 		
 	
-	<tr bgcolor="D3DEF0">
+	<tr >
 	
-		 	<td class="mitd"  >
+		 	<td class="mitd" bgcolor="D3DEF0" >
 		 					<?php 
 		 						echo $this->Form->create('Empresa');
 								echo $this->Form->input('CUIT');
 		 					?>
 		 				</td>
-		 				<td class="mitd" >
+		 				<td class="mitd" bgcolor="D3DEF0">
 		 					<?php 
 		 						echo $this->Form->create('Empresa');
 								echo $this->Form->input('RazonSocial');
 		 					?>
 		 				</td>
-		 				<td class="mitd" >
+		 				<td class="mitd" bgcolor="D3DEF0" >
 		 					<?php  $sizes = array('v' => 'Vigente', 'n' => 'no Vigente', 'nt'=>'Sin Convenio','t' => 'todos');
 							echo $this->Form->input(
     								'convenio vigente',
@@ -43,7 +43,7 @@
 							width:'105px'	
 						});
 				</script>
-		 				<td class="mitd">
+		 				<td class="mitd" bgcolor="D3DEF0">
 		 					<?php echo $this->Form->Button(__('Buscar'));
 							  //echo $this->Form->end();
 							  ?>
@@ -51,7 +51,7 @@
 									$( "button" ).button();
 							  </script>
 		 				</td>		
-			<td valign="bottom" bgcolor="white">
+			<td valign="bottom">
 			<p >Nueva Empresa 
 			<?php echo $this->html->image("mi_form/Add.png", array(
 				    		'alt' => 'Agregar', 'title' =>"Agregar Empresa",
@@ -126,26 +126,32 @@
 			    		"alt" => "Editar", 'title' =>"Editar Empresa",
 			    		'url' => array('controller' => 'empresas','action' => 'editar',$empresa['Empresa']['id']), array('class'=>'editar')
 						)); ?>
-				<?php		if (is_null($empresa['Empresa']['ConvenioFecha'])){
-						
-							echo $this->html->image("mi_form/addConvenio.png", array(
-			    			"alt" => "Agregar", 'title' =>"Agregar Convenio Marco",
-			    			'url' => array('controller' => 'empresas','action' => 'editar',$empresa['Empresa']['id']), array('class'=>'edit')
-						));}else {
-								if (is_null($empresa['Empresa']['ConvenioFechaBaja'])){
+					
+					<?php	
+						if (is_null($empresa['Empresa']['ConvenioFecha'])) {
+							echo $this->html->image("mi_form/addFirmante.png",array('title'=>'no se puede ejecutar esta acción','style'=>"opacity:0.4"));
+							echo $this->html->image("mi_form/suspendConvenio.png",array('title'=>'no se puede ejecutar esta acción','style'=>"opacity:0.4"));
+						}else{
 
-									echo $this->html->image("mi_form/addFirmante.png", array(
-			    				"alt" => "Editar", 'title' =>"Agregar Firmante",
-			    				'url' => array('controller' => 'firmantes','action' => 'add',$empresa['Empresa']['id']))); 
+
+						if (is_null($empresa['Empresa']['ConvenioFechaBaja'])){
+
+						echo $this->html->image("mi_form/addFirmante.png", array(
+			    			"alt" => "Editar", 'title' =>"Firmantes",
+			    			'url' => array('controller' => 'empresas','action' => 'add_firmante',$empresa['Empresa']['id']))); 
 									
-									echo $this->html->image("mi_form/suspendConvenio.png", array(
-			    					"alt" => "Suspender", 'title' =>"Suspender Convenio Marco",
-			    					'url' => array('controller' => 'empresas','action' => 'suspenderConvenio',$empresa['Empresa']['id']), array('class'=>'suspenderConvenio')
+						echo $this->html->image("mi_form/suspendConvenio.png", array(
+			    			"alt" => "Suspender", 'title' =>"Suspender Convenio Marco",
+			    			'url' => array('controller' => 'empresas','action' => 'suspenderConvenio',$empresa['Empresa']['id']), array('class'=>'suspenderConvenio')
 										));
-
-								
-								} }?>
-				
+								}else{
+									
+									echo $this->html->image("mi_form/addFirmante.png",array('title'=>'no se puede ejecutar esta acción','style'=>"opacity:0.4"));
+									echo $this->html->image("mi_form/suspendConvenio.png",array('title'=>'no se puede ejecutar esta acción','style'=>"opacity:0.4"));
+								}
+ }
+								 ?>
+				       	  
 
 		</td>
 		

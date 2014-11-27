@@ -3,8 +3,21 @@
 
 
 ?>
+<table>
+	<tr>
+		<td class="mitdLeft"><h3><?php echo __('Nueva Empresa'); ?></h3></td>
+		<td>
 
-<h1><?php echo __('Nueva Empresa'); ?></h1>
+    <td class="mitd">
+        <?php echo $this->Html->link(__('<< Volver'), 
+            array('controller' => 'empresas', 'action' => 'index')); ?>
+    </td>
+</td>
+	</tr>
+</table>
+
+
+
 <br>
 	<fieldset >
 		<legend><b>Datos de la empresa</b></legend>
@@ -28,7 +41,7 @@
 			//echo $this->Form->input('id_localidade');?>
 				<script>
 				$("#localidade_id").select2({
-							placeholder: "Seleccione Comuna",
+							placeholder: "Seleccionar localidad",
 							width:'175px'	
 						});
 				</script>

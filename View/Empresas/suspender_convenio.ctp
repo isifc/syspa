@@ -1,5 +1,16 @@
 
-<h1>Suspender Convenio Marco</h1>
+<table>
+	<tr>
+		<td class="mitdLeft"><h3>Ver Empresa</h3></td>
+		<td>
+
+    <td class="mitd">
+        <?php echo $this->Html->link(__('<< Volver'), 
+            array('controller' => 'empresas', 'action' => 'index')); ?>
+    </td>
+</td>
+	</tr>
+</table>
 <?php echo $this->Form->create('Empresa'); ?>
 <br>
 <?php
@@ -29,7 +40,7 @@
 <legend>Suspención</legend>
 
 <?php	
-						echo "Fecha de baja: <b>(DD-MM-AAAA)</b> ".$this->Form->inputText('Empresa.ConvenioFechaBaja',array(
+						echo "Fecha de baja: ".$this->Form->inputText('Empresa.ConvenioFechaBaja',array(
 							'id'=>'fechaDeBaja',
 							'dateFormat'=>'d-m-Y',
 							'class'=>'datepicker',

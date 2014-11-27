@@ -2,7 +2,20 @@
 
  
 	
-	
+
+<table>
+	<tr>
+		<td class="mitdLeft"><h3>Editar Empresa</h3></td>
+		<td>
+
+    <td class="mitd">
+        <?php echo $this->Html->link(__('<< Volver'), 
+            array('controller' => 'empresas', 'action' => 'index')); ?>
+    </td>
+</td>
+	</tr>
+</table>
+<br>
 <?php echo $this->Form->create('Empresa'); ?>
 <?php
 					echo $this->Form->hidden('id');
@@ -36,7 +49,7 @@
 		<tr>
 			<td class="mitd">
 				<?php
-					echo $this->Form->input('Empresa.EmpresaCUIT',array('label'=>'CUIT: ', 'min'=>0, 'max'=>99999999999));?>
+					echo $this->Form->input('Empresa.EmpresaCUIT',array('label'=>'CUIT: ', 'empty' => '4','style'=>"width:107px;"));?>
 			</td>
 			<td class="mitd">
 				<?php
@@ -45,10 +58,21 @@
 		</tr>
 		<tr>
 			<td class="mitd">
-				<?php echo $this->Form->input('Empresa.EmpresaActividad',array('label'=>'Actividad: '));?>
+			<?php 
+
+		 	echo $this->Form->input('Empresa.localidade_id', array('label'=>'localidad','id' => "localidade_id"));
+					
+			//echo $this->Form->input('id_localidade');?>
+				<script>
+				$("#localidade_id").select2({
+							placeholder: "Seleccionar localidad",
+							width:'175px'	
+						});
+				</script>
+				
 			</td>
 			<td class="mitd">
-				<?php echo $this->Form->input('Empresa.EmpresaDireccion',array('label'=>'Direccion: '));?>
+				<?php echo $this->Form->input('Empresa.EmpresaDireccion',array('label'=>'Dirección: '));?>
 			</td>
 		</tr>
 		<tr>
@@ -61,7 +85,11 @@
 		</tr>
 		<tr>
 			<td class="mitd">
-				<?php echo $this->Form->input('Empresa.PorcentajeGasto',array('label'=>'Porcentaje Gasto: ', 'default' =>5, 'min'=>0, 'max'=>5));?>
+					<?php echo $this->Form->input('Empresa.EmpresaActividad',array('label'=>'Actividad: '));?>
+			
+			</td>
+			<td class="mitd">
+				<?php echo $this->Form->input('Empresa.PorcentajeGasto',array('label'=>'Porcentaje Gasto: (%)', 'default' =>5, 'min'=>0, 'max'=>5));?>
 			</td>
 			
 		</tr>
@@ -110,8 +138,8 @@
 				<td class="mitd">
 				
 				<?php 
-				if (!(is_null($empresa['Empresa']['ConvenioFechaBaja']))){
-				echo "Fecha de alta: <b>(DD-MM-AAAA)</b>".$this->Form->inputText('Empresa.ConvenioFecha',array(
+				if (!(is_null($empresa['Empresa']['ConvenioFecha']))){
+				echo "Fecha de alta: ".$this->Form->inputText('Empresa.ConvenioFecha',array(
 					'dateFormat'=>'d-m-Y',
 					'id'=>'fechaConvenio',
 					'class'=>'datepicker',
@@ -120,7 +148,7 @@
 					'default'=>$fecha
 					));
 				}else{
-				echo "Fecha de alta: <b>(DD-MM-AAAA)</b>".$this->Form->inputText('Empresa.ConvenioFecha',array(
+				echo "Fecha de alta: ".$this->Form->inputText('Empresa.ConvenioFecha',array(
 					'dateFormat'=>'d-m-Y',
 					'id'=>'fechaConvenio',
 					'class'=>'datepicker',
@@ -140,7 +168,7 @@
 				<?php if (!(is_null($empresa['Empresa']['ConvenioFechaBaja']))){
  						
 						
-						echo "Fecha de baja: <b>(DD-MM-AAAA)</b> ".$this->Form->inputText('Empresa.ConvenioFechaBaja',array(
+						echo "Fecha de baja: ".$this->Form->inputText('Empresa.ConvenioFechaBaja',array(
 							'id'=>'fechaDeBaja',
 							'dateFormat'=>'d-m-Y',
 					
@@ -259,7 +287,7 @@
 		<th><?php echo __('Paga ART'); ?></th>
 		<th><?php echo __('% gasto'); ?></th>
 
-		<th><?php echo "Acciones"; ?></th>
+		<th><?php echo "Fecha Anterior"; ?></th>
 		
 		
 	</tr>
@@ -282,16 +310,8 @@
 				}
 				 ?>&nbsp;</td>
 			<td><?php echo $anexo['PorcentajeGastoAnterior']; ?>&nbsp;</td>
-			<td class="tabla">
+			<td><?php echo $anexo['ConvenioFechaAnterior']; ?>&nbsp;</td>
 			
-				<?php echo $this->html->image("mi_form/view.png", array(
-			    		"alt" => "Agregar",
-			    		'title' =>"ver Anexo",
-			    		'url' => array('controller' => 'anexos', 'action' => 'view', $anexo['id']))
-						); 
-
-				
-					?>
 
 			
 		</tr>
