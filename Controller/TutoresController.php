@@ -46,16 +46,24 @@ class TutoresController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function add($conveniosparticulare_id) {
+		$this->loadModel('Conveniosparticulare');
 		if ($this->request->is('post')) {
 			$this->Tutore->create();
 			if ($this->Tutore->save($this->request->data)) {
-				$this->Session->setFlash(__('The tutore has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				
+				$this->Session->setFlash(__('Tutor ha sido registrado satisfactoriamente'));
+				return $this->redirect(array('controller'=>'Conveniosparticulares','action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The tutore could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('Tutor no ha sido registrado satisfactoriamente'));
 			}
 		}
+
+
+	$options = array('conditions' => array('Conveniosparticulare.' . $this->Conveniosparticulare->primaryKey => $conveniosparticulare_id));
+		$this->set('conveniosparticulare', $this->Conveniosparticulare->find('first', $options));
+
+
 	}
 
 /**

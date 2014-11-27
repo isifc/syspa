@@ -178,7 +178,13 @@ where nombre='JUJUY'))*/
 				
 				//$this->Anexo->save($this->request->data['Anexo']);	
 				$this->Session->setFlash(__('Se edito la empresa Sastifactoriamente.'));
-				return $this->redirect(array('controller' => 'anexos','action' => 'add',
+				if (($this->request->data['Anexo']['EmpresaCUIT']!=$this->request->data['Empresa']['EmpresaCUIT']) ||
+					($this->request->data['Anexo']['PorcentajeGastoAnterior']!=$this->request->data['Empresa']['PorcentajeGasto']) ||
+					($this->request->data['Anexo']['PagaSeguroTrabajoAnterior']!=$this->request->data['Empresa']['PagaSeguroTrabajo']) ||
+					($this->request->data['Anexo']['PagaObraSocialAnterior']!=$this->request->data['Empresa']['PagaObraSocial']) ||
+					($this->request->data['Anexo']['ConvenioFechaAnterior']!=$this->request->data['Empresa']['ConvenioFecha'])){				
+					  
+					return $this->redirect(array('controller' => 'anexos','action' => 'add',
 					$this->request->data['Anexo']['empresa_id'],
 					$this->request->data['Anexo']['EmpresaCUIT'],
 					$this->request->data['Anexo']['PorcentajeGastoAnterior'],
@@ -187,6 +193,11 @@ where nombre='JUJUY'))*/
 					//$this->request->data['Anexo']['PagaAsignacionAnterior'],
 					$this->request->data['Anexo']['ConvenioFechaAnterior']
 					));
+					  }else{
+					  	$this->Session->setFlash(__('Los cambios se registraron satisfactoriamente'));
+					  	return $this->redirect(array('controller' => 'Empresas','action' => 'index'));
+					  }				
+					
 			} else {
 				$this->Session->setFlash(__('No se a podido editar la empresa.'));
 			}

@@ -1,6 +1,6 @@
 <div class="conveniosparticulares index">
 
-	<h2><?php echo __('Convenios Particulares'); ?></h2>
+	<h1><?php echo __('Convenios Particulares'); ?></h1>
 	
 	
 	
@@ -37,7 +37,7 @@
 									$( "button" ).button();
 							  </script>
 		 				</td>
-			<td class = 'mitd'>
+			<td class = 'mitd' bgcolor="white">
 			<p >Nuevo Convenio 
 			<?php echo $this->html->image("mi_form/Add.png", array(
 				    		'alt' => 'Agregar', 'title' =>"Agregar Convenio",
@@ -102,18 +102,38 @@
 					<?php 
 						if (is_null($conveniosparticulare['Conveniosparticulare']['tutore_id'])){
 							 echo $this->html->image("mi_form/addFirmante.png", array(
-			    		"alt" => "Ver", 'title' =>"agregar tutor",
-			    		'url' => array('controller' => 'firmantes','action' => 'add',$conveniosparticulare['Conveniosparticulare']['id']), array('class'=>'view')
-						)); 	}
+			    		"alt" => "Ver", 'title' =>"Agregar tutor",
+			    		'url' => array('controller' => 'tutores','action' => 'add',$conveniosparticulare['Conveniosparticulare']['id']), array('class'=>'view')
+						)); 	
+							}else{
+									 echo $this->html->image("mi_form/addFirmante.png", array(
+			    		"alt" => "Ver", 'title' =>"No se puede ejecutar la acción","style"=>"opacity:0.4"));
+							 }
 					 ?>
 					<?php echo $this->html->image("mi_form/edit.png", array(
 			    		"alt" => "Editar", 'title' =>"Editar Convenio",
 			    		'url' => array('controller' => 'conveniosparticulares','action' => 'edit',$conveniosparticulare['Conveniosparticulare']['id']), array('class'=>'edit')
 						)); ?>
-					<?php echo $this->html->image("mi_form/suspendConvenio.png", array(
+					<?php 
+					if(is_null($conveniosparticulare['Conveniosparticulare']['FechaCancelacion'])){
+					echo $this->html->image("mi_form/suspendConvenio.png", array(
 			    		"alt" => "Suspender", 'title' =>"Suspender Convenio",
 			    		'url' => array('controller' => 'conveniosparticulares','action' => 'suspenderConvenio',$conveniosparticulare['Conveniosparticulare']['id']), array('class'=>'suspenderConvenio')
-						)); ?>
+						)); 
+						}else{echo $this->html->image("mi_form/suspendConvenio.png", array(
+			    		"alt" => "Suspender", 'title' =>"No se puede ejecutar la acción","style"=>"opacity:0.4"));
+						}
+						?>
+					<?php 
+					if(!is_null($conveniosparticulare['Conveniosparticulare']['FechaCancelacion'])){
+						echo $this->html->image("mi_form/addConvenio.png", array(
+			    			"alt" => "Agregar", 'title' =>"Agregar Experiencia del Alumno",
+			    			'url' => array('controller' => 'conveniosparticulares','action' => 'experiencia',$conveniosparticulare['Conveniosparticulare']['id']), array('class'=>'edit')
+						));
+							}else{echo $this->html->image("mi_form/addConvenio.png", array(
+			    			"alt" => "Agregar", 'title' =>"No se puede ejecutar la acción","style"=>"opacity:0.4"));
+						}
+						?>
 				
 
 		</td>

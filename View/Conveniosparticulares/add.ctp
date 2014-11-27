@@ -1,12 +1,19 @@
+<table>
+	<tr>
+		<td class="mitdLeft"><h3><?php echo __('Nuevo Convenio'); ?></h3></td>
+		<td>
 
-						
-						
-<div class="conveniosparticulares form">
+    <td class="mitd">
+        <?php echo $this->Html->link(__('<< Volver'), 
+            array('controller' => 'conveniosparticulares', 'action' => 'index')); ?>
+    </td>
+</td>
+	</tr>
+</table>
 
 <?php echo $this->Form->create('Conveniosparticulare'); ?>
 
-<h1><?php echo __('Nuevo Convenio'); ?></h1>
-<br>
+
 
 
 
@@ -32,9 +39,9 @@
 	<tr >
 	
 		 				
-		 	<td class="mitd2">
+		 	<td class="mitd">
 		 				<?php 
-		 						echo $this->Form->input('empresa_id', array('label'=>'Seleccionar Empresa','id' => "empresa_id"));
+		 						echo $this->Form->input('empresa_id', array('label'=>'Seleccionar Empresa: ','id' => "empresa_id"));
 						?>
 						<script>
 						$("#empresa_id").select2({
@@ -44,7 +51,7 @@
 						</script>
 					&nbsp
 						<?php
-							echo $this->Form->input('tutore_id',array('id' => "tutor_id" ,'label'=>'Seleccionar Tutor')); 
+							echo $this->Form->input('tutore_id',array('id' => "tutor_id" ,'label'=>'Seleccionar Tutor: ')); 
 						?>
 						
 						<script>
@@ -55,9 +62,9 @@
 						</script>
 					
 		 				</td>
-		 				<td class="mitd2" >
+		 				<td class="mitd" >
 		 					<?php 
-		 						echo $this->Form->input('alumno_id',array('label'=>'Seleccionar Alumno','id' => "alumno_id"));
+		 						echo $this->Form->input('alumno_id',array('label'=>'Seleccionar Alumno: ','id' => "alumno_id"));
 		 					?>
 							<script>
 						$("#alumno_id").select2({
@@ -68,7 +75,7 @@
 						
 						&nbsp
 						<?php 
-		 						echo $this->Form->input('carrera_id',array('label'=>'Seleccionar Carrera','id' => "carrera_id"));
+		 						echo $this->Form->input('carrera_id',array('label'=>'Seleccionar Carrera: ','id' => "carrera_id"));
 		 					?>
 						<script>
 									$("#carrera_id").select2({
@@ -110,7 +117,7 @@
 			<td class="mitd">
 				
 				<?php 
-				echo "Fecha de firma del convenio: <b>(YYYY-MM-DD)</b>".$this->Form->inputText('FechaFirmaConvenio',array(		
+				echo "Fecha de firma del convenio: ".$this->Form->inputText('FechaFirmaConvenio',array(		
 					'id'=>'fechaFirmaConvenio',
 					'class'=>'datepicker',
 					'style'=>"width:76px;",
@@ -124,7 +131,7 @@
 			<td class="mitd">
 				
 				<?php 
-				echo "Fecha de alta Obra Social: <b>(YYYY-MM-DD)</b>".$this->Form->inputText('FechaAltaObraSocial',array(		
+				echo "Fecha de alta Obra Social: ".$this->Form->inputText('FechaAltaObraSocial',array(		
 					'id'=>'fechaAltaOS',
 					'class'=>'datepicker',
 					'style'=>"width:76px;",
@@ -140,7 +147,7 @@
 		<tr>
 			<td class="mitd">
 				<?php 
-				echo "Fecha de inicio: <b>(YYYY-MM-DD)</b>".$this->Form->inputText('FechaInicio',array(		
+				echo "Fecha de inicio: ".$this->Form->inputText('FechaInicio',array(		
 					'id'=>'fechainicio',
 					'class'=>'datepicker',
 					'style'=>"width:76px;",
@@ -154,7 +161,7 @@
 			<td class="mitd">
 				
 					<?php 
-				echo "Fecha de inicio: <b>(YYYY-MM-DD)</b>".$this->Form->inputText('FechaFin',array(		
+				echo "Fecha de fin: ".$this->Form->inputText('FechaFin',array(		
 					'id'=>'fechafin',
 					'class'=>'datepicker',
 					'style'=>"width:76px;",
@@ -184,20 +191,20 @@
 		</tr>
 		<tr>
 			<td class="mitd">
-				<?php echo $this->Form->input('PagaAsignacionEstumulo',array('label'=>'Paga asignacion estimulo: '));?>
+				<small>¿Paga asignacion estimulo?</small><?php echo $this->Form->checkbox('PagaAsignacionEstimulo'); ?>
 			</td>
 			<td class="mitd">
 				<?php echo $this->Form->input('ImporteAsignacionEstimulo',array('label'=>'Importe asignacion estimulo: ', 'style'=>"width:107px;"));?>
 			</td>
 		</tr>
 			<tr>
-			<td class="mitd2">
+			<td class="mitd">
 			<?php
 				//echo $this->Form->input('EvaluacionAlumno'); VER DONDE LO PONGO
 				
 				//echo $this->Form->input('ArchivoCP'); VER PARA QUE ES ESTO
 				
-				echo $this->Form->input('oferta_id',array('id' => "oferta_id"));
+				echo $this->Form->input('oferta_id',array('id' => "oferta_id", 'label'=>"Seleccionar Oferta: "));
 		 	?>
 						<script>
 						$("#oferta_id").select2({

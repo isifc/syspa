@@ -135,6 +135,13 @@
                                                 )
                                     ?>
                                 </li>
+                                <li>
+                                    <?php
+                                        echo $this->Html->Link('Tutores',
+                                                array('controller' => 'Tutores','action' => 'index')
+                                                )
+                                    ?>
+                                </li>
                             </ul>
                         </li>                       
                         <!--Informes-->

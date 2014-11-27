@@ -45,7 +45,7 @@
 							'dateFormat'=>'d-m-Y',
 							'class'=>'datepicker',
 							'style'=>"width:76px;",
-							'rule' => 'notempty',
+							'rule' => 'notEmpty',
 							)); 
   						?> 
   						<Script> 

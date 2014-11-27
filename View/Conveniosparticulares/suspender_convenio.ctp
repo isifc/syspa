@@ -1,4 +1,22 @@
-<h1>Suspender Convenio Particular</h1>
+
+
+	
+<table>
+	<tr>
+		<td class="mitdLeft"><h3><?php echo __('Suspender Convenio Particular'); ?></h3></td>
+		<td>
+
+    <td class="mitd">
+        <?php echo $this->Html->link(__('<< Volver'), 
+            array('controller' => 'conveniosparticulares', 'action' => 'index')); ?>
+    </td>
+</td>
+	</tr>
+</table>
+	
+
+	
+
 <?php echo $this->Form->create('Conveniosparticulare'); ?>
 <br>
 <?php
@@ -27,9 +45,26 @@
 <legend>Suspención</legend>
 
 <?php 
-	echo $this->Form->input('FechaCancelacion',array('label'=>'Fecha de baja'));
-	?><h4>Motivo: </h4>	<?php
-	echo $this->Form->textarea('MotivoCancelacion'); ?>
+				echo "Fecha de firma del convenio:".$this->Form->inputText('FechaCancelacion',array(		
+					'id'=>'fechaFirmaConvenio',
+					'dateFormat'=>'d-m-Y',
+					'class'=>'datepicker',
+					'style'=>"width:76px;",
+					'rule'=>"notEmpty",
+					));
+	?>
+				<Script> 
+					$("#fechaFirmaConvenio").datepicker();
+				</script>
+			
+			<h4>Motivo: </h4>	
+			<?php
+	echo $this->Form->textarea('MotivoCancelacion');
+	 ?>
+	<!--echo $this->Form->input('FechaCancelacion',array('label'=>'Fecha de baja'));
+	<h4>Motivo: </h4>	<?php
+	echo $this->Form->textarea('MotivoCancelacion');
+	 ?>-->
 	
 	
 </fieldset>

@@ -86,4 +86,24 @@ class Conveniosparticulare extends AppModel {
 			'order' => ''
 		)
 	);
+
+/*function esCarrera($data){
+
+	if ($data == 1) {
+		return true;
+	}else{
+		return false;
+	}
+}
+
+
+var $validate = array(
+
+					'carrera_id' => array(
+							'rule' => array('esCarrera'),
+		        			'message' => 'Debe seleccionar una carrera'
+		        	));
+
+*/
+
 }

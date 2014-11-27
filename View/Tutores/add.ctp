@@ -1,17 +1,71 @@
 <div class="tutores form">
+	<h2><?php echo 'Registrar Tutor'?></h2>
+
+<table>
+<tr>
+<td class="mitdLeft">
+<dl>
+		<dt><?php echo __('Empresa'); ?></dt>
+			<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($conveniosparticulare['Empresa']['EmpresaRazonSocial']); ?>&nbsp;</dd>
+		<dt><?php echo __('Alumno'); ?></dt>
+		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($conveniosparticulare['Alumno']['name']); ?>&nbsp;</dd>
+		<!--<dt><?php echo __('Carrera'); ?></dt>
+		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($conveniosparticulare['Carrera']['carrera']); ?>&nbsp;</dd>
+		<dt><?php echo __('Fecha del convenio'); ?></dt>
+		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+			<?php echo h($conveniosparticulare['Conveniosparticulare']['FechaFirmaConvenio']); ?>
+			&nbsp;
+		</dd>-->
+</dl>
+</td>
+</tr>
+</table>
+
+
+
+
+
+
 <?php echo $this->Form->create('Tutore'); ?>
 	<fieldset>
-		<legend><?php echo __('Add Tutore'); ?></legend>
+		<legend><?php echo __('Datos del tutor'); ?></legend>
+		<table>
+		<tr>
+		<td class="mitd">
+	
+		<?php echo $this->Form->input('ApellidoNombre', array('label'=>'Apellido y Nombre: '));?>
+		</td>
+		<td class="mitd">
+	
+		<?php echo $this->Form->input('TutorCargo', array('label'=>'Cargo: '));?>
+		</td>
+	</tr>
+	<tr>
+	<td class="mitd">	
+		<?php	echo $this->Form->input('TutorTelefono',array('label'=>'Telefono: '));?>
+	</td>
+	<td class="mitd">	
+		<?php	echo $this->Form->input('TutorEmail',array('label'=>'E-mail: '));?>
+	</td>
+	</tr>
+	<tr>
+		<td class="mitd">
+			<?php echo $this->Form->input('CUIL',array('label'=>'Cuil: ','style'=>"width:107px;"));?>
+		</td>
+		<td class="mitd"></td>
+	</tr>
+
+</table>
 	<?php
-		echo $this->Form->input('DNI');
-		echo $this->Form->input('TutorEmail');
-		echo $this->Form->input('TutorTelefono');
-		echo $this->Form->input('TutorCargo');
-		echo $this->Form->input('ApellidoNombre');
-		echo $this->Form->input('CUIL');
+		//echo $this->Form->input('DNI');
+		
+	
+		
+		
+		
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end(__('Registrar')); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>

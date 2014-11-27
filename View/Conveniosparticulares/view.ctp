@@ -1,4 +1,10 @@
+<div align="right">
+	<br>
+	<td><?php echo $this->Html->link(__('<< Volver'), array('action' => 'index')); ?></td>
+	<br>
+</div>	
 <div class="conveniosparticulares view">
+
 
 <fieldset>
 <legend> Datos del convenio particular</legend>
@@ -17,51 +23,51 @@
 			&nbsp;</h3>
 		</dd>
 			
+		<dt><?php echo __('Tutor'); ?></dt>
+		<dd>
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	<?php echo $this->Html->link($conveniosparticulare['Tutore']['ApellidoNombre'], array('controller' => 'tutores', 'action' => 'view', $conveniosparticulare['Tutore']['id'])); ?>
+			&nbsp;
+		</dd>	
 
-		
-		 <dt><?php echo __('Fecha Firma Convenio'); ?></dt>
+		<dt><?php echo __('Fecha Firma Convenio'); ?></dt>
 		<dd>
 			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo h($conveniosparticulare['Conveniosparticulare']['FechaFirmaConvenio']); ?>
 			&nbsp;
 		</dd>
+
 		<dt><?php echo __('Fecha de Inicio'); ?></dt>
 		 <dd>
 			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo h($conveniosparticulare['Conveniosparticulare']['FechaInicio']); ?>
 			&nbsp;
 		</dd>
-			
-		<dt><?php echo __('Paga Asignacion Estimulo'); ?></dt>
-		<dd>
-			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo h($conveniosparticulare['Conveniosparticulare']['PagaAsignacionEstumulo']); ?>
-			&nbsp;
-		</dd>
-		
 
-		
 
-	
-		<dt><?php echo __('Nombre ART'); ?></dt>
-		<dd>
-			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo h($conveniosparticulare['Conveniosparticulare']['NombreART']); ?>
-			&nbsp;
-		</dd>
-		
-		<dt><?php echo __('Nombre Obra Social'); ?></dt>
+			<dt><?php echo __('Nombre Obra Social'); ?></dt>
 		<dd>
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	<?php echo h($conveniosparticulare['Conveniosparticulare']['NombreObraSocial']); ?>
 			&nbsp;
 		</dd>
+
+			<dt><?php echo __('Nombre ART'); ?></dt>
+		<dd>
+			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo h($conveniosparticulare['Conveniosparticulare']['NombreART']); ?>
+			&nbsp;
+		</dd>
+			
+		<dt><?php echo __('Paga Asignacion Estimulo'); ?></dt>
+		<dd>
+			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php 
+
+			if ($conveniosparticulare['Conveniosparticulare']['PagaAsignacionEstimulo']==1) {
+				echo "Si";
+			}else{
+				echo "No";
+			}
+?>
+			&nbsp;
+		</dd>
 		
-		<dt><?php echo __('Fecha de Cancelacion'); ?></dt>
-		<dd>
-		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	<?php echo h($conveniosparticulare['Conveniosparticulare']['FechaCancelacion']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Motivo de Cancelacion'); ?></dt>
-		<dd>
-		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	<?php echo h($conveniosparticulare['Conveniosparticulare']['MotivoCancelacion']); ?>
-			&nbsp;
-		</dd>
+
 		
 		
 		<!--<dt><?php echo __('ArchivoCP'); ?></dt>
@@ -69,11 +75,7 @@
 			<?php echo h($conveniosparticulare['Conveniosparticulare']['ArchivoCP']); ?>
 			&nbsp;
 		</dd> PODRIA SER UN LINK AL ARCHIVO-->
-		<dt><?php echo __('Fecha Alta Obra Social'); ?></dt>
-		<dd>
-		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	<?php echo h($conveniosparticulare['Conveniosparticulare']['FechaAltaObraSocial']); ?>
-			&nbsp;
-		</dd>
+		
 		
 		<dt><?php echo __('Oferta'); ?></dt>
 		<dd>
@@ -83,11 +85,7 @@
 		
 		
 		
-		<dt><?php echo __('Tutore'); ?></dt>
-		<dd>
-		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	<?php echo $this->Html->link($conveniosparticulare['Tutore']['ApellidoNombre'], array('controller' => 'tutores', 'action' => 'view', $conveniosparticulare['Tutore']['id'])); ?>
-			&nbsp;
-		</dd>
+		
 	</td>
 
 	<td class="mitdLeft">
@@ -101,26 +99,46 @@
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo h($conveniosparticulare['Carrera']['carrera']); ?>
 			&nbsp;
 		</dd>
+
+		 <dt><?php echo __('Fecha Alta Obra Social'); ?></dt>
+		<dd>
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	<?php echo h($conveniosparticulare['Conveniosparticulare']['FechaAltaObraSocial']); ?>
+			&nbsp;
+		</dd>
+
+
+
+
 		<dt><?php echo __('Fecha de Fin'); ?></dt>
 		<dd>
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	<?php echo h($conveniosparticulare['Conveniosparticulare']['FechaFin']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Importe Asignacion Estimulo'); ?></dt>
+
+
+
+			<dt><?php echo __('Importe ObraSocial'); ?></dt>
 		<dd>
-		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	<?php echo h($conveniosparticulare['Conveniosparticulare']['ImporteAsignacionEstimulo']); ?>
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	<?php echo h($conveniosparticulare['Conveniosparticulare']['ImporteObraSocial']); ?>
 			&nbsp;
 		</dd>
+
 		<dt><?php echo __('Importe Art'); ?></dt>
 		<dd>
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	<?php echo h($conveniosparticulare['Conveniosparticulare']['ImporteArt']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Importe ObraSocial'); ?></dt>
+
+		<dt><?php echo __('Importe Asignacion Estimulo'); ?></dt>
 		<dd>
-		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	<?php echo h($conveniosparticulare['Conveniosparticulare']['ImporteObraSocial']); ?>
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	<?php echo h($conveniosparticulare['Conveniosparticulare']['ImporteAsignacionEstimulo']); ?>
 			&nbsp;
 		</dd>
+	
+	
+
+
+
 	</td>
 </tr>
 
@@ -134,6 +152,43 @@
 </div>
 </fieldset>
 
+<?php if (!is_null($conveniosparticulare['Conveniosparticulare']['FechaCancelacion'])) {
+	
+ ?>
+<fieldset>
+
+<legend>Cancelacion del convenio particular</legend>
+
+<dl>
+<table cellspacing="2" >
+<tr class="mitr" >
+
+
+	<td class="mitdLeft">
+
+
+
+
+
+<dt><?php echo __('Fecha de Cancelacion'); ?></dt>
+		<dd>
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	<?php echo h($conveniosparticulare['Conveniosparticulare']['FechaCancelacion']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Motivo de Cancelacion'); ?></dt>
+		<dd>
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	<?php echo h($conveniosparticulare['Conveniosparticulare']['MotivoCancelacion']); ?>
+			&nbsp;
+		</dd>
+</td>
+</tr>
+</table>
+</dl>
+</fieldset>
+
+<?php } ?>
+
+
 
 </div>
 
@@ -143,8 +198,8 @@
 	<?php if (is_null($conveniosparticulare['Conveniosparticulare']['FechaCancelacion'])){
 	
  ?> <p align="right">Agregar tutor <?php echo $this->html->image("mi_form/Add.png", array(
-				    		"alt" => "Agregar tutor", 'title' =>"Agregar Tutor",
-				    		'url' => array('controller' => 'tutores','action' => 'add',$conveniosparticulare['Conveniosparticulare']['id'])
+							"alt" => "Agregar tutor", 'title' =>"Agregar Tutor",
+							'url' => array('controller' => 'tutores','action' => 'add',$conveniosparticulare['Conveniosparticulare']['id'])
 							)); ?> </p>
 <?php  
 }
@@ -171,9 +226,9 @@
 			<td class="actions">
 
 				<?php echo $this->html->image("mi_form/view.png", array(
-			    		"alt" => "Agregar",
-			    		'title' =>"ver tutor",
-			    		'url' => array('controller' => 'tutores', 'action' => 'view', $tutor['id'])
+						"alt" => "Agregar",
+						'title' =>"ver tutor",
+						'url' => array('controller' => 'tutores', 'action' => 'view', $tutor['id'])
 						)); ?>
 					
 			</td>

@@ -1,7 +1,55 @@
+
+<table>
+	<tr>
+		<td class="mitdLeft"><h3><?php echo __('Editar Convenio Particular'); ?></h3></td>
+		<td>
+
+    <td class="mitd">
+        <?php echo $this->Html->link(__('<< Volver'), 
+            array('controller' => 'conveniosparticulares', 'action' => 'index')); ?>
+    </td>
+</td>
+	</tr>
+</table>
+
+
 <div class="conveniosparticulares form">
 <?php echo $this->Form->create('Conveniosparticulare'); ?>
+
+<table>
+<tr>
+<td class="mitdLeft">
+<dl>
+
+		<dt><?php echo __('Empresa'); ?></dt>
+			<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($conveniosparticulare['Empresa']['EmpresaRazonSocial']); ?>&nbsp;</dd>
+		<dt><?php echo __('Alumno - Legajo'); ?></dt>
+		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($conveniosparticulare['Alumno']['name'] ." - ". h($conveniosparticulare['Alumno']['NroLegajo'])); ?>&nbsp;</dd>
+		<dt><?php echo __('Carrera'); ?></dt>
+		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($conveniosparticulare['Carrera']['carrera']); ?>&nbsp;</dd>
+	
+</dl>
+</td>
+<td class="mitdLeft">
+<dl>
+	
+		<!--<dt><?php echo __('Fecha del convenio'); ?></dt>
+		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+			<?php echo h($conveniosparticulare['Conveniosparticulare']['FechaFirmaConvenio']); ?>
+			&nbsp;
+		</dd>-->
+		</dl>
+</td>
+
+</table>
+
+
+
+
+
+
 	<fieldset>
-		<legend><?php echo __('Editar Convenio particular'); ?></legend>
+		<legend><?php echo __('Datos del Convenio Particular'); ?></legend>
 	
 	
 						<div id="dialog" title="Lista de alumnos">
@@ -10,50 +58,94 @@
 
 </div>
 </div>
+
+
+
+
 						
 <table>	
 
 
-<tr>
-<td class="mitdLeft">
-<dl>
 
-		<dt><?php echo __('Empresa'); ?></dt>
-			<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($conveniosparticulare['Empresa']['EmpresaRazonSocial']); ?>&nbsp;</dd>
-		<dt><?php echo __('Legajo alumno'); ?></dt>
-		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($conveniosparticulare['Alumno']['name']); ?>&nbsp;</dd>
-	
-</dl>
-</td>
-<td class="mitdLeft">
-<dl>
-	<dt><?php echo __('Carrera'); ?></dt>
-		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($conveniosparticulare['Carrera']['carrera']); ?>&nbsp;</dd>
-		<dt><?php echo __('Fecha del convenio'); ?></dt>
-		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
-			<?php echo h($conveniosparticulare['Conveniosparticulare']['FechaFirmaConvenio']); ?>
-			&nbsp;
-		</dd>
-		</dl>
-</td>
 
 </tr>
 
+<tr>
+	<td class="mitd">
+		<?php
+							echo $this->Form->input('tutore_id',array('id' => "tutor_id" ,'label'=>'Seleccionar Tutor: ')); 
+						?>
+						
+						<script>
+							$("#tutor_id").select2({
+							placeholder: "Select a State",
+							width:'170px'
+							});
+						</script>
+	</td>
+</tr>
 
 		<tr>
 			<td class="mitd">
-				<?php echo $this->Form->input('FechaFirmaConvenio');?>
+			<?php 
+				echo "Fecha de firma del convenio:".$this->Form->inputText('FechaFirmaConvenio',array(		
+					'id'=>'fechaFirmaConvenio',
+					'class'=>'datepicker',
+					'style'=>"width:76px;",
+					'value'=>$fechaFirma,
+					'default'=>$fechaFirma,
+					));
+				?>
+				<Script> 
+					$("#fechaFirmaConvenio").datepicker();
+				</script>
 			</td>
 			<td class="mitd">
-				<?php echo $this->Form->input('FechaAltaObraSocial');?>
+				
+				<?php 
+				echo "Fecha de alta Obra Social:".$this->Form->inputText('FechaAltaObraSocial',array(		
+					'id'=>'fechaAltaOS',
+					'class'=>'datepicker',
+					'style'=>"width:76px;",
+					'value'=>$fechaAltaOS,
+					'default'=>$fechaAltaOS,
+					));
+				?>
+				<Script> 
+					$("#fechaAltaOS").datepicker();
+				</script>
+				
 			</td>
 		</tr>
 		<tr>
 			<td class="mitd">
-				<?php echo $this->Form->input('FechaInicio',array('label'=>'Fecha de inicio: '));?>
+				<?php 
+				echo "Fecha de inicio:".$this->Form->inputText('FechaInicio',array(		
+					'id'=>'fechainicio',
+					'class'=>'datepicker',
+					'style'=>"width:76px;",
+					'value'=>$fechaIni,
+					'default'=>$fechaIni,
+					));
+				?>
+				<Script> 
+					$("#fechainicio").datepicker();
+				</script>
 			</td>
 			<td class="mitd">
-				<?php echo $this->Form->input('FechaFin',array('label'=>'Fecha de fin: '));?>
+				
+					<?php 
+				echo "Fecha de fin:".$this->Form->inputText('FechaFin',array(		
+					'id'=>'fechafin',
+					'class'=>'datepicker',
+					'style'=>"width:76px;",
+					'value'=>$fechaFin,
+					'default'=>$fechaFin,
+					));
+				?>
+				<Script> 
+					$("#fechafin").datepicker();
+				</script>
 			</td>
 		</tr>
 	    <tr>
@@ -74,7 +166,7 @@
 		</tr>
 		<tr>
 			<td class="mitd">
-				<?php echo $this->Form->input('PagaAsignacionEstumulo',array('label'=>'Paga asignacion estimulo: '));?>
+				<small>¿Paga asignacion estimulo?</small><?php echo $this->Form->checkbox('PagaAsignacionEstimulo'); ?>
 			</td>
 			<td class="mitd">
 				<?php echo $this->Form->input('ImporteAsignacionEstimulo',array('label'=>'Importe asignacion estimulo: ','min'=>0, 'max'=>5));?>
@@ -90,7 +182,36 @@
 		
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Editar')); ?>
+
+
+
+					
+			<?php
+			if ((!(is_null($conveniosparticulare['Conveniosparticulare']['EvaluacionAlumno'])))&&(!(empty($conveniosparticulare['Conveniosparticulare']['EvaluacionAlumno'])))) {
+				?>
+			<fieldset>
+				<legend ><b>Experiencia del Alumno </b></legend>
+				<table>
+					<tr>
+						<td class="mitd">
+
+					<?php echo $this->Form->textarea('EvaluacionAlumno'); ?>
+				
+
+					</td>
+			
+			</tr>
+			
+		</table>
+		</fieldset>	
+	<?php  } ?>		
+	
+	 			
+
+
+
+
+<?php echo $this->Form->end(__('Registrar')); ?>
 </div>
 <!--<div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
