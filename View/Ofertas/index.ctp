@@ -1,8 +1,35 @@
+
 <div class="ofertas index">
     <br>
     <h3><?php echo __('Ofertas de Pasantías'); ?></h3>
     <br>
-     <td valign="bottom" >
+    <table>
+    <tr bgcolor="D3DEF0">	
+        <td class="mitd">
+            <?php 
+                echo $this->Form->create('Oferta');
+                echo $this->Form->input('Empresa');
+            ?>
+        </td>
+        <script>
+            $("#sele").select2({
+                placeholder: "Seleccione Comuna",
+                width:'105px'	
+            });
+        </script>
+        <td class="mitd" >
+            <?php 
+                echo $this->Form->create('Oferta');
+                echo $this->Form->input('Descripcion');
+            ?>
+        </td>
+        <td class="mitd">
+            <?php echo $this->Form->Button(__('Buscar'));?>
+            <script>
+                $( "button" ).button();
+            </script>
+	</td>		   
+    <td class="mitd">
 	<p align="right"> Nueva Oferta 
             <?php echo $this->html->image("mi_form/Add.png", 
                 array('alt' => 'Agregar', 'title' =>"Agregar Oferta",'url' => 
@@ -12,6 +39,8 @@
             ?>
 	</p>
     </td>
+    </tr>
+    </table>
     <hr>
     <table cellpadding="0" cellspacing="0">
     <thead>

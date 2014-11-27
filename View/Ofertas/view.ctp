@@ -21,30 +21,48 @@
 </div>
 <hr>
 <!--Ofertas-->
-<table > 
-    <!--<pre><?php print_r($carrera); ?></pre>-->
+<td> 
+    <!--<pre><?php print_r($carreras); ?></pre>-->
     
     <?php if (!empty($carreras)): ?>
-    <table cellpadding = "0" cellspacing = "0" >
+    <table>
 	<tr align="right">
             <th ><?php echo __('Carreras'); ?></th>
 	</tr>
 	<?php foreach ($carreras as $carrera): ?>
             <tr>
-                <td class="tabla" align="right"><?php echo $carrera['Carrera']['carrera']; ?>
+                <td class="tabla" align="right"><dt><?php echo $carrera['Carrera']['carrera']; ?></dt>
                     <table>
                         <tr>
-                            <th>
+                            <td>
                                 <?php echo __('Materias');?>
-                            </th>
-                            <th>
+                            </td>
+                            <td>
                                 <?php echo __('Condición');?>
-                            </th>
+                            </td>
                         </tr>
                         <?php foreach ($carrera['Requisitosmateria'] as $materia): ?>
                         <tr>
-                            <td><?php echo $materia['materia_id'];?></td>
-                            <td><?php echo $materia['RequisitoMateriaCondicion']; ?></td>
+                            <td>
+                                <?php
+                                    echo $materia['Materia']['materia'];
+                                ?>
+                            </td>
+                            
+                            <td>
+                                <?php 
+                                    $Condicion = $materia['RequisitoMateriaCondicion'];
+                                    $options = array(1 => 'Aprobada', 2 => 'Regularizada');
+                                    echo $this->Form->select($Condicion,
+                                        $options,
+                                        array('escape' => false,
+                                               'value' => $Condicion, 
+                                               'disabled' => true)
+                                        
+                                    );
+                                ; ?>
+                            </td>
+                            
                         </tr>
                         <?php endforeach; ?>
                     </table>
@@ -53,7 +71,7 @@
 	<?php endforeach; ?>
     </table>
     <?php endif; ?>
-</table>
+</td>
 <hr>
 <div class="related">
     <?php if (!empty($requisitos)): ?>

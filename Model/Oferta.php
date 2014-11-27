@@ -11,6 +11,22 @@ App::uses('AppModel', 'Model');
  */
 class Oferta extends AppModel {
     public $dispalyField = 'OfertaDescripcion';
+
+    public $actsAs = array(
+        'Search.Searchable'
+    );
+   public $filterArgs = array(
+        'Empresa' => array(
+            'type' => 'like',
+            'field' => 'Empresa.EmpresaRazonSocial'
+        ),
+	'Descripcion'=> array (
+                'type' =>'like',
+                'field'=>'OfertaDescripcion'
+		),
+		
+    );
+
 /**
  * Validation rules
  *

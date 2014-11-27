@@ -13,7 +13,12 @@ class OfertasController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Paginator','RequestHandler','Search.Prg');
+        public $uses= array('Oferta');
+	var $paginate = array(
+		'limit' => 10, 
+		'page' => 1,
+		'order'=>array('OfertaVigenciaDesde'));
         
 /**
  * index method
@@ -21,8 +26,10 @@ class OfertasController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Oferta->recursive = 0;
-		$this->set('ofertas', $this->Paginator->paginate());
+            $this->Oferta->recursive = 0;
+            $this->Prg->commonProcess();
+            $this->Paginator->settings['conditions'] = $this->Oferta->parseCriteria($this->Prg->parsedParams());	
+            $this->set('ofertas', $this->Paginator->paginate());
 	}
 
 /**
@@ -40,10 +47,10 @@ class OfertasController extends AppController {
         $options = array('conditions' => array('Oferta.' . $this->Oferta->primaryKey => $id));
         $this->set('oferta', $this->Oferta->find('first', $options));
         $this->LoadModel('Ofertascarrera');
-        $this->Ofertascarrera->recursive = 1;
-        $carreras = $this->Ofertascarrera->find('all',
-                array(
-                    'fields' => array(
+        $this->Ofertascarrera->recursive = 2;
+        $carreras = $this->Ofertascarrera->find('all',array('conditions' => array('oferta_id = '=> $id)));
+ /*               array(
+                   'fields' => array(
                         'id',
                         'carrera_id',
                         'Carrera.carrera'
@@ -51,9 +58,12 @@ class OfertasController extends AppController {
                     'conditions' => array('oferta_id = '=> $id)
                 )
             );  
+ 
+  */
         $this->set('carreras',$carreras);
 
         $this->LoadModel('Requisitoscompetencia');
+        $this->Requisitoscompetencia->recursive = 0;
         $requisitos = $this->Requisitoscompetencia->find('all',
             array(
                 'fields' => array(
