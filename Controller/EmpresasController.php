@@ -16,11 +16,11 @@ class EmpresasController extends AppController {
  * @var array
  */
 	public $components = array('Paginator', 'Session','RequestHandler','Search.Prg');
-	public $helpers = array('Time','Js'=>array('Jquery','Ajax'));
+	public $helpers = array('Time','Acortar','Js'=>array('Jquery','Ajax'));
 	public $uses= array('Empresa');
 
 	var $paginate = array(
-		'limit' => 20, 
+		'limit' =>20, 
 		'page' => 1,
 		'order'=>array('Empresa.id ASC'));
 /**
@@ -320,6 +320,14 @@ where nombre='JUJUY'))*/
 }
 
 	public function add_firmante($id = null){
+		if (!$this->Empresa->exists($id)) {
+			throw new NotFoundException(__('Empresa invalida'));
+		}
+		$options = array('conditions' => array('Empresa.' . $this->Empresa->primaryKey => $id));
+		$this->set('empresa', $this->Empresa->find('first', $options));
+	}
+
+	public function estado_Cuenta($id = null){
 		if (!$this->Empresa->exists($id)) {
 			throw new NotFoundException(__('Empresa invalida'));
 		}

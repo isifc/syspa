@@ -7,6 +7,6 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => '',
-		'database' => 'syspa2',
+		'database' => 'syspa',
 	);
 }

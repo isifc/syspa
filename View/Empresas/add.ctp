@@ -43,10 +43,10 @@
 				$("#e7").select2({
 							placeholder: "Select report type",
 							minimumInputLength: 3,
-							
 							width:'175px'	
 						});
 				</script>
+				
 				
 			</td>
 			<td class="mitd">
@@ -127,10 +127,10 @@
 
 					));
 				?>
-				<Script> 
+				<script> 
 					$("#fechaConvenio").datepicker();
 				</script>
-
+				
 
 				</td>	
 							

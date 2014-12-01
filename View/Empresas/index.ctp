@@ -30,7 +30,7 @@
 		 				<td class="mitd" bgcolor="D3DEF0" >
 		 					<?php  $sizes = array('v' => 'Vigente', 'n' => 'no Vigente', 'nt'=>'Sin Convenio','t' => 'todos');
 							echo $this->Form->input(
-    								'convenio vigente',
+    								'filtrar convenios',
     								array('id'=>'sele','options' => $sizes, 'default' => 't')
 							);
 							
@@ -88,14 +88,14 @@
 				echo $empresa['Empresa']['EmpresaCUIT']; 
 			?>
 		</td>
-		<td class="tabla">
+		<td class="nombre">
 			<?php 
-				echo $empresa['Empresa']['EmpresaRazonSocial']; 
+				echo $this->Acortar->recortar_texto($empresa['Empresa']['EmpresaRazonSocial'],23);
 			?>
 		</td>
 		<td class="tabla">
 			<?php 
-				echo $empresa['Empresa']['ContactoNombre']; 
+				echo $this->Acortar->recortar_texto($empresa['Empresa']['ContactoNombre'],20); 
 			?>
 		</td>
 		
@@ -125,6 +125,11 @@
 					<?php echo $this->html->image("mi_form/edit.png", array(
 			    		"alt" => "Editar", 'title' =>"Editar Empresa",
 			    		'url' => array('controller' => 'empresas','action' => 'editar',$empresa['Empresa']['id']), array('class'=>'editar')
+						)); ?>
+
+					<?php echo $this->html->image("mi_form/estadoCuenta2.png", array(
+			    		"alt" => "Editar", 'title' =>"Estado de Cuenta",
+			    		'url' => array('controller' => 'empresas','action' => 'estado_cuenta',$empresa['Empresa']['id']), array('class'=>'editar')
 						)); ?>
 					
 					<?php	

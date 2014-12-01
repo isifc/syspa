@@ -80,23 +80,7 @@
                             ?>
                          </li>
                         <!--Convenios--> 
-                        <li>
-                            <a href="#">Convenios</a>
-                            <ul>
-                                <li>
-                                    <?php 
-                                        echo $this->Html->link('Marcos',
-                                            array('controller'=>'Empresas','action'=>'index')
-                                                )
-                                    ?>
-                                </li>
-				<li>
-                                    <?php 
-                                        echo $this->Html->link('Particulares',
-                                            array('controller'=>'Conveniosparticulares','action'=>'index'))?>
-				</li>
-                            </ul> 
-			</li>
+                        
 			<!--Pasantías-->
                         <li>
                             <a href="#">Pasantías</a>
@@ -114,9 +98,16 @@
                                                 array('controller' => 'Postulaciones','action' => 'index')
                                                 )
                                     ?>
-                                </li>
+                                    </li>
+                                    <li>
+                                    <?php 
+                                        echo $this->Html->link('Particulares',
+                                            array('controller'=>'Conveniosparticulares','action'=>'index'))?>
+                                    </li>
                             </ul>
                         </li>
+                        <!--Informes-->
+                        <li><a href="#">Informes</a></li>
                         <!--Tablas-->
                         <li>
                             <a href="#">Tablas</a>
@@ -135,17 +126,9 @@
                                                 )
                                     ?>
                                 </li>
-                                <li>
-                                    <?php
-                                        echo $this->Html->Link('Tutores',
-                                                array('controller' => 'Tutores','action' => 'index')
-                                                )
-                                    ?>
-                                </li>
                             </ul>
                         </li>                       
-                        <!--Informes-->
-                        <li><a href="#">Informes</a></li>
+                        
                     </ul>
                 </div> 
             </td>
