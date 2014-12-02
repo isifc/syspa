@@ -8421,17 +8421,17 @@ INSERT INTO `anexos` (`id`, `empresa_id`, `PagaSeguroTrabajoAnterior`, `PagaObra
 
 CREATE TABLE IF NOT EXISTS `areas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_carrera` int(11) DEFAULT NULL,
+  `carrera_id` int(11) DEFAULT NULL,
   `AreaDescripcion` varchar(512) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `Ref1064` (`id_carrera`)
+  KEY `Ref1064` (`carrera_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `areas`
 --
 
-INSERT INTO `areas` (`id`, `id_carrera`, `AreaDescripcion`) VALUES
+INSERT INTO `areas` (`id`, `carrera_id`, `AreaDescripcion`) VALUES
 (2, NULL, 'Analisis');
 
 -- --------------------------------------------------------
@@ -14800,9 +14800,9 @@ CREATE TABLE IF NOT EXISTS `postulaciones` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `alumno_id` int(11) NOT NULL,
   `oferta_id` int(11) NOT NULL,
-  `FechaPostulacion` date NOT NULL,
-  `FechaSeleccion` date NOT NULL,
-  `CumpleRequisitosAcademicos` tinyint(4) NOT NULL,
+  `FechaPostulacion` date NULL,
+  `FechaSeleccion` date NULL,
+  `CumpleRequisitosAcademicos` tinyint(4) NULL,
   PRIMARY KEY (`id`),
   KEY `Ref1240` (`alumno_id`),
   KEY `Ref641` (`oferta_id`)
