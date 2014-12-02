@@ -46,18 +46,47 @@ class AdendasController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function add($conveniosparticulare_id,
+		$fechaFirmaConvenio,
+		//$adendaDescripcion,
+		$nombreArtAnterior,
+		$nombreObraSocialAnterior,
+		$importeObraSocialAnterior,
+		$importeAsignacionEstimuloAnterior,
+		
+		$fechaAltaObraSocialAnterior,
+		$pagaAsignacionEstimuloAnterior,
+		//$fechaAltaARTAnterior,
+		$importeARTAnterior,
+		$tutorIdAnterior=null
+		) {
 		if ($this->request->is('post')) {
 			$this->Adenda->create();
+			if (isset($this->request->data['cancel'])) {
+                    $this->Session->setFlash(__('No se registro anexo.'));
+                    //return $this->redirect( array( 'action' => 'index' ));
+                    return $this->redirect(array('controller' => 'Conveniosparticulares','action' => 'index'));
+                }
 			if ($this->Adenda->save($this->request->data)) {
 				$this->Session->setFlash(__('The adenda has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('controller' => 'Conveniosparticulares','action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The adenda could not be saved. Please, try again.'));
 			}
 		}
-		$convenioparticulares = $this->Adenda->Convenioparticulare->find('list');
-		$this->set(compact('convenioparticulares'));
+		$conveniosparticulares = $this->Adenda->Conveniosparticulare->find('list');
+		$this->set(compact('conveniosparticulares'));
+		$this->set('conveniosparticulare_id',$conveniosparticulare_id);
+		$this->set('fechaFirmaConvenio',$fechaFirmaConvenio);
+		$this->set('nombreArtAnterior',$nombreArtAnterior);
+		$this->set('nombreObraSocialAnterior',$nombreObraSocialAnterior);
+		$this->set('importeObraSocialAnterior',$importeObraSocialAnterior);
+		$this->set('importeAsignacionEstimuloAnterior',$importeAsignacionEstimuloAnterior);
+		$this->set('fechaAltaObraSocialAnterior',$fechaAltaObraSocialAnterior);
+		$this->set('pagaAsignacionEstimuloAnterior',$pagaAsignacionEstimuloAnterior);
+		$this->set('importeARTAnterior',$importeARTAnterior);
+		$this->set('tutorIdAnterior',$tutorIdAnterior);
+		
 	}
 
 /**
@@ -82,8 +111,8 @@ class AdendasController extends AppController {
 			$options = array('conditions' => array('Adenda.' . $this->Adenda->primaryKey => $id));
 			$this->request->data = $this->Adenda->find('first', $options);
 		}
-		$convenioparticulares = $this->Adenda->Convenioparticulare->find('list');
-		$this->set(compact('convenioparticulares'));
+		$conveniosparticulares = $this->Adenda->Conveniosparticulare->find('list');
+		$this->set(compact('conveniosparticulares'));
 	}
 
 /**

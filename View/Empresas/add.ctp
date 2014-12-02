@@ -36,12 +36,12 @@
 			<td class="mitd">
 			<?php 
 
-		 	echo $this->Form->input('localidade_id', array('label'=>'localidad','id' => "e7"));
+		 	echo $this->Form->input('localidade_id', array('label'=>'localidad','id' => "e7",'default'=>1279));
 					
 			//echo $this->Form->input('id_localidade');?>
 				<script>
 				$("#e7").select2({
-							placeholder: "Select report type",
+							placeHolder: 'Selecciona una localidad',
 							minimumInputLength: 3,
 							width:'175px'	
 						});

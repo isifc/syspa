@@ -117,13 +117,13 @@
 
 
 
-			<dt><?php echo __('Importe ObraSocial'); ?></dt>
+			<dt><?php echo __('Importe Obra Social'); ?></dt>
 		<dd>
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	<?php echo h($conveniosparticulare['Conveniosparticulare']['ImporteObraSocial']); ?>
 			&nbsp;
 		</dd>
 
-		<dt><?php echo __('Importe Art'); ?></dt>
+		<dt><?php echo __('Importe ART'); ?></dt>
 		<dd>
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	<?php echo h($conveniosparticulare['Conveniosparticulare']['ImporteArt']); ?>
 			&nbsp;

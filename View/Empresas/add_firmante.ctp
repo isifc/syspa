@@ -13,6 +13,26 @@
 	</tr>
 </table>
 <table>
+<tr>
+<td class="mitdLeft">
+<dl>
+		<dt><?php echo __('CUIT'); ?></dt>
+		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+			<?php echo h($empresa['Empresa']['EmpresaCUIT']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Razon Social'); ?></dt>
+			<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($empresa['Empresa']['EmpresaRazonSocial']); ?>&nbsp;</dd>
+		<dt><?php echo __('Fecha del convenio'); ?></dt>
+		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+			<?php echo h($empresa['Empresa']['ConvenioFecha']); ?>
+			&nbsp;
+		</dd>
+</dl>
+</td>
+</tr>
+</table>
+<table>
 	<tr>
 		<td class="mitd">
 			<p >Nuevo Firmante

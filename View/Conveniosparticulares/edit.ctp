@@ -16,6 +16,30 @@
 <div class="conveniosparticulares form">
 <?php echo $this->Form->create('Conveniosparticulare'); ?>
 
+
+<div class="adendas form">
+<?php /*echo $this->Form->create('Adenda'); ?>
+	
+	<?php
+		echo $this->Form->input('Adenda.FechaFirmaConvenioAnterior');
+		echo $this->Form->input('Adenda.AdendaDescripcion');
+		echo $this->Form->input('Adenda.AdendaArchivoAdjunto');
+		echo $this->Form->input('Adenda.NombreArtAnterior');
+		echo $this->Form->input('Adenda.NombreObraSocialAnterior');
+		echo $this->Form->input('Adenda.ImporteObraSocialAnterior');
+		echo $this->Form->input('Adenda.ImporteAsignacionEstimuloAnterior');
+		echo $this->Form->input('Adenda.TutorIdAnterior');
+		echo $this->Form->input('Adenda.FechaAltaObraSocialAnterior');
+		echo $this->Form->input('Adenda.PagaAsignacionEstimuloAnterior');
+		echo $this->Form->input('Adenda.FechaAltaARTAnterior');
+		echo $this->Form->input('Adenda.ImporteARTAnterior');
+		echo $this->Form->input('Adenda.conveniosparticulare_id');
+	?>
+	
+<?php echo $this->Form->end(__('Submit'));*/ ?>
+</div>
+
+
 <table>
 <tr>
 <td class="mitdLeft">

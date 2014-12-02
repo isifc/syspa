@@ -205,7 +205,6 @@ where nombre='JUJUY'))*/
 			$options = array('conditions' => array('Empresa.' . $this->Empresa->primaryKey => $id));
 			$this->request->data = $this->Empresa->find('first', $options);
 		}
-
 		$empresas = $this->Firmante->Empresa->find('list');
 		//$localidades = $this->Localidades->Empresa->find('list');
         $this->set('empresa_id',$id); 
@@ -225,7 +224,6 @@ where nombre='JUJUY'))*/
 		
 		$this->set(compact('empresas'));
 	}
-
 
 
 

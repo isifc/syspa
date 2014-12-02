@@ -3,7 +3,7 @@ App::uses('AppModel', 'Model');
 /**
  * Adenda Model
  *
- * @property Convenioparticulare $Convenioparticulare
+ * @property Conveniosparticulare $Conveniosparticulare
  */
 class Adenda extends AppModel {
 
@@ -23,9 +23,9 @@ class Adenda extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Convenioparticulare' => array(
-			'className' => 'Convenioparticulare',
-			'foreignKey' => 'convenioparticulare_id',
+		'Conveniosparticulare' => array(
+			'className' => 'Conveniosparticulare',
+			'foreignKey' => 'conveniosparticulare_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

@@ -19,8 +19,6 @@
 <?php echo $this->Form->create('Empresa'); ?>
 <?php
 					echo $this->Form->hidden('id');
-
-
 					
 				?>
 <div class="anexos form">
@@ -28,17 +26,11 @@
 	
 	echo $this->Form->hidden('id');
 	echo $this->Form->hidden('Anexo.empresa_id',array('value'=>$empresa_id,'default'=>$empresa_id));
-
 	echo $this->Form->hidden('Anexo.EmpresaCUIT',array('value'=>($empresa['Empresa']['EmpresaCUIT']),'default'=>($empresa['Empresa']['EmpresaCUIT'])));
-
 	echo $this->Form->hidden('Anexo.ConvenioFechaAnterior',array('value'=>($empresa['Empresa']['ConvenioFecha']),'default'=>($empresa['Empresa']['ConvenioFecha'])));
-
 	echo $this->Form->hidden('Anexo.PorcentajeGastoAnterior',array('value'=>($empresa['Empresa']['PorcentajeGasto']),'default'=>($empresa['Empresa']['PorcentajeGasto'])));
-
 	echo $this->Form->hidden('Anexo.PagaObraSocialAnterior',array('value'=>($empresa['Empresa']['PagaObraSocial']),'default'=>($empresa['Empresa']['PagaObraSocial'])));
-
 	echo $this->Form->hidden('Anexo.PagaSeguroTrabajoAnterior',array('value'=>($empresa['Empresa']['PagaSeguroTrabajo']),'default'=>($empresa['Empresa']['PagaSeguroTrabajo'])));
-
 	echo $this->Form->hidden('Anexo.PagaAsignacionEstimuloAnterior',array('value'=>($empresa['Empresa']['PagaAsignacionEstimulo']),'default'=>($empresa['Empresa']['PagaAsignacionEstimulo'])));
 ?>
 </div>
@@ -59,7 +51,6 @@
 		<tr>
 			<td class="mitd">
 			<?php 
-
 		 	echo $this->Form->input('Empresa.localidade_id', array('label'=>'localidad','id' => "localidade_id"));
 					
 			//echo $this->Form->input('id_localidade');?>
@@ -185,7 +176,6 @@
 						}
 						?>
 				<?php 
-
 				
 				?>
 				</td>				
@@ -255,14 +245,11 @@
 			    		'title' =>"ver firmante",
 			    		'url' => array('controller' => 'firmantes', 'action' => 'view', $firmante['id'])
 						)); 
-
 				echo $this->html->image("mi_form/edit.png", array(
 			    		"alt" => "Agregar",
 			    		'title' =>"editar firmante",
 			    		'url' => array('controller' => 'firmantes', 'action' => 'edit', $firmante['id'])
 						)); 
-
-
 					?>
 
 			
@@ -296,7 +283,6 @@
 			<td><?php echo $anexo['EmpresaCUIT']; ?>&nbsp;</td>
 			<td><?php echo "si";//$anexo['PagaAsignacionEstimuloAnterior']""; ?>&nbsp;</td>
 			<td><?php 
-
 			if  ($anexo['PagaObraSocialAnterior'] ==1) {
 				echo "si";
 				}else{

@@ -73,6 +73,7 @@ class EstadocuentasController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+		//$this->loadModel('Empresa');
 		if (!$this->Estadocuenta->exists($id)) {
 			throw new NotFoundException(__('Invalid estadocuenta'));
 		}
@@ -87,6 +88,8 @@ class EstadocuentasController extends AppController {
 			$options = array('conditions' => array('Estadocuenta.' . $this->Estadocuenta->primaryKey => $id));
 			$this->request->data = $this->Estadocuenta->find('first', $options);
 		}
+		$options = array('conditions' => array('Estadocuenta.' . $this->Estadocuenta->primaryKey => $id));
+		$this->set('estadocuenta', $this->Estadocuenta->find('first', $options));
 		$empresas = $this->Estadocuenta->Empresa->find('list');
 		$this->set(compact('empresas'));
 	}

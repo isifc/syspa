@@ -33,28 +33,18 @@
 
 </tr>
 </table>
-<table>
-	<tr>
-		<td class="mitd">
-			<p >Nuevo Pago
-			<?php echo $this->html->image("mi_form/Add.png", array(
-				    		"alt" => "Editar", 'title' =>"Nuevo Estado",
-			    			'url' => array('controller' => 'estadocuentas','action' => 'add',$empresa['Empresa']['id']))); ?></p>
 
-	</td>
-	</tr>
-</table>
 	
 
 <div class="related">
 		
-	
 	<?php if (!empty($empresa['Estadocuenta'])){ ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr class="mitr">		
-		<th><?php echo __('Período'); ?></th>
+		<th><?php echo __('Período[Mes][Año]'); ?></th>
+		<th><?php echo __('Fecha de pago'); ?></th>
 		<th><?php  echo __('Importe');?></th>
-		<th><?php echo __('Fecha'); ?></th>
+	
 		<th><?php echo __('Estado') ?></th>
 		<th><?php echo "Acciones"; ?></th>
 		
@@ -62,32 +52,31 @@
 	</tr>
 	<?php foreach ($empresa['Estadocuenta'] as $estadocuenta): ?>
 		<tr class="mitr">
-			<td><?php echo $estadocuenta['Periodo']; ?></td>	
-			
+			<td><?php echo date("m-Y",strtotime(($estadocuenta['Periodo']))); ?></td>	
+			<td><?php 
+					if (!is_null($estadocuenta['Fecha'])) {
+			echo date("d-m-Y",strtotime(($estadocuenta['Fecha']))); }?>&nbsp;</td>
 			<td><?php echo $estadocuenta['Importe'];?></td>
 			<td>	<?php 
 			if (!empty($estadocuenta['Fecha'])) {
 				echo "Pagado";
 			}?>
 
-			<td><?php echo $estadocuenta['Fecha']; ?>&nbsp;</td>
+			
 			
 			<td class="tabla">
-			
-				<?php echo $this->html->image("mi_form/view.png", array(
+ 				
+ 				<?php  
+ 				if (is_null($estadocuenta['Fecha'])) {
+ 					echo $this->html->image("mi_form/add.png", array(
 			    		"alt" => "Agregar",
-			    		'title' =>"ver estado de cuenta",
-			    		'url' => array('controller' => 'estadocuentas', 'action' => 'view', $estadocuenta['id'])
-						)); 
-
-				echo $this->html->image("mi_form/edit.png", array(
-			    		"alt" => "Agregar",
-			    		'title' =>"editar estado de cuenta",
+			    		'title' =>"Registrar Pago",
 			    		'url' => array('controller' => 'estadocuentas', 'action' => 'edit', $estadocuenta['id'])
 						)); 
-
-
-					?>
+ 				}else{
+		 				echo $this->html->image("mi_form/add.png",array('title'=>'no se puede ejecutar esta acción','style'=>"opacity:0.4"));	
+ 				}
+				?>
 
 			
 		</tr>

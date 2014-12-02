@@ -69,7 +69,8 @@
 							<script>
 						$("#alumno_id").select2({
 							placeholder: "Seleccionar alumno",
-							width:'150px'
+							width:'150px',
+							minimumInputLength: 3
 						});
 						</script>
 						
