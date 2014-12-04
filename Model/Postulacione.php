@@ -13,15 +13,24 @@ class Postulacione extends AppModel {
  *
  * @var array
  */
+     public $actsAs = array(
+        'Search.Searchable'
+    );
+
     public $filterArgs = array(
-      'Empresa' => array(
-          'type' => 'like',
-          'field' => 'Empresa.EmpresaRazonSocial'
-      ),
-      'Nombre' => array(
+      'Alumno' => array(
           'type' => 'like',
           'field' => 'Alumno.nombre'
+      ),
+      'Oferta' => array(
+          'type' => 'like',
+          'field' => 'OfertaDescripcion'
+      ),
+      'FechaPostulacion' => array(
+          'type' => 'like',
+          'field' => 'FechaPostualcion'
       )
+        
     );
     
 	public $validate = array(

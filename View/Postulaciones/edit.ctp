@@ -4,11 +4,11 @@
 		<legend><?php echo __('Edit Postulacione'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
+		echo $this->Form->input('alumno_id');
+		echo $this->Form->input('oferta_id');
 		echo $this->Form->input('FechaPostulacion');
 		echo $this->Form->input('FechaSeleccion');
 		echo $this->Form->input('CumpleRequisitosAcademicos');
-		echo $this->Form->input('alumno_id');
-		echo $this->Form->input('oferta_id');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

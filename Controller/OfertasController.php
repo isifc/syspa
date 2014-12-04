@@ -14,6 +14,7 @@ class OfertasController extends AppController {
  * @var array
  */
 	public $components = array('Paginator','RequestHandler','Search.Prg');
+       public $helpers = array('Time','Acortar','Js'=>array('Jquery','Ajax'));
         public $uses= array('Oferta');
 	var $paginate = array(
 		'limit' => 10, 

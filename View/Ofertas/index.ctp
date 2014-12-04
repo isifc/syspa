@@ -58,8 +58,8 @@
             <tr>
 		<td class="tabla"><?php echo h($oferta['Empresa']['EmpresaRazonSocial']);?></td>
                 <td class="tabla"><?php echo h($oferta['Oferta']['OfertaDescripcion']); ?>&nbsp;</td>
-                <td class="tabla"><?php echo h($oferta['Oferta']['OfertaVigenciaDesde']); ?>&nbsp;</td>
-		<td class="tabla"><?php echo h($oferta['Oferta']['OfertaVigenciaHasta']); ?>&nbsp;</td>
+                <td class="tabla"><?php echo date("d-m-Y",strtotime($oferta['Oferta']['OfertaVigenciaDesde'])); ?>&nbsp;</td>
+                <td class="tabla"><?php echo date("d-m-Y",strtotime($oferta['Oferta']['OfertaVigenciaHasta'])); ?>&nbsp;</td>
 		
 		<td class="tabla">
                     <?php echo $this->html->image("mi_form/carreras.png", 

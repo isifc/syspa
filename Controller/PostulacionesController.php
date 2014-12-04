@@ -13,16 +13,20 @@ class PostulacionesController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
-
+	public $components = array('Paginator','RequestHandler','Search.Prg');
+        public $helpers = array('Time','Acortar','Js'=>array('Jquery','Ajax'));
+        public $uses = array('Postulacione');
 /**
  * index method
  *
  * @return void
  */
 	public function index() {
-		$this->Postulacione->recursive = 0;
-		$this->set('postulaciones', $this->Paginator->paginate());
+            $this->Postulacione->recursive = 2;
+            $this->Prg->commonProcess();
+            $this->Paginator->settings['conditions'] = $this->Postulacione->parseCriteria($this->Prg->parsedParams());	
+            $this->set('postulaciones', $this->Paginator->paginate());
+                
 	}
 
 /**
@@ -83,7 +87,7 @@ class PostulacionesController extends AppController {
 			$this->request->data = $this->Postulacione->find('first', $options);
 		}
 		$alumnos = $this->Postulacione->Alumno->find('list');
-		$ofertas = $this->Postulacione->Oferta->find('list');
+		$ofertas = $this->Postulacione->Ofertum->find('list');
 		$this->set(compact('alumnos', 'ofertas'));
 	}
 

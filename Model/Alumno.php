@@ -16,7 +16,7 @@ class Alumno extends AppModel {
  * @var array
  */
    
-    public $virtualFields = array('name' => 'CONCAT(Alumno.NroLegajo, " ", Alumno.Nombre)');
+    public $virtualFields = array('name' => 'CONCAT(Alumno.Nombre, "- Nro Legajo: ",Alumno.NroLegajo )');
  	
 	public $validate = array(
 		'NroLegajo' => array(

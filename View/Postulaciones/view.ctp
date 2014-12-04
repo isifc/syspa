@@ -6,6 +6,16 @@
 			<?php echo h($postulacione['Postulacione']['id']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Alumno'); ?></dt>
+		<dd>
+			<?php echo $this->Html->link($postulacione['Alumno']['name'], array('controller' => 'alumnos', 'action' => 'view', $postulacione['Alumno']['id'])); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Oferta'); ?></dt>
+		<dd>
+			<?php echo $this->Html->link($postulacione['Oferta']['id'], array('controller' => 'ofertas', 'action' => 'view', $postulacione['Oferta']['id'])); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('FechaPostulacion'); ?></dt>
 		<dd>
 			<?php echo h($postulacione['Postulacione']['FechaPostulacion']); ?>
@@ -19,16 +29,6 @@
 		<dt><?php echo __('CumpleRequisitosAcademicos'); ?></dt>
 		<dd>
 			<?php echo h($postulacione['Postulacione']['CumpleRequisitosAcademicos']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Alumno'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($postulacione['Alumno']['id'], array('controller' => 'alumnos', 'action' => 'view', $postulacione['Alumno']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Oferta'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($postulacione['Oferta']['id'], array('controller' => 'ofertas', 'action' => 'view', $postulacione['Oferta']['id'])); ?>
 			&nbsp;
 		</dd>
 	</dl>
