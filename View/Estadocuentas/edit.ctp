@@ -37,12 +37,12 @@
 			<tr>
 			<td class="mitdLeft">
 				<?php 
-		echo "Fecha de Pago: ".$this->Form->inputText('Fecha',array(
-					
-			'id'=>'fechaPago',
+		echo "Fecha de Pago: ".$this->Form->inputText('Fecha',array(		
 			'dateFormat'=>'d-m-Y',
-			'class'=>'datepicker',
-			'style'=>"width:76px;",
+			'type'=>'date',
+			'style'=>"width:130px;",
+			'rule'=>'notEmpty'
+
 		));
 			
 	?>

@@ -16,7 +16,7 @@ class ConveniosparticularesController extends AppController {
 
  
 	public $components = array('Paginator', 'Session','Search.Prg');
-
+	public $helpers = array('Acortar') ;
 /**
  * index method
  *

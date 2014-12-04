@@ -86,10 +86,9 @@
 	
 		<td><?php echo h($conveniosparticulare['Conveniosparticulare']['FechaInicio']); ?>&nbsp;</td>
 		<td><?php echo h($conveniosparticulare['Conveniosparticulare']['FechaFin']); ?>&nbsp;</td>
-		<td><?php echo h($conveniosparticulare['Empresa']['EmpresaRazonSocial']); ?>&nbsp;</td>
-		<td><?php echo h($conveniosparticulare['Alumno']['Apellido']); ?>&nbsp;
-		    <?php echo h($conveniosparticulare['Alumno']['Nombre']); ?>&nbsp;</td>
-		<td><?php echo h($conveniosparticulare['Carrera']['carrera']); ?>&nbsp;</td>
+		<td><?php echo $this->Acortar->recortar_texto($conveniosparticulare['Empresa']['EmpresaRazonSocial'],23); ?>&nbsp;</td>
+		<td><?php echo $this->Acortar->recortar_texto($conveniosparticulare['Alumno']['Apellido'],23); ?>&nbsp;   
+		<td><?php echo $this->Acortar->recortar_texto($conveniosparticulare['Carrera']['carrera'],23); ?>&nbsp;</td>
 		
 		<td  class="tabla">
 			

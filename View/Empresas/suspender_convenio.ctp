@@ -41,10 +41,9 @@
 
 <?php	
 						echo "Fecha de baja: ".$this->Form->inputText('Empresa.ConvenioFechaBaja',array(
-							'id'=>'fechaDeBaja',
 							'dateFormat'=>'d-m-Y',
-							'class'=>'datepicker',
-							'style'=>"width:76px;",
+							'type'=>'date',
+							'style'=>"width:130px;"
 							'rule' => 'notEmpty',
 							)); 
   						?> 

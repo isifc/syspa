@@ -58,7 +58,7 @@
 		<dd>
 			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php 
 
-			if ($conveniosparticulare['Conveniosparticulare']['PagaAsignacionEstimulo']==1) {
+			if ($conveniosparticulare['Conveniosparticulare']['PagaAsignacionEstumulo']==1) {
 				echo "Si";
 			}else{
 				echo "No";
