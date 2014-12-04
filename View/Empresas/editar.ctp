@@ -132,26 +132,22 @@
 				if (!(is_null($empresa['Empresa']['ConvenioFecha']))){
 				echo "Fecha de alta: ".$this->Form->inputText('Empresa.ConvenioFecha',array(
 					'dateFormat'=>'d-m-Y',
-					'id'=>'fechaConvenio',
-					'class'=>'datepicker',
-					'style'=>"width:76px;",
-					'value'=>$fecha,
-					'default'=>$fecha
+					'type'=>'date',
+					'style'=>"width:130px;"
+					//'value'=>$fecha,
+					//'default'=>$fecha
 					));
 				}else{
 				echo "Fecha de alta: ".$this->Form->inputText('Empresa.ConvenioFecha',array(
 					'dateFormat'=>'d-m-Y',
-					'id'=>'fechaConvenio',
-					'class'=>'datepicker',
-					'style'=>"width:76px;",
+					'type'=>'date',
+					'style'=>"width:130px;"
 					//'value'=>$fecha,
 					//'default'=>$fecha
 					));
 				}?>
 
-				<Script> 
-					$("#fechaConvenio").datepicker();
-				</script>
+
 				
 								
 				</td>
@@ -160,13 +156,9 @@
  						
 						
 						echo "Fecha de baja: ".$this->Form->inputText('Empresa.ConvenioFechaBaja',array(
-							'id'=>'fechaDeBaja',
 							'dateFormat'=>'d-m-Y',
-					
-							'class'=>'datepicker',
-							'style'=>"width:76px;",
-							'value'=>$fechabaja,
-							'default'=>$fechabaja
+							'type'=>'date',
+							'style'=>"width:130px;"
 							)); 
   						?> 
   						<Script> 

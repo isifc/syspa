@@ -4,7 +4,7 @@
 
 <table>
 	<tr>
-		<td class="mitdLeft"><h3>Ver Empresa</h3></td>
+
 		<td>
 
     <td class="mitd">
@@ -30,9 +30,9 @@
 			
 		</dd>
 
-		<dt><?php echo __('Actividad'); ?></dt>
+		<dt><?php echo __('Localidad'); ?></dt>
 		<dd>
-			<?php echo h($empresa['Empresa']['EmpresaActividad']); ?>
+			<?php echo h($empresa['Localidade']['nombre']); ?>
 			&nbsp;
 		</dd>
 
@@ -41,12 +41,13 @@
 			<?php echo h($empresa['Empresa']['EmpresaCorreo']); ?>
 			&nbsp;
 		</dd>
-
-		<dt><?php echo __('Porcentaje Gasto'); ?></dt>
+		
+		<dt><?php echo __('Actividad'); ?></dt>
 		<dd>
-			<?php echo h($empresa['Empresa']['PorcentajeGasto']); ?>
+			<?php echo h($empresa['Empresa']['EmpresaActividad']); ?>
 			&nbsp;
 		</dd>
+		
 	</td>
 
 	<td class="mitdLeft">
@@ -68,12 +69,12 @@
 			<?php echo h($empresa['Empresa']['EmpresaTelefono']); ?>
 			&nbsp;
 		</dd>
-
-		<dt><?php echo __('Password'); ?></dt>
+		<dt><?php echo __('Porcentaje Gasto'); ?></dt>
 		<dd>
-			<?php echo h($empresa['Empresa']['password']); ?>
+			<?php echo "%".h($empresa['Empresa']['PorcentajeGasto']); ?>
 			&nbsp;
 		</dd>
+		
 	</td>
 </tr>
 </table>		
@@ -271,12 +272,12 @@ if (!is_null($empresa['Empresa']['ConvenioFecha'])){
 	<h3><?php echo __('Anexos Asociados'); ?></h3>
 		<?php if (empty($empresa['Anexos'])){ ?>
 	<table cellpadding = "0" cellspacing = "0">
-	<tr class="mitr">		
+	<tr class="mitr">
+		<th><?php echo __('Fecha'); ?></th>		
 		<th><?php echo __('CUIT'); ?></th>
 		<th><?php echo __('Paga Asignacion Estimulo'); ?></th>
 		<th><?php echo __('Paga obra social') ?></th>
 		<th><?php echo __('Paga ART'); ?></th>
-		<th><?php echo __('Fecha'); ?></th>
 		<th><?php echo __('% gasto'); ?></th>
 
 		
@@ -284,6 +285,7 @@ if (!is_null($empresa['Empresa']['ConvenioFecha'])){
 	</tr>
 	<?php foreach ($empresa['Anexo'] as $anexo): ?>
 		<tr class="mitr">
+			<td><?php echo $anexo['ConvenioFechaAnterior']; ?>&nbsp;</td>
 			<td><?php echo $anexo['EmpresaCUIT']; ?>&nbsp;</td>
 			<td><?php echo "si";//$anexo['PagaAsignacionEstimuloAnterior']""; ?>&nbsp;</td>
 			<td><?php 
@@ -300,7 +302,6 @@ if (!is_null($empresa['Empresa']['ConvenioFecha'])){
 					echo "no";
 				}
 				 ?>&nbsp;</td>
-			<td><?php echo $anexo['ConvenioFechaAnterior']; ?>&nbsp;</td>
 			<td><?php echo $anexo['PorcentajeGastoAnterior']; ?>&nbsp;</td>
 			
 

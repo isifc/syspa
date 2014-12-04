@@ -1,5 +1,5 @@
 <div class="firmantes form">
-<h3>Nueva Empresa</h3>
+<h3>Nuevo Firmante</h3>
 <table>
 <tr>
 <td class="mitdLeft">

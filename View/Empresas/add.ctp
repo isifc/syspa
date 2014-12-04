@@ -119,12 +119,9 @@
 				
 				<?php 
 				echo "Fecha del convenio: ".$this->Form->inputText('ConvenioFecha',array(
-					
-					'id'=>'fechaConvenio',
-					'dateFormat'=>'d-m-Y',
-					'class'=>'datepicker',
-					'style'=>"width:76px;",
-
+					'type'=>'date',
+					'dateFormat'=>'d-m-Y',				
+					'style'=>"width:130px;",
 					));
 				?>
 				<script> 
