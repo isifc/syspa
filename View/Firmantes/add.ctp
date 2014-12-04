@@ -48,18 +48,25 @@
 		</tr>
 		<tr>
 			<td class="mitd">
-				<?php echo $this->Form->input('FirmanteTelefono',array('label'=>'Teléfono'));?>
+				<?php  echo $this->Form->input('localidade_id',array('label'=>"Localidad: ",'id'=>'e7','default'=>1279)); ?>
 			</td>
+			<script>
+				$("#e7").select2({
+							placeHolder: 'Selecciona una localidad',
+							minimumInputLength: 3,
+							width:'175px'	
+						});
+				</script>
 			<td class="mitd">
 				<?php echo $this->Form->input('FirmanteDireccion',array('label'=>'Dirección '));?>
 			</td>
 		</tr>
 		<tr>
 			<td class="mitd">
-				<?php echo $this->Form->input('FirmanteCorreo',array('label'=>'E-mail '));?>
+				<?php echo $this->Form->input('FirmanteCorreo',array('label'=>'E-mail :'));?>
 			</td>
 			<td class="mitd">
-				
+				<?php echo $this->Form->input('FirmanteTelefono',array('label'=>'Teléfono'));?>
 			</td>
 		</tr>
 		<tr>

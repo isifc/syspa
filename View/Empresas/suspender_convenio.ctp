@@ -1,7 +1,7 @@
 
 <table>
 	<tr>
-		<td class="mitdLeft"><h3>Ver Empresa</h3></td>
+		<td class="mitdLeft"><h3>Suspender Convenio</h3></td>
 		<td>
 
     <td class="mitd">
@@ -28,7 +28,7 @@
 			<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($empresa['Empresa']['EmpresaRazonSocial']); ?>&nbsp;</dd>
 		<dt><?php echo __('Fecha del convenio'); ?></dt>
 		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
-			<?php echo h($empresa['Empresa']['ConvenioFecha']); ?>
+			<?php echo  date("d-m-Y",strtotime(($empresa['Empresa']['ConvenioFecha']))); ?>
 			&nbsp;
 		</dd>
 </dl>
@@ -43,13 +43,11 @@
 						echo "Fecha de baja: ".$this->Form->inputText('Empresa.ConvenioFechaBaja',array(
 							'dateFormat'=>'d-m-Y',
 							'type'=>'date',
-							'style'=>"width:130px;"
-							'rule' => 'notEmpty',
+							'style'=>"width:130px;",
+							'required'
 							)); 
   						?> 
-  						<Script> 
-							$("#fechaDeBaja").datepicker();
-						</script>
+  						
 	<h4>Motivo: </h4><?php
 	echo $this->Form->textarea('MotivoBaja'); ?>
 	

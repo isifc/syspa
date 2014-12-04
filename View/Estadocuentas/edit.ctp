@@ -12,7 +12,7 @@
 			<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($estadocuenta['Empresa']['EmpresaRazonSocial']); ?>&nbsp;</dd>
 		<dt><?php echo __('Fecha del convenio'); ?></dt>
 		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
-			<?php echo h($estadocuenta['Empresa']['ConvenioFecha']); ?>
+			<?php echo date("d-m-Y",strtotime(($estadocuenta['Empresa']['ConvenioFecha']))); ?>
 			&nbsp;
 		</dd>
 </dl>
@@ -33,15 +33,28 @@
 		//echo $this->Form->input('Importe');
 		//echo $this->Form->input();
 		?>
+		<dl>
 		<table>
+		<tr>
+			<td class="mitdLeft">
+			<dt><?php echo __('Importe: '); ?></dt>
+		<dd>
+			<?php echo "$".$estadocuenta['Estadocuenta']['Importe']?>
+		
+		</dd>
+				
+			</td>
+</dl>
+		</tr>
 			<tr>
 			<td class="mitdLeft">
 				<?php 
 		echo "Fecha de Pago: ".$this->Form->inputText('Fecha',array(		
 			'dateFormat'=>'d-m-Y',
-			'type'=>'date',
+			'type'=>array('date'),
 			'style'=>"width:130px;",
-			'rule'=>'notEmpty'
+			'rule'=>'notEmpty',
+			'required'
 
 		));
 			
