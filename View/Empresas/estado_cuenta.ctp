@@ -68,13 +68,14 @@
  				
  				<?php  
  				if (is_null($estadocuenta['Fecha'])) {
- 					echo $this->html->image("mi_form/add.png", array(
+ 					echo $this->html->image("mi_form/addPago.png", array(
 			    		"alt" => "Agregar",
 			    		'title' =>"Registrar Pago",
+			    		'style'=>"width:16px;high:16px;",
 			    		'url' => array('controller' => 'estadocuentas', 'action' => 'edit', $estadocuenta['id'])
 						)); 
  				}else{
-		 				echo $this->html->image("mi_form/add.png",array('title'=>'no se puede ejecutar esta acción','style'=>"opacity:0.4"));	
+		 				echo $this->html->image("mi_form/addPago.png",array('title'=>'no se puede ejecutar esta acción','style'=>"opacity:0.4;width:16px;high:16px;"));	
  				}
 				?>
 

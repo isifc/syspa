@@ -122,11 +122,10 @@
 					'type'=>'date',
 					'dateFormat'=>'d-m-Y',				
 					'style'=>"width:130px;",
+					
 					));
 				?>
-				<script> 
-					$("#fechaConvenio").datepicker();
-				</script>
+				
 				
 
 				</td>	
