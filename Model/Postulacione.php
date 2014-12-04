@@ -7,43 +7,24 @@ App::uses('AppModel', 'Model');
  * @property Oferta $Oferta
  */
 class Postulacione extends AppModel {
-
+    public $name = 'Postulaciones';
 /**
  * Validation rules
  *
  * @var array
  */
+    public $filterArgs = array(
+      'Empresa' => array(
+          'type' => 'like',
+          'field' => 'Empresa.EmpresaRazonSocial'
+      ),
+      'Nombre' => array(
+          'type' => 'like',
+          'field' => 'Alumno.nombre'
+      )
+    );
+    
 	public $validate = array(
-		'FechaPostulacion' => array(
-			'date' => array(
-				'rule' => array('date'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'FechaSeleccion' => array(
-			'date' => array(
-				'rule' => array('date'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'CumpleRequisitosAcademicos' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'alumno_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
