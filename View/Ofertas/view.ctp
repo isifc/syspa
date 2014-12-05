@@ -10,10 +10,10 @@
             <dd><?php echo h($oferta['Empresa']['EmpresaRazonSocial']); ?>&nbsp;</dd>
             
             <dt><?php echo __('Vigencia Desde'); ?></dt>
-            <dd><?php echo h($oferta['Oferta']['OfertaVigenciaDesde']); ?>&nbsp;</dd>
+            <dd><?php echo date("d-m-Y",strtotime($oferta['Oferta']['OfertaVigenciaDesde'])); ?>&nbsp;</dd>
 	
             <dt><?php echo __('Vigencia Hasta'); ?></dt>
-            <dd><?php echo h($oferta['Oferta']['OfertaVigenciaHasta']); ?>&nbsp;</dd>
+            <dd><?php echo date("d-m-Y",strtotime($oferta['Oferta']['OfertaVigenciaHasta'])); ?>&nbsp;</dd>
 		
             <dt><?php echo __('Descripción'); ?></dt>
             <dd><?php echo h($oferta['Oferta']['OfertaDescripcion']); ?>&nbsp;</dd>
@@ -39,7 +39,7 @@
                             </tr>
                             <?php foreach ($carrera['Requisitosmateria'] as $materia): ?>
                                 <tr>
-                                    <td><?phpecho $materia['Materia']['materia'];?></td>
+                                    <td><?php echo $materia['Materia']['materia'];?></td>
                                     <td>
                                         <?php 
                                             $Condicion = $materia['RequisitoMateriaCondicion'];

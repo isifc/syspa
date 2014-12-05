@@ -42,13 +42,13 @@
             <?php foreach ($postulaciones as $postulacione): ?>
             <!--<pre><?php print_r($postulacione) ;?></pre>    -->
             <tr>
-		<td><?php echo h($postulacione['Oferta']['Empresa']['EmpresaRazonSocial']); ?>&nbsp;</td>
-		<td><?php echo h($postulacione['Alumno']['name']);?></td>
-		<td><?php echo $this->Acortar->recortar_texto($postulacione['Oferta']['OfertaDescripcion'],23);?></td>
-		<td><?php echo h($postulacione['Postulacione']['FechaPostulacion']); ?>&nbsp;</td>
-		<td><?php echo h($postulacione['Postulacione']['FechaSeleccion']); ?>&nbsp;</td>
+		<td class="tabla"><?php echo $this->Acortar->recortar_texto($postulacione['Oferta']['Empresa']['EmpresaRazonSocial'],30); ?>&nbsp;</td>
+		<td class="tabla"><?php echo $this->Acortar->recortar_texto($postulacione['Alumno']['name'],30);?></td>
+		<td class="tabla"><?php echo $this->Acortar->recortar_texto($postulacione['Oferta']['OfertaDescripcion'],23);?></td>
+		<td class="tabla"><?php echo date("d-m-Y",strtotime($postulacione['Postulacione']['FechaPostulacion'])); ?>&nbsp;</td>
+		<td class="tabla"><?php echo date("d-m-Y",strtotime($postulacione['Postulacione']['FechaSeleccion'])); ?>&nbsp;</td>
 		<!--<td><?php echo h($postulacione['Postulacione']['CumpleRequisitosAcademicos']); ?>&nbsp;</td>-->
-		<td class="actions">
+		<td>
                     <?php echo $this->html->image("mi_form/view.png", 
                             array("alt" => "Ver", 'title' =>"Postulación",'url' => 
                                 array('action' => 'view',$postulacione['Postulacione']['id']), 
@@ -56,8 +56,13 @@
 				)
                             ); 
                     ?>
-                   <?php //echo $this->Html->link(__('Edit'), array('action' => 'edit', $postulacione['Postulacione']['id'])); ?>
-                    <?php //echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $postulacione['Postulacione']['id']), array(), __('Are you sure you want to delete # %s?', $postulacione['Postulacione']['id'])); ?>
+                    <?php echo $this->html->image("mi_form/edit.png", 
+                            array("alt" => "Editar", 'title' =>"Postulación",'url' => 
+                                array('action' => 'edit',$postulacione['Postulacione']['id']), 
+                                    array('class'=>'edit')
+				)
+                            ); 
+                    ?>
 		</td>
             </tr>
 <?php endforeach; ?>
@@ -71,9 +76,9 @@
 	?>	</p>
 	<div class="paging">
 	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->prev('< ' . __('anterior'), array(), null, array('class' => 'prev disabled'));
 		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+		echo $this->Paginator->next(__('siguiente') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
 </div>

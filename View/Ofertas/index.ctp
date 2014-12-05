@@ -1,11 +1,11 @@
 
 <div class="ofertas index">
     <br>
-    <h3><?php echo __('Ofertas de Pasantías'); ?></h3>
+    <h2><?php echo __('Ofertas de Pasantías'); ?></h2>
     <br>
     <table>
-    <tr bgcolor="D3DEF0">	
-        <td class="mitd">
+    <tr>	
+        <td class="mitd" bgcolor="D3DEF0">
             <?php 
                 echo $this->Form->create('Oferta');
                 echo $this->Form->input('Empresa');
@@ -17,19 +17,19 @@
                 width:'105px'	
             });
         </script>
-        <td class="mitd" >
+        <td class="mitd" bgcolor="D3DEF0">
             <?php 
                 echo $this->Form->create('Oferta');
                 echo $this->Form->input('Descripcion');
             ?>
         </td>
-        <td class="mitd">
+        <td valign="bottom" bgcolor="D3DEF0">
             <?php echo $this->Form->Button(__('Buscar'));?>
             <script>
                 $( "button" ).button();
             </script>
 	</td>		   
-    <td class="mitd">
+    <td valign="bottom">
 	<p align="right"> Nueva Oferta 
             <?php echo $this->html->image("mi_form/Add.png", 
                 array('alt' => 'Agregar', 'title' =>"Agregar Oferta",'url' => 
@@ -56,8 +56,8 @@
     <tbody>
 	<?php foreach ($ofertas as $oferta): ?>
             <tr>
-		<td class="tabla"><?php echo h($oferta['Empresa']['EmpresaRazonSocial']);?></td>
-                <td class="tabla"><?php echo h($oferta['Oferta']['OfertaDescripcion']); ?>&nbsp;</td>
+		<td class="tabla" align="right"><?php echo h($oferta['Empresa']['EmpresaRazonSocial']);?></td>
+                <td class="tabla"><?php echo $this->Acortar->recortar_texto($oferta['Oferta']['OfertaDescripcion'],20); ?>&nbsp;</td>
                 <td class="tabla"><?php echo date("d-m-Y",strtotime($oferta['Oferta']['OfertaVigenciaDesde'])); ?>&nbsp;</td>
                 <td class="tabla"><?php echo date("d-m-Y",strtotime($oferta['Oferta']['OfertaVigenciaHasta'])); ?>&nbsp;</td>
 		

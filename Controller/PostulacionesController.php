@@ -87,7 +87,11 @@ class PostulacionesController extends AppController {
 			$this->request->data = $this->Postulacione->find('first', $options);
 		}
 		$alumnos = $this->Postulacione->Alumno->find('list');
-		$ofertas = $this->Postulacione->Ofertum->find('list');
+                $this->LoadModel('Oferta');
+		$ofertas = $this->Oferta->find('first',array(
+                    'fields' => array('OfertaDescripcion')
+                    )
+                );
 		$this->set(compact('alumnos', 'ofertas'));
 	}
 

@@ -14738,7 +14738,7 @@ INSERT INTO `ofertas` (`id`, `empresa_id`, `OfertaVigenciaDesde`, `OfertaVigenci
 --
 
 CREATE TABLE IF NOT EXISTS `ofertascarreras` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,,
   `oferta_id` int(11) NOT NULL,
   `carrera_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
@@ -14751,7 +14751,6 @@ CREATE TABLE IF NOT EXISTS `ofertascarreras` (
 --
 
 INSERT INTO `ofertascarreras` (`id`, `oferta_id`, `carrera_id`) VALUES
-(0, 1, 2),
 (1, 5, 5),
 (2, 6, 27),
 (3, 2, 5),

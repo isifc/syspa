@@ -7,38 +7,30 @@
     <?php echo $this->Form->create('Oferta'); ?>
     <fieldset>
         <legend><?php echo __('Editar Oferta'); ?></legend>
-	<?php echo $this->Form->input('empresa_id',array('readonly' => "readonly"));?>
+	<?php echo $this->Form->input('empresa_id',array('disabled' => true));?>
         <br>        
         <?php echo $this->Form->input('id');?>
            <td>
             	<?php 
                     echo "Vigencia desde: ".$this->Form->inputText('OfertaVigenciaDesde',array(
-			'id'=>'OfertaVigenciaDesde',
+			'type'=>'date',
                         'dateFormat'=>'d-m-Y',
-                        'class'=>'datepicker',
-                        'style'=>"width:76px;",
+                        'style'=>"width:130px;",
                             )
                         );
 		?>
-                <Script> 
-                    $("#OfertaVigenciaDesde").datepicker();
-                </script>
             </td>    
             <br>
             <br>
             <td>
                 <?php 
                     echo "Vigencia hasta: ".$this->Form->inputText('OfertaVigenciaHasta',array(
-			'id' => 'OfertaVigenciaHasta',
-                        'dateFormat' => 'd-m-Y',
-			'class'=>'datepicker',
-			'style'=>"width:76px;"
+			'type'=>'date',
+                        'dateFormat'=>'d-m-Y',
+                        'style'=>"width:130px;",
                                 )
                             );
 		?>
-                <Script> 
-                    $("#OfertaVigenciaHasta").datepicker();
-                </script>
             </td>
             <br>
          <br>

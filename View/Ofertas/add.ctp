@@ -22,16 +22,12 @@
             <td>
             	<?php 
                     echo "Vigencia desde: ".$this->Form->inputText('OfertaVigenciaDesde',array(
-			'id'=>'OfertaVigenciaDesde',
+			'type'=>'date',
                         'dateFormat'=>'d-m-Y',
-                        'class'=>'datepicker',
-                        'style'=>"width:76px;",
+                        'style'=>"width:130px;",
                             )
                         );
 		?>
-                <Script> 
-                    $("#OfertaVigenciaDesde").datepicker();
-                </script>
 
             </td>    
             <br>
@@ -39,10 +35,9 @@
             <td>
                 <?php 
                     echo "Vigencia hasta: ".$this->Form->inputText('OfertaVigenciaHasta',array(
-			'id' => 'OfertaVigenciaHasta',
+			'type' => 'date',
                         'dateFormat' => 'd-m-Y',
-			'class'=>'datepicker',
-			'style'=>"width:76px;"
+			'style'=>"width:130px;"
                                 )
                             );
 		?>

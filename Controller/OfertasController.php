@@ -87,12 +87,12 @@ class OfertasController extends AppController {
     public function add() {
         if ($this->request->is('post')) {
             $this->Oferta->create();
-            
+/*            
             $vigenciaDesde=$this->request->data['Oferta']['OfertaVigenciaDesde'];
             $this->request->data['Oferta']['OfertaVigenciaDesde']=date("Y-m-d",strtotime($vigenciaDesde));
             $vigenciaHasta=$this->request->data['Oferta']['OfertaVigenciaHasta'];
             $this->request->data['Oferta']['OfertaVigenciaHasta']=date("Y-m-d",strtotime($vigenciaHasta));
-
+*/
                 if ($this->Oferta->save($this->request->data)) {
                     $this->Session->setFlash(__('La oferta ha sido guardada.'));
                     return $this->redirect(array('controller' => 'ofertas','action' => 'index'));
@@ -117,12 +117,12 @@ class OfertasController extends AppController {
             throw new NotFoundException(__('Invalid oferta'));
         }
             if ($this->request->is(array('post', 'put'))) {
- 
+ /*
                 $vigenciaDesde=$this->request->data['Oferta']['OfertaVigenciaDesde'];
                 $this->request->data['Oferta']['OfertaVigenciaDesde']=date("Y-m-d",strtotime($vigenciaDesde));
                 $vigenciaHasta=$this->request->data['Oferta']['OfertaVigenciaHasta'];
                 $this->request->data['Oferta']['OfertaVigenciaHasta']=date("Y-m-d",strtotime($vigenciaHasta));
-                
+*/                
                 if ($this->Oferta->save($this->request->data)) {
                     
                     $this->Session->setFlash(__('La oferta ha sido guardada.'));
