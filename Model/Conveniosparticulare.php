@@ -3,11 +3,12 @@ App::uses('AppModel', 'Model');
 /**
  * Conveniosparticulare Model
  *
+ * @property Tutore $Tutore
  * @property Oferta $Oferta
  * @property Empresa $Empresa
  * @property Alumno $Alumno
  * @property Carrera $Carrera
- * @property Tutore $Tutore
+ * @property Adenda $Adenda
  */
 class Conveniosparticulare extends AppModel {
 
@@ -16,9 +17,8 @@ class Conveniosparticulare extends AppModel {
  *
  * @var string
  */
-
-
- public $actsAs = array(
+ 
+  public $actsAs = array(
         'Search.Searchable'
     );
    public $filterArgs = array(
@@ -36,9 +36,7 @@ class Conveniosparticulare extends AppModel {
 			'field'=>array('Carrera.carrera')
 		) 		
     );
- 
- 
- 
+
 	public $displayField = 'id';
 
 
@@ -50,6 +48,13 @@ class Conveniosparticulare extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
+		'Tutore' => array(
+			'className' => 'Tutore',
+			'foreignKey' => 'tutore_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
 		'Oferta' => array(
 			'className' => 'Oferta',
 			'foreignKey' => 'oferta_id',
@@ -77,33 +82,83 @@ class Conveniosparticulare extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		),
-		'Tutore' => array(
-			'className' => 'Tutore',
-			'foreignKey' => 'tutore_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
 		)
 	);
 
-/*function esCarrera($data){
+/**
+ * hasMany associations
+ *
+ * @var array
+ */
+	public $hasMany = array(
+		'Adenda' => array(
+			'className' => 'Adenda',
+			'foreignKey' => 'conveniosparticulare_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
 
-	if ($data == 1) {
-		return true;
-	}else{
-		return false;
-	}
-}
 
+	
+	
+	var $validate = array(
 
-var $validate = array(
-
-					'carrera_id' => array(
-							'rule' => array('esCarrera'),
-		        			'message' => 'Debe seleccionar una carrera'
-		        	));
-
-*/
-
+					'FechaInicio' => array(
+			 			'rule'=>'date',
+					  	'required' => true,
+					  	'allowEmpty' => false,
+			 		 ),
+					 
+					 'FechaFin' => array(
+			 			'rule'=>'date',
+					  	'required' => true,
+					  	'allowEmpty' => false,
+			 		 ),
+					  'FechaFirmaConvenio' => array(
+			 			'rule'=>'date',
+					  	'required' => true,
+					  	'allowEmpty' => false,
+					  	
+			 		 ),
+					   'FechaAltaObraSocial' => array(
+			 			'rule'=>'date',
+					  	'required' => true,
+					  	'allowEmpty' => false,
+			 		 ),
+					
+					   'ImporteArt' => array(
+							'rule' => array('range', 0, 9999),
+							'required' => false,
+					  		'allowEmpty' => true,
+							'message' => 'Por favor ingrese un número mayor o igaul a 0'
+			 		 ),
+					 
+					   'ImporteObraSocial' => array(
+							'rule' => array('range', 0, 9999),
+							'required' => false,
+					  		'allowEmpty' => true,
+							'message' => 'Por favor ingrese un número mayor o igaul a 0'
+			 		 ),
+					 
+					   'ImporteAsignacionEstimulo' => array(
+							'rule' => array('range', 0, 9999),
+							'required' => false,
+					  		'allowEmpty' => true,
+							'message' => 'Por favor ingrese un número mayor o igaul a 0'
+			 		 ),
+	);
+	
+	
+	
+	
+	
+	
 }

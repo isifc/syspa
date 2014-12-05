@@ -58,8 +58,9 @@ class EstadocuentasController extends AppController {
 				$this->Session->setFlash(__('No se pudieron registrar los cambios'));
 			}
 		}
+		
 		$this->set('empresa_id',$empresa_id); 
-		 $options = array('conditions' => array('Empresa.' . $this->Empresa->primaryKey => $empresa_id));
+		$options = array('conditions' => array('Empresa.' . $this->Empresa->primaryKey => $empresa_id));
 		$this->set('empresa', $this->Empresa->find('first', $options));
 		$empresas = $this->Estadocuenta->Empresa->find('list');
 		$this->set(compact('empresas'));
@@ -80,9 +81,9 @@ class EstadocuentasController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Estadocuenta->save($this->request->data)) {
 				$this->Session->setFlash(__('The estadocuenta has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return  $this->redirect(array('controller' => 'Empresas','action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The estadocuenta could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('se registro el pago'));
 			}
 		} else {
 			$options = array('conditions' => array('Estadocuenta.' . $this->Estadocuenta->primaryKey => $id));

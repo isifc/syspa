@@ -14,7 +14,8 @@ class TutoresController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Session');
+	public $components = array('Paginator', 'Session','Search.Prg');
+	public $uses= array('Tutore');
 
 /**
  * index method
@@ -23,7 +24,9 @@ class TutoresController extends AppController {
  */
 	public function index() {
 		$this->Tutore->recursive = 0;
-		$this->set('tutores', $this->Paginator->paginate());
+		$this->Prg->commonProcess();
+        $this->Paginator->settings['conditions'] = $this->Tutore->parseCriteria($this->Prg->parsedParams());
+        $this->set('tutores', $this->Paginator->paginate());
 	}
 
 /**
@@ -46,22 +49,21 @@ class TutoresController extends AppController {
  *
  * @return void
  */
-	public function add($conveniosparticulare_id) {
-		$this->loadModel('Conveniosparticulare');
+	public function add() {
+		
 		if ($this->request->is('post')) {
 			$this->Tutore->create();
 			if ($this->Tutore->save($this->request->data)) {
 				
 				$this->Session->setFlash(__('Tutor ha sido registrado satisfactoriamente'));
-				return $this->redirect(array('controller'=>'Conveniosparticulares','action' => 'index'));
+				return $this->redirect(array('controller'=>'Tutores','action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('Tutor no ha sido registrado satisfactoriamente'));
 			}
 		}
 
 
-	$options = array('conditions' => array('Conveniosparticulare.' . $this->Conveniosparticulare->primaryKey => $conveniosparticulare_id));
-		$this->set('conveniosparticulare', $this->Conveniosparticulare->find('first', $options));
+	
 
 
 	}
@@ -75,14 +77,14 @@ class TutoresController extends AppController {
  */
 	public function edit($id = null) {
 		if (!$this->Tutore->exists($id)) {
-			throw new NotFoundException(__('Invalid tutore'));
+			throw new NotFoundException(__('Tutor Invalido'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Tutore->save($this->request->data)) {
-				$this->Session->setFlash(__('The tutore has been saved.'));
+				$this->Session->setFlash(__('Tutor ha sido registrado satisfactoriamente'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The tutore could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('Tutor no ha sido registrado satisfactoriamente'));
 			}
 		} else {
 			$options = array('conditions' => array('Tutore.' . $this->Tutore->primaryKey => $id));

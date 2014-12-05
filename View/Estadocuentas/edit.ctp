@@ -27,6 +27,7 @@
 	<?php
 		echo $this->Form->hidden('id');
 		echo $this->Form->hidden('empresa_id');
+		echo $this->Form->hidden('TipoMovimiento',array('value'=>"P",'default'=>"P"));
 		//echo $this->Form->input('Periodo');
 		//echo $this->Form->input('NroMovimiento');
 		//echo $this->Form->input('TipoMovimiento');
@@ -51,7 +52,7 @@
 				<?php 
 		echo "Fecha de Pago: ".$this->Form->inputText('Fecha',array(		
 			'dateFormat'=>'d-m-Y',
-			'type'=>array('date'),
+			'type'=>'date',
 			'style'=>"width:130px;",
 			'rule'=>'notEmpty',
 			'required'
@@ -67,9 +68,7 @@
 		</table>
 		
 	</fieldset>
-	<script> 
-					$("#fechaPago").datepicker();
-	</script>
+	
 <?php echo $this->Form->end(__('Registrar')); ?>
 <br>
 <br>

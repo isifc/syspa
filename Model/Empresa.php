@@ -18,8 +18,9 @@ App::uses('Provincia', 'Model');
 //public $displayField = 'EmpresaRazonSocial';
 
 class Empresa extends AppModel {
-    public $displayField = 'EmpresaRazonSocial';
+    
 
+public $displayField = 'EmpresaRazonSocial';
 public $actsAs = array(
         'Search.Searchable'
     );
@@ -32,6 +33,7 @@ public $actsAs = array(
 			'type' =>'like',
 			'field'=>'EmpresaRazonSocial'
 		),
+		
 		
     );
  

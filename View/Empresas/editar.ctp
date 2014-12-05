@@ -57,6 +57,7 @@
 				<script>
 				$("#localidade_id").select2({
 							placeholder: "Seleccionar localidad",
+							minimumInputLength: 3,
 							width:'175px'	
 						});
 				</script>

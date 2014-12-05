@@ -99,7 +99,7 @@
 					
 				
 					<?php 
-						if (is_null($conveniosparticulare['Conveniosparticulare']['tutore_id'])){
+						/*if (is_null($conveniosparticulare['Conveniosparticulare']['tutore_id'])){
 							 echo $this->html->image("mi_form/addFirmante.png", array(
 			    		"alt" => "Ver", 'title' =>"Agregar tutor",
 			    		'url' => array('controller' => 'tutores','action' => 'add',$conveniosparticulare['Conveniosparticulare']['id']), array('class'=>'view')
@@ -107,7 +107,7 @@
 							}else{
 									 echo $this->html->image("mi_form/addFirmante.png", array(
 			    		"alt" => "Ver", 'title' =>"No se puede ejecutar la acción","style"=>"opacity:0.4"));
-							 }
+							 }*/
 					 ?>
 					<?php echo $this->html->image("mi_form/edit.png", array(
 			    		"alt" => "Editar", 'title' =>"Editar Convenio",

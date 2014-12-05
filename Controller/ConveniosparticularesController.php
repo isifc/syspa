@@ -43,19 +43,6 @@ class ConveniosparticularesController extends AppController {
 		}
 		$options = array('conditions' => array('Conveniosparticulare.' . $this->Conveniosparticulare->primaryKey => $id));
 		$this->set('conveniosparticulare', $this->Conveniosparticulare->find('first', $options));
-
-
-		/*$fechaFirma=date("d-m-Y",strtotime($this->request->data['Conveniosparticulare']['FechaFirmaConvenio']));
-		$this->set('fechaFirma',$fechaFirma);
-
-		$fechaAltaOS=date("d-m-Y",strtotime($this->request->data['Conveniosparticulare']['FechaAltaObraSocial']));
-		$this->set('fechaAltaOS',$fechaAltaOS);
-
-		$fechaIni=date("d-m-Y",strtotime($this->request->data['Conveniosparticulare']['FechaInicio']));
-		$this->set('fechaIni',$fechaIni);
-
-		$fechaFin=date("d-m-Y",strtotime($this->request->data['Conveniosparticulare']['FechaFin']));
-		 $this->set('fechaFin',$fechaFin);*/
 	}
 
 /**
@@ -68,9 +55,9 @@ class ConveniosparticularesController extends AppController {
 	
 		if ($this->request->is('post')) {
 			$this->Conveniosparticulare->create();
-			if ($this->request->data['Conveniosparticulare']['tutore_id']== 1){
-					$this->request->data['Conveniosparticulare']['tutore_id']= NULL;
-			}
+			//if ($this->request->data['Conveniosparticulare']['tutore_id']== 1){
+				//	$this->request->data['Conveniosparticulare']['tutore_id']= NULL;
+		//	}
 			$fechaConvenio=$this->request->data['Conveniosparticulare']['FechaFirmaConvenio'];
 				$this->request->data['Conveniosparticulare']['FechaFirmaConvenio']=date("Y-m-d",strtotime($fechaConvenio));
 
@@ -159,17 +146,6 @@ class ConveniosparticularesController extends AppController {
 
 			if ($this->Conveniosparticulare->save($this->request->data)) {
 				$this->Session->setFlash(__('Convenio guardado satisfactoriamente.'));
-				if (
-					$fechaFirmaConvenio!=$this->request->data['Conveniosparticulare']['FechaFirmaConvenio'] ||
-					$nombreArtAnterior!=$this->request->data['Conveniosparticulare']['NombreART'] ||
-					$nombreObraSocialAnterior!=$this->request->data['Conveniosparticulare']['NombreObraSocial'] ||
-					$importeObraSocialAnterior!=$this->request->data['Conveniosparticulare']['ImporteObraSocial'] ||
-					$fechaAltaObraSocialAnterior!=$this->request->data['Conveniosparticulare']['FechaAltaObraSocial'] ||
-					//$pagaAsignacionEstimuloAnterior!=$this->request->data['Conveniosparticulare']['PagaAsignacionEstumulo'] 
-					//$fechaAltaARTAnterior!=$this->request->data['Conveniosparticulare']['FechaFirmaConvenio'] 
-					$tutorIdAnterior!=$this->request->data['Conveniosparticulare']['tutore_id']
-					
-					) {
 						return $this->redirect(array('controller' => 'adendas','action' => 'add',
 													$conveniosparticulare_id,
 													$fechaFirmaConvenio,
@@ -184,10 +160,7 @@ class ConveniosparticularesController extends AppController {
 													$fechaAltaARTAnterior,
 													$importeARTAnterior,
 													$tutorIdAnterior));
-					}else{
-						return $this->redirect(array('controller' => 'Conveniosparticulares','action' => 'index'));
-					}
-
+					
 				
 				//return $this->redirect(array('action' => 'index'));
 			} else {
@@ -200,7 +173,7 @@ class ConveniosparticularesController extends AppController {
 		$ofertas = $this->Conveniosparticulare->Oferta->find('list');
 		//$empresas = $this->Conveniosparticulare->Empresa->find('list');
 		$empresas = $this->Conveniosparticulare->Empresa->find('list', array('fields' => array('EmpresaRazonSocial')));
-		$alumnos = $this->Conveniosparticulare->Alumno->find('all');
+		$alumnos = $this->Conveniosparticulare->Alumno->find('list', array('fields' => array('id','name')));
 		//$carreras = $this->Conveniosparticulare->Carrera->find('list');
 		//$alumnos = $this->Conveniosparticulare->Alumno->find('list', array('fields' => array('NroLegajo')));
 		$carreras = $this->Conveniosparticulare->Carrera->find('list',array('fields' => array('carrera')));

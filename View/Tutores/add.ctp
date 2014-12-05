@@ -1,7 +1,20 @@
 <div class="tutores form">
-	<h2><?php echo 'Registrar Tutor'?></h2>
-
+		
 <table>
+	<tr>
+		<td class="mitdLeft"><h3><?php echo __('Nuevo Tutor'); ?></h3></td>
+		<td>
+
+    <td class="mitd">
+        <?php echo $this->Html->link(__('<< Volver'), 
+            array('controller' => 'tutores', 'action' => 'index')); ?>
+    </td>
+</td>
+	</tr>
+</table>
+	
+
+<!--<table>
 <tr>
 <td class="mitdLeft">
 <dl>
@@ -15,11 +28,11 @@
 		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
 			<?php echo h($conveniosparticulare['Conveniosparticulare']['FechaFirmaConvenio']); ?>
 			&nbsp;
-		</dd>-->
+		</dd>
 </dl>
 </td>
 </tr>
-</table>
+</table>-->
 
 
 
@@ -66,8 +79,13 @@
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Registrar')); ?>
+<br>
+<br>
+<br>
+<br>
+<br>
 </div>
-<div class="actions">
+<!--<div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
@@ -75,4 +93,5 @@
 		<li><?php echo $this->Html->link(__('List Conveniosparticulares'), array('controller' => 'conveniosparticulares', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Conveniosparticulare'), array('controller' => 'conveniosparticulares', 'action' => 'add')); ?> </li>
 	</ul>
-</div>
+</div>-->
+

@@ -47,8 +47,8 @@
 
 		<dt><?php echo __('Empresa'); ?></dt>
 			<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($conveniosparticulare['Empresa']['EmpresaRazonSocial']); ?>&nbsp;</dd>
-		<dt><?php echo __('Alumno - Legajo'); ?></dt>
-		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($conveniosparticulare['Alumno']['name'] ." - ". h($conveniosparticulare['Alumno']['NroLegajo'])); ?>&nbsp;</dd>
+		<dt><?php echo __('Legajo Alumno'); ?></dt>
+		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($conveniosparticulare['Alumno']['name'] /*." - ". h($conveniosparticulare['Alumno']['NroLegajo'])*/); ?>&nbsp;</dd>
 		<dt><?php echo __('Carrera'); ?></dt>
 		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp	<?php echo h($conveniosparticulare['Carrera']['carrera']); ?>&nbsp;</dd>
 	
@@ -112,64 +112,52 @@
 		<tr>
 			<td class="mitd">
 			<?php 
-				echo "Fecha de firma del convenio:".$this->Form->inputText('FechaFirmaConvenio',array(		
-					'id'=>'fechaFirmaConvenio',
-					'class'=>'datepicker',
-					'style'=>"width:76px;",
-					'value'=>$fechaFirma,
-					'default'=>$fechaFirma,
+				echo "Fecha de firma del convenio: ".$this->Form->inputText('FechaFirmaConvenio',array(		
+					'type'=>'date',
+					'dateFormat'=>'d-m-Y',				
+					'style'=>"width:130px;",
+					'required'
 					));
 				?>
-				<Script> 
-					$("#fechaFirmaConvenio").datepicker();
-				</script>
+				
 			</td>
 			<td class="mitd">
 				
 				<?php 
-				echo "Fecha de alta Obra Social:".$this->Form->inputText('FechaAltaObraSocial',array(		
-					'id'=>'fechaAltaOS',
-					'class'=>'datepicker',
-					'style'=>"width:76px;",
-					'value'=>$fechaAltaOS,
-					'default'=>$fechaAltaOS,
+				echo "Fecha de alta Obra Social: ".$this->Form->inputText('FechaAltaObraSocial',array(		
+					'type'=>'date',
+					'dateFormat'=>'d-m-Y',				
+					'style'=>"width:130px;",
+					'required'
 					));
 				?>
-				<Script> 
-					$("#fechaAltaOS").datepicker();
-				</script>
+				
 				
 			</td>
 		</tr>
 		<tr>
 			<td class="mitd">
 				<?php 
-				echo "Fecha de inicio:".$this->Form->inputText('FechaInicio',array(		
-					'id'=>'fechainicio',
-					'class'=>'datepicker',
-					'style'=>"width:76px;",
-					'value'=>$fechaIni,
-					'default'=>$fechaIni,
+				echo "Fecha de inicio: ".$this->Form->inputText('FechaInicio',array(		
+					'type'=>'date',
+					'dateFormat'=>'d-m-Y',				
+					'style'=>"width:130px;",
+					'required'
 					));
 				?>
-				<Script> 
-					$("#fechainicio").datepicker();
-				</script>
+				
 			</td>
 			<td class="mitd">
 				
 					<?php 
-				echo "Fecha de fin:".$this->Form->inputText('FechaFin',array(		
-					'id'=>'fechafin',
-					'class'=>'datepicker',
-					'style'=>"width:76px;",
-					'value'=>$fechaFin,
-					'default'=>$fechaFin,
+				echo "Fecha de fin: ".$this->Form->inputText('FechaFin',array(		
+					'type'=>'date',
+					'dateFormat'=>'d-m-Y',				
+					'style'=>"width:130px;",
+					'required'
 					));
 				?>
-				<Script> 
-					$("#fechafin").datepicker();
-				</script>
+				
 			</td>
 		</tr>
 	    <tr>
@@ -177,7 +165,7 @@
 				<?php echo $this->Form->input('NombreObraSocial',array('label'=>'Obra social: '));?>
 			</td>
 			<td class="mitd">
-				<?php echo $this->Form->input('ImporteObraSocial',array('label'=>'Importe obra social: ','min'=>0, 'max'=>5));?>
+				<?php echo $this->Form->input('ImporteObraSocial',array('label'=>'Importe obra social: ','min'=>0, 'max'=>9999));?>
 			</td>
 		</tr>
 		 <tr>
@@ -185,7 +173,7 @@
 				<?php echo $this->Form->input('NombreART',array('label'=>'ART: '));?>
 			</td>
 			<td class="mitd">
-				<?php echo $this->Form->input('ImporteArt',array('label'=>'Importe ART: ','min'=>0, 'max'=>5));?>
+				<?php echo $this->Form->input('ImporteArt',array('label'=>'Importe ART: ','min'=>0, 'max'=>9999));?>
 			</td>
 		</tr>
 		<tr>
@@ -193,7 +181,7 @@
 				<small>¿Paga asignacion estimulo?</small><?php echo $this->Form->checkbox('PagaAsignacionEstimulo'); ?>
 			</td>
 			<td class="mitd">
-				<?php echo $this->Form->input('ImporteAsignacionEstimulo',array('label'=>'Importe asignacion estimulo: ','min'=>0, 'max'=>5));?>
+				<?php echo $this->Form->input('ImporteAsignacionEstimulo',array('label'=>'Importe asignacion estimulo: ','min'=>0, 'max'=>9999));?>
 			</td>
 		</tr>
 			

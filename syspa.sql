@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 02-12-2014 a las 16:41:01
+-- Tiempo de generación: 04-12-2014 a las 22:11:19
 -- Versión del servidor: 5.5.24-log
 -- Versión de PHP: 5.4.3
 
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `adendas` (
   `conveniosparticulare_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `Refconveniosparticulares82` (`conveniosparticulare_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Volcado de datos para la tabla `adendas`
@@ -66,7 +66,12 @@ CREATE TABLE IF NOT EXISTS `adendas` (
 INSERT INTO `adendas` (`id`, `FechaFirmaConvenioAnterior`, `AdendaDescripcion`, `AdendaArchivoAdjunto`, `NombreArtAnterior`, `NombreObraSocialAnterior`, `ImporteObraSocialAnterior`, `ImporteAsignacionEstimuloAnterior`, `TutorIdAnterior`, `FechaAltaObraSocialAnterior`, `PagaAsignacionEstimuloAnterior`, `FechaAltaARTAnterior`, `ImporteARTAnterior`, `conveniosparticulare_id`) VALUES
 (1, '2034-01-01', NULL, NULL, 'maple', 'insepp', '2', '2', NULL, '2034-01-01', 0, NULL, '2', 1),
 (2, '2014-12-02', NULL, NULL, 'maple', 'insepp', '2', '2', NULL, '0000-00-00', 0, NULL, '2', 1),
-(3, '1970-01-01', NULL, NULL, 'maple', 'insepp', '3', '3', NULL, '1970-01-01', 0, NULL, '3', 1);
+(3, '1970-01-01', NULL, NULL, 'maple', 'insepp', '3', '3', NULL, '1970-01-01', 0, NULL, '3', 1),
+(4, '2014-12-05', NULL, NULL, 'maple', 'insepp', '5', '5', NULL, '2014-12-04', 0, NULL, '5', 4),
+(5, '2014-12-02', NULL, NULL, 'maple', 'insepp', '4', '4', NULL, '2014-12-04', 0, NULL, '4', 3),
+(6, '2014-12-05', NULL, NULL, 'maple', 'insepp', '4', '4', NULL, '2014-12-04', 0, NULL, '4', 4),
+(7, '1970-01-01', NULL, NULL, 'maple', 'insepp', '3', '3', NULL, '1970-01-01', 0, NULL, '3', 2),
+(8, '2014-12-02', NULL, NULL, 'maple', 'insepp', '2', '3', NULL, '2014-12-04', 0, NULL, '2', 3);
 
 -- --------------------------------------------------------
 
@@ -8421,17 +8426,17 @@ INSERT INTO `anexos` (`id`, `empresa_id`, `PagaSeguroTrabajoAnterior`, `PagaObra
 
 CREATE TABLE IF NOT EXISTS `areas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `carrera_id` int(11) DEFAULT NULL,
+  `id_carrera` int(11) DEFAULT NULL,
   `AreaDescripcion` varchar(512) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `Ref1064` (`carrera_id`)
+  KEY `Ref1064` (`id_carrera`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `areas`
 --
 
-INSERT INTO `areas` (`id`, `carrera_id`, `AreaDescripcion`) VALUES
+INSERT INTO `areas` (`id`, `id_carrera`, `AreaDescripcion`) VALUES
 (2, NULL, 'Analisis');
 
 -- --------------------------------------------------------
@@ -8507,28 +8512,31 @@ CREATE TABLE IF NOT EXISTS `conveniosparticulares` (
   `ImporteArt` decimal(5,0) DEFAULT NULL,
   `NombreObraSocial` varchar(250) DEFAULT NULL,
   `ImporteObraSocial` decimal(5,0) DEFAULT NULL,
-  `FechaCancelacion` date DEFAULT DEFAULT NULL,
+  `FechaCancelacion` date DEFAULT NULL,
   `MotivoCancelacion` varchar(512) DEFAULT NULL,
   `EvaluacionAlumno` varchar(512) DEFAULT NULL,
   `FechaFirmaConvenio` date DEFAULT NULL,
   `ArchivoCP` longblob,
-  `FechaAltaObraSocial` date NOT NULL,
-  `PagaAsignacionEstumulo` tinyint(4) NOT NULL,
+  `FechaAltaObraSocial` date DEFAULT NULL,
+  `PagaAsignacionEstumulo` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `Ref646` (`oferta_id`),
   KEY `Ref247` (`empresa_id`),
   KEY `Ref1248` (`alumno_id`),
   KEY `Ref1049` (`carrera_id`),
   KEY `Ref1956` (`tutore_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `conveniosparticulares`
 --
 
 INSERT INTO `conveniosparticulares` (`id`, `tutore_id`, `ContactoNombre`, `ContactoTelefono`, `ContactoCorreo`, `oferta_id`, `empresa_id`, `alumno_id`, `carrera_id`, `FechaInicio`, `FechaFin`, `ImporteAsignacionEstimulo`, `NombreART`, `ImporteArt`, `NombreObraSocial`, `ImporteObraSocial`, `FechaCancelacion`, `MotivoCancelacion`, `EvaluacionAlumno`, `FechaFirmaConvenio`, `ArchivoCP`, `FechaAltaObraSocial`, `PagaAsignacionEstumulo`) VALUES
-(1, NULL, NULL, NULL, NULL, 6, 13, 1, 5, '1970-01-01', '1970-01-01', '3', 'maple', '3', 'insepp', '3', NULL, NULL, '', '1970-01-01', NULL, '1970-01-01', 0),
-(2, NULL, NULL, NULL, NULL, 1, 1, 1, 1, '1970-01-01', '1970-01-01', '4', 'maple', '4', 'insepp', '4', NULL, NULL, '', '1970-01-01', NULL, '1970-01-01', 0);
+(1, NULL, NULL, NULL, NULL, 6, 13, 1, 5, '1970-01-01', '1970-01-01', '4', 'maple', '4', 'insepp', '4', NULL, NULL, '', '1970-01-01', NULL, '1970-01-01', 0),
+(2, NULL, NULL, NULL, NULL, 1, 1, 1, 1, '1970-01-21', '1970-05-09', '3', 'maple', '3', 'insepp', '4', NULL, NULL, '', '1970-01-02', NULL, '2010-01-01', 0),
+(3, NULL, NULL, NULL, NULL, 1, 1, 8037, 5, '2014-12-17', '2014-12-01', '3', 'maple', '2', 'insepp', '2', NULL, NULL, NULL, '2014-12-18', NULL, '2014-12-02', 0),
+(4, NULL, NULL, NULL, NULL, 1, 1, 1, 1, '2014-12-19', '2014-12-11', '5', 'maple', '3', 'insepp', '3', '2014-12-01', '', NULL, '2014-12-10', NULL, '2014-12-04', 0),
+(5, NULL, NULL, NULL, NULL, 1, 1, 7263, 1, '2014-12-11', '1970-01-01', NULL, 'maple', NULL, 'insepp', NULL, NULL, NULL, NULL, '2014-12-11', NULL, '1970-01-01', NULL);
 
 -- --------------------------------------------------------
 
@@ -9154,7 +9162,7 @@ CREATE TABLE IF NOT EXISTS `empresas` (
   `ContactoTelefono` char(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `Ref2774` (`localidade_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Volcado de datos para la tabla `empresas`
@@ -9163,18 +9171,20 @@ CREATE TABLE IF NOT EXISTS `empresas` (
 INSERT INTO `empresas` (`id`, `EmpresaCUIT`, `ConvenioFecha`, `PorcentajeGasto`, `EmpresaRazonSocial`, `EmpresaActividad`, `EmpresaDireccion`, `EmpresaCorreo`, `EmpresaTelefono`, `RepresentanteNombre`, `RepresentanteDNI`, `PagaObraSocial`, `PagaSeguroTrabajo`, `PagaAsignacionEstimulo`, `ConvenioFechaBaja`, `MotivoBaja`, `password`, `ArchivoCM`, `localidade_id`, `ContactoNombre`, `ContactoCorreo`, `ContactoTelefono`) VALUES
 (1, '30611977752', '2009-02-16', 5, 'Fabrica SRL', 'CONSTRUCCIÃ“N, REFORMA Y REPARACIÃ“N DE EDIFICIOS NO RESIDENCIALES ', '9 de julio', 'rrodriguez@fabricasrl.com.ar', '3624434400', '', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 1279, 'Rosana Rodriguez', 'rrodriguez@fabricasrl.com.ar', '3624434400'),
 (2, '30611977761', '2010-01-05', 5, 'MEXE', 'Informatica', 'Junin 1747', 'mexe@mexe.com', '037944438123', 'Jorge Gonzalez', '29641223', 0, 0, 0, NULL, NULL, NULL, NULL, 2226, 'Javier', 'javier@hotmail.com', '3624987854'),
-(3, '12345678910', '2014-11-20', 5, 'Amarilla Gas', 'Informatica', 'Resistencia', 'info@mexe.com.ar', '36244264', 'Jorge Gonzalez(editado)', '29641223', 0, 1, 1, '2014-11-13', 'vencio convenio', NULL, NULL, 1158, 'Dario', 'facu@hotmail.com', '3624987854'),
-(4, '27061408202', '2014-11-17', 5, 'Moreno Maria Cristina', 'Soport Tecnico', 'Avda Wilde 258', 'ventas@systech-informatica.com.ar', '03624451939', 'Horacio Gomez', '22770582', 1, 1, 1, NULL, NULL, NULL, NULL, 1279, 'Horacio Gomez', 'horaciogomez@hotmail.com', '3624561595'),
+(3, '12345678910', '2014-11-20', 5, 'Amarilla Gas', 'Informatica', 'Resistencia', 'info@mexe.com.ar', '36244264', 'Jorge Gonzalez(editado)', '29641223', 0, 1, 1, '2014-11-13', 'vencio convenio', NULL, NULL, 1279, 'Dario', 'facu@hotmail.com', '3624987854'),
+(4, '27061408202', '2014-11-26', 5, 'Moreno Maria Cristina', 'Soport Tecnico', 'Avda Wilde 258', 'ventas@systech-informatica.com.ar', '03624451939', 'Horacio Gomez', '22770582', 1, 1, 1, NULL, NULL, NULL, NULL, 1279, 'Horacio Gomez', 'horaciogomez@hotmail.com', '3624561595'),
 (5, '30500852131', '2012-02-27', 5, 'AIR LIQUIDE ARGENTINA S.A.', 'Gas Licuado', 'Ruta N Avellaneda KM 10', 'info@airliuide.com', '3624461900', 'Carlos Antonio Sikod', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 1279, 'Carlos Antonio Sikod', 'info@airliuide.com', '3624461900'),
 (6, '20261632374', '2010-03-31', 5, 'ALBERTO ANTONIO ELIAS RISTOFF', 'COMPUTACION, INSUMOS Y SERVICIO TECNICO', 'santiago del estero 414 ', 'ristoffalberto@hotmail.com', '3624433797', '', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 1158, 'EMILIANO IVANISZYN', 'ristoffalberto@hotmail.com', '3624433797'),
 (7, '30644696614', '2009-05-19', 5, 'APA (AdministraciÃ³n Provincial del Agua)', 'Servicios de Agua', 'Ruta N Avellaneda Km 12,5', 'cpndalesg@hotmail.com', '03624429580', '', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 1279, 'Cdor. Gustavo DÂ´Alessandro', 'cpndalesg@hotmail.com', '03624429580'),
 (8, '20179756855', '2011-08-17', 5, 'ASANO ALDO LUIS', 'Soporte Tecnico', ' Avda. Belgrano 598', 'Ventas@biosonline.com.ar', '3624439780', '', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 1279, 'ASANO ALDO LUIS', 'Ventas@biosonline.com.ar', '3624439780'),
-(9, '34686133305', '2010-06-01', 5, 'BE3 SRL', 'SERVICIOS DE PUBLICIDAD', 'J B Justo. 66', 'info@be3.com', '3624427312', '', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 1279, 'FEDERICO GARCIA', 'info@be3.com', '3624427312'),
+(9, '34686133305', NULL, 5, 'BE3 SRL', 'SERVICIOS DE PUBLICIDAD', 'J B Justo. 66', 'info@be3.com', '3624427312', '', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 1279, 'FEDERICO GARCIA', 'info@be3.com', '3624427312'),
 (10, '30678378344', '2014-09-01', 5, 'Catastro', 'Servicio publico', 'avda 9 de Julio 440', 'palmiron@callconnect.com.ar', '3624762036', 'LIDIA COSTAS', NULL, 1, 0, 1, NULL, NULL, NULL, NULL, 1279, 'LIDIA COSTAS', 'palmiron@callconnect.com.ar', '3624762036'),
 (11, '33572266449', '2011-11-07', 5, 'Carsa s.a.', 'Venta de electrodomesticos-Hogar', 'Avda 25 de mayo 1599', 'gerardo.lindow@grupocarsa.com', '03624456000', '', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 1279, 'Gerardo Lindow', 'gerardo.lindow@grupocarsa.com', '03624456000'),
 (12, '30647692040', NULL, 5, 'Casinos del Litoral S.A.', 'SERVICIOS RELACIONADOS CON JUEGOS DE AZAR Y APUESTAS', 'CARLOS PELLEGRINI 451', 'gciasistemas@casinosdellitoral.com.ar', '3794425118', '', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 2226, 'ING ALEJANDRA BALBASTRO', 'gciasistemas@casinosdellitoral.com.ar', '3794425118'),
 (13, '30999176905', '2013-07-01', 5, 'INSTITUTO PROVINCIAL DE ADMINISTRACIÃ“N PUBLICA DEL CHACO', ' SERVICIOS GENERALES DE LA ADMINISTRACIÃ“N PÃšBLICA', 'Arturo Illia 26', 'ipapchaco@gmail.com', '3624448000', '', NULL, 1, 0, 1, NULL, NULL, NULL, NULL, 1279, 'LIDIA COSTAS', 'lidia.costas@ecomchaco.com.ar', '3624448000'),
-(14, '33508358259', '2011-08-01', 5, 'CERVECERIA Y MALTERIA QUILMES SAICA Y G', 'ELABORACIÃ“N DE CERVEZA, BEBIDAS MALTEADAS Y MALTA ', 'Av. Juan De Garay 340', 'caagonza@quilmes.com.ar', '0379415632303', '', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 2226, 'CARLOS ALBERTO ANDERICA GONZALEZ', 'caagonza@quilmes.com.ar', '0379415632303');
+(14, '33508358259', '2011-08-01', 5, 'CERVECERIA Y MALTERIA QUILMES SAICA Y G', 'ELABORACIÃ“N DE CERVEZA, BEBIDAS MALTEADAS Y MALTA ', 'Av. Juan De Garay 340', 'caagonza@quilmes.com.ar', '0379415632303', '', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 2226, 'CARLOS ALBERTO ANDERICA GONZALEZ', 'caagonza@quilmes.com.ar', '0379415632303'),
+(15, '12345678975', '2014-06-14', 5, 'MEXE', 'Informatica', 'Junin 1747', 'mexe@mexe.com', '037944438123', 'Jorge Gonzalez', '35038452', 0, 0, 0, NULL, NULL, NULL, NULL, 1279, 'Javier', 'javier@hotmail.com', '3624987854'),
+(16, '12345678932', NULL, 5, 'Moreno Maria Cristina', 'Informatica', 'Junin 1747', 'mexe@mexe.com', '037944438123', '', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 1279, 'Javier', 'javier@hotmail.com', '3624987854');
 
 -- --------------------------------------------------------
 
@@ -9192,7 +9202,7 @@ CREATE TABLE IF NOT EXISTS `estadocuentas` (
   `Fecha` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `Ref232` (`empresa_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `estadocuentas`
@@ -9200,8 +9210,9 @@ CREATE TABLE IF NOT EXISTS `estadocuentas` (
 
 INSERT INTO `estadocuentas` (`id`, `empresa_id`, `Periodo`, `NroMovimiento`, `TipoMovimiento`, `Importe`, `Fecha`) VALUES
 (1, 4, '2014-12-02', '1', 'P', '20000', '2014-12-01'),
-(2, 4, '2014-12-02', '1', 'P', '20000', '2014-12-02'),
-(3, 4, '2014-12-03', '1', 'd', '20000', NULL);
+(2, 4, '2014-12-02', '1', 'P', '20000', '2014-12-11'),
+(3, 4, '2014-12-03', '1', 'd', '20000', '0000-00-00'),
+(4, 4, '2014-08-01', '1', 'P', '20000', NULL);
 
 -- --------------------------------------------------------
 
@@ -14784,10 +14795,8 @@ CREATE TABLE IF NOT EXISTS `pagos_arts` (
 CREATE TABLE IF NOT EXISTS `pagos_os` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `convenioparticulare_id` int(11) NOT NULL,
-  `fechapago` date NOT NULL,
+  `fechapago` date NOT NULL DEFAULT '1000-01-01',
   `Periodo` date NOT NULL,
-  `EmpresaCUIT` decimal(11,0),
-  `NroLegajo` int(11),
   PRIMARY KEY (`id`),
   KEY `Ref1778` (`convenioparticulare_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -14802,9 +14811,9 @@ CREATE TABLE IF NOT EXISTS `postulaciones` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `alumno_id` int(11) NOT NULL,
   `oferta_id` int(11) NOT NULL,
-  `FechaPostulacion` date NULL,
-  `FechaSeleccion` date NULL,
-  `CumpleRequisitosAcademicos` tinyint(4) NULL,
+  `FechaPostulacion` date NOT NULL,
+  `FechaSeleccion` date NOT NULL,
+  `CumpleRequisitosAcademicos` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `Ref1240` (`alumno_id`),
   KEY `Ref641` (`oferta_id`)
@@ -14963,7 +14972,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `slug`, `password`, `password_token`, `email`, `email_verified`, `email_token`, `email_token_expires`, `tos`, `active`, `last_login`, `last_action`, `is_admin`, `role`, `created`, `modified`) VALUES
-('547ca45a-a668-43da-86cf-120456ed9e08', 'admin', 'admin', '632ef0039206165108c7c91f0f81290e1055bfe8', NULL, 'sau@gmail.com', 1, NULL, NULL, 1, 1, '2014-12-02 12:17:02', NULL, 0, 'registered', '2014-12-01 17:24:42', '2014-12-02 12:17:02');
+('547ca45a-a668-43da-86cf-120456ed9e08', 'admin', 'admin', '632ef0039206165108c7c91f0f81290e1055bfe8', NULL, 'sau@gmail.com', 1, NULL, NULL, 1, 1, '2014-12-04 18:59:33', NULL, 0, 'registered', '2014-12-01 17:24:42', '2014-12-04 18:59:33');
 
 -- --------------------------------------------------------
 

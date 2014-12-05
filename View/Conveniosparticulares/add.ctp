@@ -119,59 +119,51 @@
 				
 				<?php 
 				echo "Fecha de firma del convenio: ".$this->Form->inputText('FechaFirmaConvenio',array(		
-					'id'=>'fechaFirmaConvenio',
-					'class'=>'datepicker',
-					'style'=>"width:76px;",
-
+					'type'=>'date',
+					'dateFormat'=>'d-m-Y',				
+					'style'=>"width:130px;",
+					'required'
 					));
 				?>
-				<Script> 
-					$("#fechaFirmaConvenio").datepicker();
-				</script>
+				
 			</td>
 			<td class="mitd">
 				
 				<?php 
 				echo "Fecha de alta Obra Social: ".$this->Form->inputText('FechaAltaObraSocial',array(		
-					'id'=>'fechaAltaOS',
-					'class'=>'datepicker',
-					'style'=>"width:76px;",
+					'type'=>'date',
+					'dateFormat'=>'d-m-Y',				
+					'style'=>"width:130px;",
+					'required'
 
 					));
 				?>
-				<Script> 
-					$("#fechaAltaOS").datepicker();
-				</script>
-				
+			
 			</td>
 		</tr>
 		<tr>
 			<td class="mitd">
 				<?php 
 				echo "Fecha de inicio: ".$this->Form->inputText('FechaInicio',array(		
-					'id'=>'fechainicio',
-					'class'=>'datepicker',
-					'style'=>"width:76px;",
-
+					'type'=>'date',
+					'dateFormat'=>'d-m-Y',				
+					'style'=>"width:130px;",
+					'required'
 					));
 				?>
-				<Script> 
-					$("#fechainicio").datepicker();
-				</script>
+				
 			</td>
 			<td class="mitd">
 				
 					<?php 
 				echo "Fecha de fin: ".$this->Form->inputText('FechaFin',array(		
-					'id'=>'fechafin',
-					'class'=>'datepicker',
-					'style'=>"width:76px;",
-
+					'type'=>'date',
+					'dateFormat'=>'d-m-Y',				
+					'style'=>"width:130px;",
+					'required'
 					));
 				?>
-				<Script> 
-					$("#fechafin").datepicker();
-				</script>
+				
 			</td>
 		</tr>
 	    <tr>

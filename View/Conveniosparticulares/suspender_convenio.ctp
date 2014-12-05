@@ -46,17 +46,13 @@
 
 <?php 
 				echo "Fecha de firma del convenio:".$this->Form->inputText('FechaCancelacion',array(		
-					'id'=>'fechaFirmaConvenio',
-					'dateFormat'=>'d-m-Y',
-					'class'=>'datepicker',
-					'style'=>"width:76px;",
-					'rule'=>"notEmpty",
+					'type'=>'date',
+					'dateFormat'=>'d-m-Y',				
+					'style'=>"width:130px;",
+					'required'
 					));
 	?>
-				<Script> 
-					$("#fechaFirmaConvenio").datepicker();
-				</script>
-			
+				
 			<h4>Motivo: </h4>	
 			<?php
 	echo $this->Form->textarea('MotivoCancelacion');

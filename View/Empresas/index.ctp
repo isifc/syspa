@@ -28,10 +28,10 @@
 		 					?>
 		 				</td>
 		 				<td class="mitd" bgcolor="D3DEF0" >
-		 					<?php  $sizes = array('v' => 'Vigente', 'n' => 'no Vigente', 'nt'=>'Sin Convenio','t' => 'todos');
-							echo $this->Form->input(
-    								'filtrar convenios',
-    								array('id'=>'sele','options' => $sizes, 'default' => 't')
+		 					<?php echo $this->Form->create('Empresa'); ?>
+		 					<?php  $sizes = array('v' => 'vigente', 'nv' => 'no vigente', 'null'=>'sin convenio','t' => 'todos');
+							echo $this->Form->input('fechas',
+    								array('label'=>'filtrar convenios','id'=>'sele','options' => $sizes, 'default' => 't')
 							);
 							
 							?>
