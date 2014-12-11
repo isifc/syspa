@@ -7,43 +7,33 @@ App::uses('AppModel', 'Model');
  * @property Oferta $Oferta
  */
 class Postulacione extends AppModel {
-
+    public $name = 'Postulacione';
 /**
  * Validation rules
  *
  * @var array
  */
+     public $actsAs = array(
+        'Search.Searchable'
+    );
+
+    public $filterArgs = array(
+      'Alumno' => array(
+          'type' => 'like',
+          'field' => 'Alumno.nombre'
+      ),
+      'Oferta' => array(
+          'type' => 'like',
+          'field' => 'OfertaDescripcion'
+      ),
+      'FechaPostulacion' => array(
+          'type' => 'like',
+          'field' => 'FechaPostualcion'
+      )
+        
+    );
+    
 	public $validate = array(
-		'FechaPostulacion' => array(
-			'date' => array(
-				'rule' => array('date'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'FechaSeleccion' => array(
-			'date' => array(
-				'rule' => array('date'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'CumpleRequisitosAcademicos' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'alumno_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),

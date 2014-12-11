@@ -1,65 +1,84 @@
 <div class="postulaciones index">
-    <h3><?php echo __('Postulaciones'); ?></h3>
-     <td valign="bottom" >
-	<p align="right"> Nueva Postualción 
-            <?php echo $this->html->image("mi_form/Add.png", 
-                array('alt' => 'Agregar', 'title' =>"Agregar Postulación",'url' => 
-                    array('controller' => 'postulaciones','action' => 'add')
-		)
-                    );
-            ?>
-	</p>
-    </td>
-    <hr>    
-    <table cellpadding="0" cellspacing="0">
+    <!--<pre><?php print_r($postulaciones); ?></pre>-->
+    <h2><?php echo __('Postulaciones'); ?></h2>
+    <br>
+    <table>
+        <tr>
+            <td class="mitd" bgcolor="D#DEF0">
+                <?php
+                    echo $this->Form->create('Postulacione');
+                    echo $this->Form->input('Nombre');
+                ?>
+            </td>
+            <td class="mitd" bgcolor="D#DEF0">
+                <?php
+                    echo $this->Form->create('Postulacione');
+                    echo $this->Form->input('Oferta');
+                ?>
+            </td>
+            <td class="mitd">
+               <?php echo $this->Form->Button(__('Buscar'));?>
+               <script>
+                   $( "button" ).button();
+               </script>
+           </td>
+           
+           
+        </tr>
+    </table>    
+	<table cellpadding="0" cellspacing="0">
 	<thead>
             <tr>
-                <th><?php echo $this->Paginator->sort('Oferta Descripción'); ?></th>
+                <th><?php echo $this->Paginator->sort('Empresa'); ?></th>
                 <th><?php echo $this->Paginator->sort('Alumno'); ?></th>
+                <th><?php echo $this->Paginator->sort('Descripción Oferta'); ?></th>
                 <th><?php echo $this->Paginator->sort('FechaPostulacion'); ?></th>
                 <th><?php echo $this->Paginator->sort('FechaSeleccion'); ?></th>
-                <th><?php echo $this->Paginator->sort('CumpleRequisitosAcademicos'); ?></th>
+                <!--<th><?php echo $this->Paginator->sort('CumpleRequisitosAcademicos'); ?></th>-->
                 <th class="actions"><?php echo __('Acciones'); ?></th>
             </tr>
 	</thead>
 	<tbody>
             <?php foreach ($postulaciones as $postulacione): ?>
-                <tr>
-                    <td><?php echo h($postulacione['Oferta']['OfertaDescripcion']); ?>&nbsp;</td>
-                    <td><?php echo h($postulacione['Alumno']['name']); ?>&nbsp;</td>
-                    <td><?php echo h($postulacione['Postulacione']['FechaPostulacion']); ?>&nbsp;</td>
-                    <td><?php echo h($postulacione['Postulacione']['FechaSeleccion']); ?>&nbsp;</td>
-                    <td><?php echo h($postulacione['Postulacione']['CumpleRequisitosAcademicos']); ?>&nbsp;</td>
-                    <td class="actions">
-                            <?php echo $this->Html->link(__('View'), array('action' => 'view', $postulacione['Postulacione']['id'])); ?>
-                            <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $postulacione['Postulacione']['id'])); ?>
-                            <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $postulacione['Postulacione']['id']), array(), __('Are you sure you want to delete # %s?', $postulacione['Postulacione']['id'])); ?>
-                    </td>
-                </tr>
+            <!--<pre><?php print_r($postulacione) ;?></pre>    -->
+            <tr>
+		<td class="tabla"><?php echo $this->Acortar->recortar_texto($postulacione['Oferta']['Empresa']['EmpresaRazonSocial'],30); ?>&nbsp;</td>
+		<td class="tabla"><?php echo $this->Acortar->recortar_texto($postulacione['Alumno']['name'],30);?></td>
+		<td class="tabla"><?php echo $this->Acortar->recortar_texto($postulacione['Oferta']['OfertaDescripcion'],23);?></td>
+		<td class="tabla"><?php echo date("d-m-Y",strtotime($postulacione['Postulacione']['FechaPostulacion'])); ?>&nbsp;</td>
+		<td class="tabla"><?php echo date("d-m-Y",strtotime($postulacione['Postulacione']['FechaSeleccion'])); ?>&nbsp;</td>
+		<!--<td><?php echo h($postulacione['Postulacione']['CumpleRequisitosAcademicos']); ?>&nbsp;</td>-->
+		<td>
+                    <?php echo $this->html->image("mi_form/view.png", 
+                            array("alt" => "Ver", 'title' =>"Postulación",'url' => 
+                                array('action' => 'view',$postulacione['Postulacione']['id']), 
+                                    array('class'=>'view')
+				)
+                            ); 
+                    ?>
+                    <?php echo $this->html->image("mi_form/edit.png", 
+                            array("alt" => "Editar", 'title' =>"Postulación",'url' => 
+                                array('action' => 'edit',$postulacione['Postulacione']['id']), 
+                                    array('class'=>'edit')
+				)
+                            ); 
+                    ?>
+		</td>
+            </tr>
 <?php endforeach; ?>
 	</tbody>
 	</table>
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+	'format' => __('Página {:page} de {:pages}, mostrando {:current} registros de {:count}')
 	));
 	?>	</p>
 	<div class="paging">
 	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->prev('< ' . __('anterior'), array(), null, array('class' => 'prev disabled'));
 		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+		echo $this->Paginator->next(__('siguiente') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Postulacione'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Alumno'), array('controller' => 'alumnos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Ofertas'), array('controller' => 'ofertas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Oferta'), array('controller' => 'ofertas', 'action' => 'add')); ?> </li>
-	</ul>
 </div>

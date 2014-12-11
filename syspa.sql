@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 3.5.1
 -- http://www.phpmyadmin.net
 --
@@ -14812,8 +14812,13 @@ CREATE TABLE IF NOT EXISTS `postulaciones` (
   `alumno_id` int(11) NOT NULL,
   `oferta_id` int(11) NOT NULL,
   `FechaPostulacion` date NOT NULL,
+<<<<<<< HEAD
   `FechaSeleccion` date NOT NULL,
   `CumpleRequisitosAcademicos` tinyint(4) NOT NULL,
+=======
+  `FechaSeleccion` date DEFAULT NULL,
+  `CumpleRequisitosAcademicos` tinyint(4) DEFAULT NULL,
+>>>>>>> a0c8caccf2dbfeb1ba84a6eb34c6f2f1b6c3b967
   PRIMARY KEY (`id`),
   KEY `Ref1240` (`alumno_id`),
   KEY `Ref641` (`oferta_id`)
@@ -14999,17 +15004,89 @@ CREATE TABLE IF NOT EXISTS `user_details` (
 -- Restricciones para tablas volcadas
 --
 
---
--- Filtros para la tabla `actividades`
---
-ALTER TABLE `actividades`
-  ADD CONSTRAINT `Refareas54` FOREIGN KEY (`area_id`) REFERENCES `areas` (`id`);
+ALTER TABLE `areas`
+ADD CONSTRAINT `fk_areas_carreras1` FOREIGN KEY (`id_carrera`) REFERENCES `carreras` (`id`);
 
---
--- Filtros para la tabla `adendas`
---
+ALTER TABLE `actividades`
+ADD CONSTRAINT `Refareas54` FOREIGN KEY (`area_id`) REFERENCES `areas` (`id`);
+
+ALTER TABLE `departamentos`
+ADD CONSTRAINT `fk_departamentos_provincias1` FOREIGN KEY (`provincia_id`) REFERENCES `provincias` (`id`);
+
+ALTER TABLE `localidades`
+ADD CONSTRAINT `fk_localidades_departamentos1` FOREIGN KEY (`departamento_id`) REFERENCES `departamentos` (`id`);
+
+ALTER TABLE `empresas`
+ADD CONSTRAINT `fk_empresas_localidades1` FOREIGN KEY (`localidade_id`) REFERENCES `localidades` (`id`);
+
+ALTER TABLE `alumnos`
+ADD CONSTRAINT `fk_alumnos_localidades1` FOREIGN KEY (`localidade_id`) REFERENCES `localidades` (`id`);
+
+ALTER TABLE `ofertas`
+ADD CONSTRAINT `fk_ofertas_empresas1` FOREIGN KEY (`empresa_id`) REFERENCES `empresas` (`id`);
+
+ALTER TABLE `conveniosparticulares`
+ADD CONSTRAINT `fk_conveniosparticulares_empresas1` FOREIGN KEY (`empresa_id`) REFERENCES `empresas` (`id`),
+ADD CONSTRAINT `fk_conveniosparticulares_tutores1` FOREIGN KEY (`tutore_id`) REFERENCES `tutores` (`id`),
+ADD CONSTRAINT `fk_conveniosparticulares_carreras1` FOREIGN KEY (`carrera_id`) REFERENCES `carreras` (`id`),
+ADD CONSTRAINT `fk_conveniosparticulares_alumnos1` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`id`),
+ADD CONSTRAINT `fk_conveniosparticulares_ofertas1` FOREIGN KEY (`oferta_id`) REFERENCES `ofertas` (`id`);
+
 ALTER TABLE `adendas`
-  ADD CONSTRAINT `Refconveniosparticulares82` FOREIGN KEY (`conveniosparticulare_id`) REFERENCES `conveniosparticulares` (`id`);
+ADD CONSTRAINT `fk_adendas_conveniosparticulares1` FOREIGN KEY (`conveniosparticulare_id`) REFERENCES `conveniosparticulares` (`id`),
+ADD CONSTRAINT `fk_adendas_tutores1` FOREIGN KEY (`TutorIdAnterior`) REFERENCES `tutores` (`id`);
+
+ALTER TABLE `materias`
+ADD CONSTRAINT `fk_materias_carreras1` FOREIGN KEY (`carrera_id`) REFERENCES `carreras` (`id`);
+
+ALTER TABLE `alumnosmaterias`
+ADD CONSTRAINT `fk_alumnosmaterias_materias1` FOREIGN KEY (`materia_id`) REFERENCES `materias` (`id`),
+ADD CONSTRAINT `fk_alumnosmaterias_alumnos1` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`id`);
+
+ALTER TABLE `anexos`
+ADD CONSTRAINT `fk_anexos_empresas1` FOREIGN KEY (`empresa_id`) REFERENCES `empresas` (`id`);
+
+ALTER TABLE `competencias`
+ADD CONSTRAINT `fk_competencias_areas1` FOREIGN KEY (`area_id`) REFERENCES `areas` (`id`);
+
+ALTER TABLE `estadocuentas`
+ADD CONSTRAINT `fk_estadocuentas_empresas1` FOREIGN KEY (`empresa_id`) REFERENCES `empresas` (`id`);
+
+ALTER TABLE `firmantes`
+ADD CONSTRAINT `fk_firmantes_empresas1` FOREIGN KEY (`empresa_id`) REFERENCES `empresas` (`id`),
+ADD CONSTRAINT `fk_firmantes_localidades1` FOREIGN KEY (`localidade_id`) REFERENCES `localidades` (`id`);
+
+
+ALTER TABLE `ofertascarreras`
+ADD CONSTRAINT `fk_ofertascarreras_ofertas1` FOREIGN KEY (`oferta_id`) REFERENCES `ofertas` (`id`),
+ADD CONSTRAINT `fk_ofertascarreras_carreras1` FOREIGN KEY (`carrera_id`) REFERENCES `carreras` (`id`);
+
+ALTER TABLE `pagos_arts`
+ADD CONSTRAINT `fk_pagos_arts_conveniosparticulares1` FOREIGN KEY (`convenioparticulare_id`) REFERENCES `conveniosparticulares` (`id`);
+
+ALTER TABLE `pagos_os` 
+ADD CONSTRAINT `fk_pagos_os_conveniosparticulares1` FOREIGN KEY (`convenioparticulare_id`) REFERENCES `conveniosparticulares` (`id`);
+
+ALTER TABLE `postulaciones`
+ADD CONSTRAINT `fk_postulaciones_ofertas1` FOREIGN KEY (`oferta_id`) REFERENCES `ofertas` (`id`),
+ADD CONSTRAINT `fk_postulaciones_alumnos1` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`id`);
+
+ALTER TABLE `requisitoscompetencias`
+ADD CONSTRAINT `fk_requisitoscompetencias_ofertas1` FOREIGN KEY (`oferta_id`) REFERENCES `ofertas` (`id`),
+ADD CONSTRAINT `fk_requisitoscompetencias_competencias1` FOREIGN KEY (`competencia_id`) REFERENCES `competencias` (`id`);
+
+
+ALTER TABLE `requisitosmaterias`
+ADD CONSTRAINT `fk_requisitosmaterias_ofertascarreras1` FOREIGN KEY (`ofertascarreras_id`) REFERENCES `ofertascarreras` (`id`),
+ADD CONSTRAINT `fk_requisitosmaterias_materias1` FOREIGN KEY (`materia_id`) REFERENCES `materias` (`id`);
+
+ALTER TABLE `tareas`
+ADD CONSTRAINT `fk_tareas_actividades1` FOREIGN KEY (`actividade_id`) REFERENCES `syspa`.`actividades` (`id`),
+ADD CONSTRAINT `fk_tareas_conveniosparticulares1` FOREIGN KEY (`convenioparticulare_id`) REFERENCES `conveniosparticulares` (`id`);
+
+ALTER TABLE `user_details`
+ADD CONSTRAINT `fk_user_details_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -10,10 +10,10 @@
             <dd><?php echo h($oferta['Empresa']['EmpresaRazonSocial']); ?>&nbsp;</dd>
             
             <dt><?php echo __('Vigencia Desde'); ?></dt>
-            <dd><?php echo h($oferta['Oferta']['OfertaVigenciaDesde']); ?>&nbsp;</dd>
+            <dd><?php echo date("d-m-Y",strtotime($oferta['Oferta']['OfertaVigenciaDesde'])); ?>&nbsp;</dd>
 	
             <dt><?php echo __('Vigencia Hasta'); ?></dt>
-            <dd><?php echo h($oferta['Oferta']['OfertaVigenciaHasta']); ?>&nbsp;</dd>
+            <dd><?php echo date("d-m-Y",strtotime($oferta['Oferta']['OfertaVigenciaHasta'])); ?>&nbsp;</dd>
 		
             <dt><?php echo __('Descripción'); ?></dt>
             <dd><?php echo h($oferta['Oferta']['OfertaDescripcion']); ?>&nbsp;</dd>
@@ -22,50 +22,41 @@
 <hr>
 <!--Ofertas-->
 <td> 
-    <!--<pre><?php print_r($carreras); ?></pre>-->
-    
-    <?php if (!empty($carreras)): ?>
+    <!--<pre><?php print_r($carreras); ?></pre>-->    
+   <?php if (!empty($carreras)): ?>
     <table>
-	<tr align="right">
-            <th ><?php echo __('Carreras'); ?></th>
-	</tr>
-	<?php foreach ($carreras as $carrera): ?>
+	<tr>
+            <th><?php echo __('Carreras'); ?></th>
+	</tr>    
+            <?php foreach ($carreras as $carrera): ?>
             <tr>
                 <td class="tabla" align="right"><dt><?php echo $carrera['Carrera']['carrera']; ?></dt>
-                    <table>
-                        <tr>
-                            <td>
-                                <?php echo __('Materias');?>
-                            </td>
-                            <td>
-                                <?php echo __('Condición');?>
-                            </td>
-                        </tr>
-                        <?php foreach ($carrera['Requisitosmateria'] as $materia): ?>
-                        <tr>
-                            <td>
-                                <?php
-                                    echo $materia['Materia']['materia'];
-                                ?>
-                            </td>
-                            
-                            <td>
-                                <?php 
-                                    $Condicion = $materia['RequisitoMateriaCondicion'];
-                                    $options = array(1 => 'Aprobada', 2 => 'Regularizada');
-                                    echo $this->Form->select($Condicion,
-                                        $options,
-                                        array('escape' => false,
-                                               'value' => $Condicion, 
-                                               'disabled' => true)
-                                        
-                                    );
-                                ; ?>
-                            </td>
-                            
-                        </tr>
-                        <?php endforeach; ?>
-                    </table>
+                    <?php if (!empty($carrera['Requisitosmateria'])): ?>
+                       <table>
+                            <tr>
+                                <td><?php echo __('Materias');?></td>
+                                <td><?php echo __('Condición');?></td>
+                            </tr>
+                            <?php foreach ($carrera['Requisitosmateria'] as $materia): ?>
+                                <tr>
+                                    <td><?php echo $materia['Materia']['materia'];?></td>
+                                    <td>
+                                        <?php 
+                                            $Condicion = $materia['RequisitoMateriaCondicion'];
+                                            $options = array(1 => 'Aprobada', 2 => 'Regularizada');
+                                            echo $this->Form->select($Condicion,
+                                                $options,
+                                                array('escape' => false,
+                                                       'value' => $Condicion, 
+                                                       'disabled' => true)
+
+                                            );
+                                        ; ?>
+                                    </td>                        
+                                </tr>
+                            <?php endforeach; ?>
+                        </table>
+                    <?php endif; ?>    
                 </td>
             </tr>
 	<?php endforeach; ?>
@@ -75,7 +66,7 @@
 <hr>
 <div class="related">
     <?php if (!empty($requisitos)): ?>
-    <table cellpadding = "0" cellspacing = "0">
+    <table>
         <tr>
             <th><?php echo __('Competencias'); ?></th>
         </tr>

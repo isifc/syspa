@@ -110,6 +110,7 @@ a:hover {
 font-size: 0.7em;
 width: 820px;
 margin: 20px auto;
+
 }
 #menu2 ul { list-style-type: none;}
 #menu2 ul li.nivel1 { float: left;
@@ -203,6 +204,8 @@ position: relative;
 	margin: 0 auto;
 	padding: 0;
 	vertical-align: bottom;
+
+	
 }
 #menu ul {
   text-align: left;
@@ -210,7 +213,7 @@ position: relative;
   margin: 0;
   padding: 0;
   list-style: none;
-
+  
   line-height: normal;
 
 }
@@ -226,11 +229,13 @@ float: left;
 #menu a:hover #menu .current_page_item a {
 	background: #659CEF url(../img/images/img03.jpg) repeat-x left bottom;
 	text-decoration: none;
+	overflow: visible!important;
 }
 #menu .current_page_item a {
 	background: #FBFBFC url(../img/images/img02.jpg) repeat-x left bottom;
 	padding-left: 0;
 	color: #30476A;
+
 }
 
 /*cambio cada elemento, osea las palabras*/
@@ -250,6 +255,7 @@ float: left;
 #menu ul li:hover {
   background: #659CEF url(../img/images/img03.jpg) repeat-x left bottom;
   display:block;
+  overflow: visible!important;
 
 }
 #menu ul li ul {/*el ultimo "ul" contiene el sumenu de los convenios*/
@@ -276,9 +282,11 @@ float: left;
   display: block;
   opacity: 1;
   visibility: visible;
+  overflow: visible!important;
  }
 
-#menu ul li ul li:hover { background: #3D6EAE; }/*sombrea los submenus*/
+#menu ul li ul li:hover { background: #3D6EAE; 
+	overflow: visible!important;}/*sombrea los submenus*/
 
 
 /* Page */
@@ -563,7 +571,6 @@ table td.mitd {
 }
 table td.mitd2 {
 	padding: 3px;
-	
 	vertical-align: top;
 	margin-right: 80px;
 	
@@ -572,15 +579,11 @@ table td.mitdLeft {
 	padding-left: 50px;
 	text-align: left;
 	vertical-align: top;
-	
-
 }
 table td.mitdBotton {
 	padding-right: 80px;
 	text-align: right;
 	vertical-align: top;
-	
-
 }
 
 dl {

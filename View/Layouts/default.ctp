@@ -159,6 +159,18 @@
                             </ul>
                         </li>                       
                         
+                            <ul>
+                               <li>
+                                   
+
+                               
+                                <?php echo $this->html->image("mi_form/logout.png", array(
+                                            'alt' => 'Agregar', 'title' =>"Agregar Empresa",
+                                             'url' => array('controller' => 'users','action' => 'logout')
+                                             )); ?>
+                            
+                            </ul>
+                        </li>
                     </ul>
                 </div> 
             </td>

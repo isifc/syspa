@@ -1,27 +1,40 @@
+<div align="right">
+    <br>
+    <td><?php echo $this->Html->link(__('<< Volver'), array('action' => 'index')); ?> </td>
+</div>
 <div class="postulaciones form">
 <?php echo $this->Form->create('Postulacione'); ?>
-	<fieldset>
-		<legend><?php echo __('Edit Postulacione'); ?></legend>
+    <fieldset>
+        <legend><?php echo __('Editar Postulación'); ?></legend>
 	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('FechaPostulacion');
-		echo $this->Form->input('FechaSeleccion');
-		echo $this->Form->input('CumpleRequisitosAcademicos');
-		echo $this->Form->input('alumno_id');
-		echo $this->Form->input('oferta_id');
+            echo $this->Form->hidden('id');
+            echo $this->Form->input('alumno_id',array('disabled' => true));
+            echo "<br>";
+            echo $this->Form->input('oferta_id',array('disabled' => true));
+            echo "<br>";
+                   
+            echo "Fecha Postulación: ".$this->Form->inputText('FechaPostulacion',array(
+                'type' => 'date',
+                'dateFormat' => 'd-m-Y',
+                'style' => "width:130px;",
+                'disabled' => true
+                )
+            );
+            echo "<br>";
+            echo "<br>";
+            echo "Fecha Selección".$this->Form->inputText('FechaSeleccion',array(
+                'type' => 'date',
+                'dateFormat' => 'd-m-Y',
+                'style' => "width:130px;"
+                )
+            );
+            echo $this->Form->hidden('CumpleRequisitosAcademicos');
 	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Postulacione.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('Postulacione.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Postulaciones'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Alumno'), array('controller' => 'alumnos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Ofertas'), array('controller' => 'ofertas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Oferta'), array('controller' => 'ofertas', 'action' => 'add')); ?> </li>
-	</ul>
+    </fieldset>
+<?php echo $this->Form->end(__('Registrar')); ?>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </div>

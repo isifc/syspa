@@ -100,7 +100,7 @@ class RequisitosmateriasController extends AppController {
             }
             $this->set('OfertaId',$OfertaId);
             $this->set('OfertasCarrerasId',$OfertasCarrerasId);
-            $ofertascarreras = $this->Requisitosmateria->Ofertascarreras->find('list');
+            $ofertascarreras = $this->Requisitosmateria->Ofertascarrera->find('list');
             $materias = $this->Requisitosmateria->Materia->find('list');
             $this->set(compact('ofertascarreras', 'materias'));
 
