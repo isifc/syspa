@@ -7,6 +7,9 @@ App::uses('AppModel', 'Model');
  */
 class Tutore extends AppModel {
 
+
+
+	public $displayField = 'ApellidoNombre';
 /**
  * Display field
  *
@@ -35,7 +38,7 @@ public $actsAs = array(
 
 	
 	
-	public $displayField = 'id';
+
  
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

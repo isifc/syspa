@@ -8,7 +8,28 @@ App::uses('AppModel', 'Model');
  */
 class Actividade extends AppModel {
 
+public $displayField = 'ActividadDescripcion';
 
+
+
+
+
+
+public $actsAs = array(
+        'Search.Searchable'
+    );
+   public $filterArgs = array(
+        'Area' => array(
+            'type' => 'like',
+            'field' => array('Area.AreaDescripcion')
+        ),
+		'Actividad'=> array (
+			'type' =>'like',
+			'field'=>'ActividadDescripcion'
+		),
+		
+		
+    );
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**

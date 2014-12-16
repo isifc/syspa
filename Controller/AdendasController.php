@@ -56,8 +56,8 @@ class AdendasController extends AppController {
 		$fechaAltaObraSocialAnterior,
 		$pagaAsignacionEstimuloAnterior,
 		//$fechaAltaARTAnterior,
-		$importeARTAnterior,
-		$tutorIdAnterior
+		$importeARTAnterior
+		
 		) {
 		if ($this->request->is('post')) {
 			$this->Adenda->create();
@@ -84,13 +84,13 @@ class AdendasController extends AppController {
 		$this->set('fechaAltaObraSocialAnterior',$fechaAltaObraSocialAnterior);
 		$this->set('pagaAsignacionEstimuloAnterior',$pagaAsignacionEstimuloAnterior);
 		$this->set('importeARTAnterior',$importeARTAnterior);
-		if (!is_null($tutorIdAnterior)){
+		/*if (!is_null($tutorIdAnterior)){
 			$this->set('tutorIdAnterior',$tutorIdAnterior);
 		}else{
 			$tutorIdAnterior='';
 			$this->set('tutorIdAnterior',$tutorIdAnterior);
 		}
-		
+		*/
 		
 	}
 

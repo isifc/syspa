@@ -86,7 +86,7 @@
 		echo $this->Form->hidden('PorcentajeGastoAnterior',array('value'=>$porcentajeGastoAnterior,'default'=>$porcentajeGastoAnterior));
 		echo $this->Form->hidden('PagaObraSocialAnterior',array('value'=>$pagaObraSocialAnterior,'default'=>$pagaObraSocialAnterior));
 		echo $this->Form->hidden('PagaSeguroTrabajoAnterior',array('value'=>$pagaSeguroTrabajoAnterior,'default'=>$pagaSeguroTrabajoAnterior));
-		echo $this->Form->hidden('PagaAsignacionAnterior');//,array('value'=>$pagaAsignacionAnterior,'default'=>$pagaAsignacionAnterior));
+		echo $this->Form->hidden('PagaAsignacionAnterior',array('value'=>$pagaAsignacionAnterior,'default'=>$pagaAsignacionAnterior));
 ?>
 		
 		

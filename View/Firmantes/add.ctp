@@ -71,7 +71,7 @@
 		</tr>
 		<tr>
 			<td class="mitd">
-				<?php //echo $this->Form->input('anexo_id');?>
+				<?php echo $this->Form->hidden('empresa_id',array('value'=>$empresa_id,'default'=>$empresa_id));?>
 			</td>
 		</tr>
 		</table>

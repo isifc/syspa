@@ -133,8 +133,8 @@
 				echo "Fecha de alta Obra Social: ".$this->Form->inputText('FechaAltaObraSocial',array(		
 					'type'=>'date',
 					'dateFormat'=>'d-m-Y',				
-					'style'=>"width:130px;",
-					'required'
+					'style'=>"width:130px;"
+					
 
 					));
 				?>
@@ -171,7 +171,7 @@
 				<?php echo $this->Form->input('NombreObraSocial',array('label'=>'Obra social: '));?>
 			</td>
 			<td class="mitd">
-				<?php echo $this->Form->input('ImporteObraSocial',array('label'=>'Importe obra social: ', 'style'=>"width:107px;"));?>
+				<?php echo $this->Form->input('ImporteObraSocial',array('label'=>'Importe obra social: ', 'style'=>"width:107px;",'value'=>0,'default'=>0,'required'));?>
 			</td>
 		</tr>
 		 <tr>
@@ -179,15 +179,15 @@
 				<?php echo $this->Form->input('NombreART',array('label'=>'ART: '));?>
 			</td>
 			<td class="mitd">
-				<?php echo $this->Form->input('ImporteArt',array('label'=>'Importe ART: ', 'style'=>"width:107px;"));?>
+				<?php echo $this->Form->input('ImporteArt',array('label'=>'Importe ART: ', 'style'=>"width:107px;",'value'=>0,'default'=>0));?>
 			</td>
 		</tr>
 		<tr>
 			<td class="mitd">
-				<small>¿Paga asignacion estimulo?</small><?php echo $this->Form->checkbox('PagaAsignacionEstimulo'); ?>
+				<small>¿Paga asignacion estimulo?</small><?php echo $this->Form->checkbox('PagaAsignacionEstumulo'); ?>
 			</td>
 			<td class="mitd">
-				<?php echo $this->Form->input('ImporteAsignacionEstimulo',array('label'=>'Importe asignacion estimulo: ', 'style'=>"width:107px;"));?>
+				<?php echo $this->Form->input('ImporteAsignacionEstimulo',array('label'=>'Importe asignacion estimulo: ', 'style'=>"width:107px;",'value'=>0,'default'=>0));?>
 			</td>
 		</tr>
 			<tr>
@@ -197,7 +197,7 @@
 				
 				//echo $this->Form->input('ArchivoCP'); VER PARA QUE ES ESTO
 				
-				echo $this->Form->input('oferta_id',array('id' => "oferta_id", 'label'=>"Seleccionar Oferta: "));
+				echo $this->Form->input('oferta_id',array('id' => "oferta_id", 'label'=>"Seleccionar Oferta: ",'default'=>10));
 		 	?>
 						<script>
 						$("#oferta_id").select2({

@@ -1,5 +1,23 @@
+
+
+
+<table>
+	<tr>
+		<td class="mitdLeft">
+		<h3><?php echo __('Alumno'); ?></h3></td>
+		<td>
+
+    <td class="mitd">
+        <?php echo $this->Html->link(__('<< Volver'), 
+            array('controller' => 'conveniosparticulares', 'action' => 'index')); ?>
+    </td>
+</td>
+	</tr>
+</table>
+
+
+
 <div class="alumnos view">
-<h2><?php echo __('Alumno'); ?></h2>
 
 	<dl>
 	<table>
@@ -15,21 +33,15 @@
 		</tr>
 		<tr>
 		<td class="mitdLeft">
-		<dt><?php echo __('Apellido'); ?></dt>
-		<dd>
-			<?php echo h($alumno['Alumno']['Apellido']); ?>
-			&nbsp;
-		</dd>
-		</td>
-		</tr>
-		<tr>
-		<td class="mitdLeft">
-		<dt><?php echo __('Nombre'); ?></dt>
+		<dt><?php echo __('Apellido Nombre'); ?></dt>
 		<dd>
 			<?php echo h($alumno['Alumno']['Nombre']); ?>
 			&nbsp;
 		</dd>
 		</td>
+		</tr>
+		<tr>
+		
 		</tr>
 		<td class="mitdLeft">
 		<dt><?php echo __('FechaNacimiento'); ?></dt>
@@ -56,7 +68,7 @@
 		</td>
 		<tr>
 		<td class="mitdLeft">
-		<dt><?php echo __('CorreoElectronico'); ?></dt>
+		<dt><?php echo __('E-mail'); ?></dt>
 		<dd>
 			<?php echo h($alumno['Alumno']['CorreoElectronico']); ?>
 			&nbsp;
@@ -76,7 +88,13 @@
 		<td class="mitdLeft">
 		<dt><?php echo __('Suscripcion'); ?></dt>
 		<dd>
-			<?php echo h($alumno['Alumno']['Suscripcion']); ?>
+			<?php 
+			if ((h($alumno['Alumno']['Suscripcion'])) == 1){
+				echo __('SI');
+			}else{
+				echo __('NO');
+			}
+			; ?>
 			&nbsp;
 		</dd>
 		</td>
@@ -86,7 +104,8 @@
 		<td class="mitdLeft">
 		<dt><?php echo __('Carrera'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($alumno['Carrera']['id'], array('controller' => 'carreras', 'action' => 'view', $alumno['Carrera']['id'])); ?>
+			<?php echo h($alumno['Carrera']['carrera']); ?>
+		
 			&nbsp;
 		</dd>
 		</td>
@@ -103,21 +122,23 @@
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Empresa'); ?></th>
-		<th><?php echo __('FechaInicio'); ?></th>
-		<th><?php echo __('FechaFin'); ?></th>
-		<th><?php echo __('FechaFirmaConvenio'); ?></th>	
+		<th><?php echo __('Fecha de Inicio'); ?></th>
+		<th><?php echo __('Fecha de Fin'); ?></th>
+		<th><?php echo __('Fecha Firma de Convenio'); ?></th>	
 		<th><?php echo __('Oferta'); ?></th>
 		
 		
-		<th class="actions"><?php echo __('Actions'); ?></th>
+		<th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
+	
+	<!--<pre><?php print_r($alumno)?></pre>-->
 	<?php foreach ($alumno['Conveniosparticulare'] as $conveniosparticulare): ?>
 		<tr>
-			<td><?php echo $conveniosparticulare['empresa_id']; ?></td>
+			<td><?php echo $conveniosparticulare['Empresa']['EmpresaRazonSocial']; ?></td>
 			<td><?php echo $conveniosparticulare['FechaInicio']; ?></td>
 			<td><?php echo $conveniosparticulare['FechaFin']; ?></td>
 			<td><?php echo $conveniosparticulare['FechaFirmaConvenio']; ?></td>
-			<td><?php echo $conveniosparticulare['oferta_id']; ?></td>
+			<td><?php echo $conveniosparticulare['Oferta']['OfertaDescripcion']; ?></td>
 			
 			
 			<td class="actions">
@@ -152,8 +173,9 @@
 			<td><?php echo $postulacione['FechaPostulacion']; ?></td>
 			<td><?php echo $postulacione['FechaSeleccion']; ?></td>
 			<td><?php echo $postulacione['CumpleRequisitosAcademicos']; ?></td>
-			<td><?php echo $postulacione['alumno_id']; ?></td>
-			<td><?php echo $postulacione['oferta_id']; ?></td>
+			<td><?php echo $postulacione['Alumno']['Nombre']; ?></td>
+			<td><?php echo $postulacione['Oferta']['OfertaDescripcion']; ?></td>
+			}
 			
 		</tr>
 	<?php endforeach; ?>

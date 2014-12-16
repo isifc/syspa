@@ -128,7 +128,7 @@
 					'type'=>'date',
 					'dateFormat'=>'d-m-Y',				
 					'style'=>"width:130px;",
-					'required'
+					
 					));
 				?>
 				

@@ -22,11 +22,6 @@
 
         ?>
     <script>
-        $(function() {
-        $( "#datepicker" ).datepicker();
-        });
-    </script>
-    <script>
         (function ($) {
     "use strict";
 
@@ -165,9 +160,10 @@
 
                                
                                 <?php echo $this->html->image("mi_form/logout.png", array(
-                                            'alt' => 'Agregar', 'title' =>"Agregar Empresa",
+                                            'alt' => 'Agregar', 'title' =>"Cerrar Sesión",
                                              'url' => array('controller' => 'users','action' => 'logout')
-                                             )); ?>
+                                             ));
+                                             ?>
                             
                             </ul>
                         </li>

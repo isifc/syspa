@@ -3,13 +3,7 @@
 
 
 	<h2><?php echo __('Empresas'); ?></h2>
-	
-	
-		
-	 
 	<br>
-	
-	
 	 <table>
 		
 	
@@ -27,16 +21,7 @@
 								echo $this->Form->input('RazonSocial');
 		 					?>
 		 				</td>
-		 				<td class="mitd" bgcolor="D3DEF0" >
-		 					<?php echo $this->Form->create('Empresa'); ?>
-		 					<?php  $sizes = array('v' => 'vigente', 'nv' => 'no vigente', 'null'=>'sin convenio','t' => 'todos');
-							echo $this->Form->input('fechas',
-    								array('label'=>'filtrar convenios','id'=>'sele','options' => $sizes, 'default' => 't')
-							);
-							
-							?>
-		 					
-		 				</td>
+		 				
 		 				<script>
 				$("#sele").select2({
 							placeholder: "Seleccione Comuna",

@@ -51,7 +51,7 @@ class AnexosController extends AppController {
 		$porcentajeGastoAnterior,
 		$pagaSeguroTrabajoAnterior,
 		$pagaObraSocialAnterior,
-		//$pagaAsignacionAnterior,
+		$pagaAsignacionAnterior,
 		$convenioFechaAnterior
 		) {
 		if ($this->request->is('post')) {
@@ -72,7 +72,7 @@ class AnexosController extends AppController {
 				$this->Session->setFlash(__('The anexo could not be saved. Please, try again.'));
 			}
 		}else
-
+		
 		$empresas = $this->Anexo->Empresa->find('list');
 
         $this->set('empresa_id',$empresa_id); 
@@ -80,7 +80,7 @@ class AnexosController extends AppController {
         $this->set('porcentajeGastoAnterior',$porcentajeGastoAnterior);
 		$this->set('pagaSeguroTrabajoAnterior',$pagaSeguroTrabajoAnterior);
 		$this->set('pagaObraSocialAnterior',$pagaObraSocialAnterior);
-		//$this->set('pagaAsignacionAnterior',$pagaAsignacionAnterior);
+		$this->set('pagaAsignacionAnterior',$pagaAsignacionAnterior);
 		$this->set('convenioFechaAnterior',$convenioFechaAnterior);
 		
 		

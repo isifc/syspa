@@ -43,6 +43,10 @@ class ConveniosparticularesController extends AppController {
 		}
 		$options = array('conditions' => array('Conveniosparticulare.' . $this->Conveniosparticulare->primaryKey => $id));
 		$this->set('conveniosparticulare', $this->Conveniosparticulare->find('first', $options));
+		
+		
+		
+		
 	}
 
 /**
@@ -58,18 +62,7 @@ class ConveniosparticularesController extends AppController {
 			//if ($this->request->data['Conveniosparticulare']['tutore_id']== 1){
 				//	$this->request->data['Conveniosparticulare']['tutore_id']= NULL;
 		//	}
-			$fechaConvenio=$this->request->data['Conveniosparticulare']['FechaFirmaConvenio'];
-				$this->request->data['Conveniosparticulare']['FechaFirmaConvenio']=date("Y-m-d",strtotime($fechaConvenio));
-
-				$fechaObraS=$this->request->data['Conveniosparticulare']['FechaAltaObraSocial'];
-				$this->request->data['Conveniosparticulare']['FechaAltaObraSocial']=date("Y-m-d",strtotime($fechaObraS));
-
-				$fechaInicio=$this->request->data['Conveniosparticulare']['FechaInicio'];
-				$this->request->data['Conveniosparticulare']['FechaInicio']=date("Y-m-d",strtotime($fechaInicio));
-
-				$fechaFin=$this->request->data['Conveniosparticulare']['FechaFin'];
-				$this->request->data['Conveniosparticulare']['FechaFin']=date("Y-m-d",strtotime($fechaFin));
-
+			
 			if ($this->Conveniosparticulare->save($this->request->data)) {
 
 				$this->Session->setFlash(__('Se guardaron los cambios satisfactoriamente'));
@@ -116,34 +109,48 @@ class ConveniosparticularesController extends AppController {
 		$convenio=$this->Conveniosparticulare->find('first', $options);
 		$conveniosparticulare_id=$convenio['Conveniosparticulare']['id'];
 		$fechaFirmaConvenio=$convenio['Conveniosparticulare']['FechaFirmaConvenio'];
-		//$adendaDescripcion=$convenio['Conveniosparticulare']['AdendaDescripcion'];
-		$nombreArtAnterior=$convenio['Conveniosparticulare']['NombreART'];
-		$nombreObraSocialAnterior=$convenio['Conveniosparticulare']['NombreObraSocial'];
-		$importeObraSocialAnterior=$convenio['Conveniosparticulare']['ImporteArt'];
-		$importeAsignacionEstimuloAnterior=$convenio['Conveniosparticulare']['ImporteAsignacionEstimulo'];
+		if (is_null($convenio['Conveniosparticulare']['NombreART'])){
+			$nombreArtAnterior="";
+		}else{
+			$nombreArtAnterior=$convenio['Conveniosparticulare']['NombreART'];
+		}
+		if (is_null($convenio['Conveniosparticulare']['NombreObraSocial'])){
+			$nombreObraSocialAnterior="";
+		}else{
+			$nombreObraSocialAnterior=$convenio['Conveniosparticulare']['NombreObraSocial'];
+		}
+		if (is_null($convenio['Conveniosparticulare']['ImporteArt'])){
+			$importeARTAnterior=0;
+		}else{
+			$importeARTAnterior=$convenio['Conveniosparticulare']['ImporteArt'];
+		}
 		
-		$tutorIdAnterior=$convenio['Conveniosparticulare']['tutore_id'];
-		$fechaAltaObraSocialAnterior=$convenio['Conveniosparticulare']['FechaAltaObraSocial'];
-		$pagaAsignacionEstimuloAnterior=$convenio['Conveniosparticulare']['PagaAsignacionEstumulo'];
-		//$fechaAltaARTAnterior=$convenio['Conveniosparticulare']['FechaAltaObraSocial'];
-		$importeARTAnterior=$convenio['Conveniosparticulare']['ImporteArt'];
+		$importeObraSocialAnterior=$convenio['Conveniosparticulare']['ImporteObraSocial'];
+		//$importeAsignacionEstimuloAnterior=$convenio['Conveniosparticulare']['ImporteAsignacionEstimulo'];
+/*
+		if (is_null($convenio['Conveniosparticulare']['tutore_id'])){
+			$tutorIdAnterior=1;
+		}else{
+			$tutorIdAnterior=$convenio['Conveniosparticulare']['tutore_id'];
+		}
+		*/
+		if (is_null($convenio['Conveniosparticulare']['PagaAsignacionEstumulo'])){
+			$pagaAsignacionEstimuloAnterior=0;
+		}else{
+			$pagaAsignacionEstimuloAnterior=$convenio['Conveniosparticulare']['PagaAsignacionEstumulo'];
+		}
+		if (is_null($convenio['Conveniosparticulare']['FechaAltaObraSocial'])){
+			$fechaAltaObraSocialAnterior="0000-00-00";
+		}else{
+			$fechaAltaObraSocialAnterior=$convenio['Conveniosparticulare']['FechaAltaObraSocial'];
+		}
+		
+		
 		$this->set('conveniosparticulare', $this->Conveniosparticulare->find('first', $options));
 
 		if ($this->request->is(array('post', 'put'))) {
 
-			$fechaConvenio=$this->request->data['Conveniosparticulare']['FechaFirmaConvenio'];
-				$this->request->data['Conveniosparticulare']['FechaFirmaConvenio']=date("Y-m-d",strtotime($fechaConvenio));
-
-				$fechaObraS=$this->request->data['Conveniosparticulare']['FechaAltaObraSocial'];
-				$this->request->data['Conveniosparticulare']['FechaAltaObraSocial']=date("Y-m-d",strtotime($fechaObraS));
-
-				$fechaInicio=$this->request->data['Conveniosparticulare']['FechaInicio'];
-				$this->request->data['Conveniosparticulare']['FechaInicio']=date("Y-m-d",strtotime($fechaInicio));
-
-				$fechaFin=$this->request->data['Conveniosparticulare']['FechaFin'];
-				$this->request->data['Conveniosparticulare']['FechaFin']=date("Y-m-d",strtotime($fechaFin));
-
-
+			
 			if ($this->Conveniosparticulare->save($this->request->data)) {
 				$this->Session->setFlash(__('Convenio guardado satisfactoriamente.'));
 						return $this->redirect(array('controller' => 'adendas','action' => 'add',
@@ -157,9 +164,10 @@ class ConveniosparticularesController extends AppController {
 													
 													$fechaAltaObraSocialAnterior,
 													$pagaAsignacionEstimuloAnterior,
-													$fechaAltaARTAnterior,
-													$importeARTAnterior,
-													$tutorIdAnterior));
+													//$fechaAltaARTAnterior,
+													$importeARTAnterior
+													
+													));
 					
 				
 				//return $this->redirect(array('action' => 'index'));
@@ -181,18 +189,7 @@ class ConveniosparticularesController extends AppController {
 		$this->set(compact('ofertas', 'empresas', 'alumnos', 'carreras', 'tutores'));
 
 
-		$fechaFirma=date("d-m-Y",strtotime($this->request->data['Conveniosparticulare']['FechaFirmaConvenio']));
-		$this->set('fechaFirma',$fechaFirma);
-
-		$fechaAltaOS=date("d-m-Y",strtotime($this->request->data['Conveniosparticulare']['FechaAltaObraSocial']));
-		$this->set('fechaAltaOS',$fechaAltaOS);
-
-		$fechaIni=date("d-m-Y",strtotime($this->request->data['Conveniosparticulare']['FechaInicio']));
-		$this->set('fechaIni',$fechaIni);
-
-		$fechaFin=date("d-m-Y",strtotime($this->request->data['Conveniosparticulare']['FechaFin']));
-		 $this->set('fechaFin',$fechaFin);
-      	
+	
 
 	}
 

@@ -167,6 +167,8 @@
 		
 		
 	</tr>
+	
+
 	<?php foreach ($conveniosparticulare['Adenda'] as $adenda): ?>
 		<tr class="mitr">
 			<td><?php echo $adenda['FechaFirmaConvenioAnterior']; ?></td>

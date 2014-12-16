@@ -160,68 +160,58 @@ where nombre='JUJUY'))*/
 		//esto es para ver algunos datos de la empresa a suspender
 		$options = array('conditions' => array('Empresa.' . $this->Empresa->primaryKey => $id));
 		$this->set('empresa', $this->Empresa->find('first', $options));
-		//aca suspendo
-		if ($this->request->is(array('post', 'put'))) {
-				if (!empty($this->request->data['Empresa']['ConvenioFecha'])) {
-				$fecha2=$this->request->data['Empresa']['ConvenioFecha'];
-				$this->request->data['Empresa']['ConvenioFecha']=date("Y-m-d",strtotime($fecha2));
-				
-			}
-			if (!empty($this->request->data['Empresa']['ConvenioFechaBaja'])) {
-				$fecha3=$this->request->data['Empresa']['ConvenioFechaBaja'];
-				$this->request->data['Empresa']['ConvenioFechaBaja']=date("Y-m-d",strtotime($fecha3));
-				
-			}else{
+		$empresaAux=$this->Empresa->find('first', $options);
+		$convenioFechaAnterior=$empresaAux['Empresa']['ConvenioFecha'];
+		$pagaAsignacionAnterior=$empresaAux['Empresa']['PagaAsignacionEstimulo'];
+		
+		if ($this->request->is(array('post', 'put'))) {	
+			if (empty($this->request->data['Empresa']['ConvenioFechaBaja'])) {
 				$this->request->data['Empresa']['ConvenioFechaBaja']=NULL;
 			}
 			if ($this->Empresa->save($this->request->data['Empresa'])) {
-				
-				//$this->Anexo->save($this->request->data['Anexo']);	
 				$this->Session->setFlash(__('Se edito la empresa Sastifactoriamente.'));
+
+				if (is_null($convenioFechaAnterior)){
+					return $this->redirect(array('controller' => 'Empresas','action' => 'index'));
+				}else{
+					
+				
+
 				if (($this->request->data['Anexo']['EmpresaCUIT']!=$this->request->data['Empresa']['EmpresaCUIT']) ||
 					($this->request->data['Anexo']['PorcentajeGastoAnterior']!=$this->request->data['Empresa']['PorcentajeGasto']) ||
 					($this->request->data['Anexo']['PagaSeguroTrabajoAnterior']!=$this->request->data['Empresa']['PagaSeguroTrabajo']) ||
 					($this->request->data['Anexo']['PagaObraSocialAnterior']!=$this->request->data['Empresa']['PagaObraSocial']) ||
-					($this->request->data['Anexo']['ConvenioFechaAnterior']!=$this->request->data['Empresa']['ConvenioFecha'])){				
-					  
+					($this->request->data['Anexo']['ConvenioFechaAnterior']!=$this->request->data['Empresa']['ConvenioFecha']) ||
+					($pagaAsignacionAnterior!=$this->request->data['Empresa']['PagaAsignacionEstimulo'])) {
+									
+					   
 					return $this->redirect(array('controller' => 'anexos','action' => 'add',
 					$this->request->data['Anexo']['empresa_id'],
 					$this->request->data['Anexo']['EmpresaCUIT'],
 					$this->request->data['Anexo']['PorcentajeGastoAnterior'],
 					$this->request->data['Anexo']['PagaSeguroTrabajoAnterior'],
 					$this->request->data['Anexo']['PagaObraSocialAnterior'],
-					//$this->request->data['Anexo']['PagaAsignacionAnterior'],
-					$this->request->data['Anexo']['ConvenioFechaAnterior']
+					$pagaAsignacionAnterior,
+					$convenioFechaAnterior
 					));
 					  }else{
 					  	$this->Session->setFlash(__('Los cambios se registraron satisfactoriamente'));
 					  	return $this->redirect(array('controller' => 'Empresas','action' => 'index'));
 					  }				
-					
+				}
 			} else {
 				$this->Session->setFlash(__('No se a podido editar la empresa.'));
 			}
+
 		} else {
 			$options = array('conditions' => array('Empresa.' . $this->Empresa->primaryKey => $id));
 			$this->request->data = $this->Empresa->find('first', $options);
 		}
 		$empresas = $this->Firmante->Empresa->find('list');
-		//$localidades = $this->Localidades->Empresa->find('list');
-        $this->set('empresa_id',$id); 
-        $fecha=date("d-m-Y",strtotime($this->request->data['Empresa']['ConvenioFecha']));
-      	$this->set('fecha',$fecha);
-        //$fecha=date("d-m-Y",strtotime($this->request->data['Empresa']['ConvenioFecha']));
-        if (!is_null($this->request->data['Empresa']['ConvenioFecha'])){
-        	  $fechabaja=date("d-m-Y",strtotime($this->request->data['Empresa']['ConvenioFechaBaja']));
-        	  $this->set('fechabaja',$fechabaja);
-        }
+        $this->set('empresa_id',$id);
         
         $localidades = $this->Empresa->Localidade->find('list',array('fields' => array('nombre')));
 		$this->set(compact('localidades'));
-		//$this->Firmante->Empresa->recursive=0;
-		//$empresas = $this->Firmante->Empresa->find('list');
-		//$anexos = $this->Anexo->Empresa->find('list');
-		
 		$this->set(compact('empresas'));
 	}
 

@@ -38,10 +38,10 @@ class TutoresController extends AppController {
  */
 	public function view($id = null) {
 		if (!$this->Tutore->exists($id)) {
-			throw new NotFoundException(__('Invalid tutore'));
+			throw new NotFoundException(__('Tutor Invalido'));
 		}
 		$options = array('conditions' => array('Tutore.' . $this->Tutore->primaryKey => $id));
-		$this->set('tutore', $this->Tutore->find('first', $options));
+		$this->set('tutore', $this->Tutore->find('first',$options));
 	}
 
 /**

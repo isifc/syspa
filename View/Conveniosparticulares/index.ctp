@@ -133,7 +133,15 @@
 			    			"alt" => "Agregar", 'title' =>"No se puede ejecutar la acción","style"=>"opacity:0.4"));
 						}
 						?>
-				
+					<?php 
+					echo $this->html->image("mi_form/tarea.png", array(
+			    		"alt" => "Tarea", 'title' =>"Agregar Tarea",
+			    		'url' => array('controller' => 'tareas','action' => 'add',$conveniosparticulare['Conveniosparticulare']['id']), array('class'=>'edit')
+						)); 
+						
+						
+						?>
+					
 
 		</td>
 <!-- 

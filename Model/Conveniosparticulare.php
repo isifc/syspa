@@ -9,16 +9,12 @@ App::uses('AppModel', 'Model');
  * @property Alumno $Alumno
  * @property Carrera $Carrera
  * @property Adenda $Adenda
+ * @property Tarea $Tarea
  */
 class Conveniosparticulare extends AppModel {
 
-/**
- * Display field
- *
- * @var string
- */
- 
-  public $actsAs = array(
+
+ public $actsAs = array(
         'Search.Searchable'
     );
    public $filterArgs = array(
@@ -37,6 +33,12 @@ class Conveniosparticulare extends AppModel {
 		) 		
     );
 
+
+/**
+ * Display field
+ *
+ * @var string
+ */
 	public $displayField = 'id';
 
 
@@ -103,11 +105,21 @@ class Conveniosparticulare extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
+		),
+		'Tarea' => array(
+			'className' => 'Tarea',
+			'foreignKey' => 'conveniosparticulare_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
 		)
 	);
-
-
-	
 	
 	var $validate = array(
 
@@ -135,30 +147,26 @@ class Conveniosparticulare extends AppModel {
 			 		 ),
 					
 					   'ImporteArt' => array(
-							'rule' => array('range', 0, 9999),
+							'rule' => array('range', -1, 9999),
 							'required' => false,
 					  		'allowEmpty' => true,
-							'message' => 'Por favor ingrese un número mayor o igaul a 0'
+							'message' => 'Por favor ingrese un número positivo'
 			 		 ),
 					 
 					   'ImporteObraSocial' => array(
-							'rule' => array('range', 0, 9999),
+							'rule' => array('range', -1, 9999),
 							'required' => false,
 					  		'allowEmpty' => true,
-							'message' => 'Por favor ingrese un número mayor o igaul a 0'
+							'message' => 'Por favor ingrese un número positivo'
 			 		 ),
 					 
 					   'ImporteAsignacionEstimulo' => array(
-							'rule' => array('range', 0, 9999),
+							'rule' => array('range', -1, 9999),
 							'required' => false,
 					  		'allowEmpty' => true,
-							'message' => 'Por favor ingrese un número mayor o igaul a 0'
+							'message' => 'Por favor ingrese un número positivo'
 			 		 ),
 	);
 	
-	
-	
-	
-	
-	
+
 }

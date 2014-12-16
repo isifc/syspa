@@ -9,7 +9,7 @@
 		echo $this->Form->hidden('NombreObraSocialAnterior',array('value'=>$nombreObraSocialAnterior,'default'=>$nombreObraSocialAnterior));
 		echo $this->Form->hidden('ImporteObraSocialAnterior',array('value'=>$importeObraSocialAnterior,'default'=>$importeObraSocialAnterior));
 		echo $this->Form->hidden('ImporteAsignacionEstimuloAnterior',array('value'=>$importeAsignacionEstimuloAnterior,'default'=>$importeAsignacionEstimuloAnterior));
-		echo $this->Form->hidden('TutorIdAnterior',array('value'=>$tutorIdAnterior,'default'=>$tutorIdAnterior));
+		//echo $this->Form->hidden('TutorIdAnterior',array('value'=>$tutorIdAnterior,'default'=>$tutorIdAnterior));
 		echo $this->Form->hidden('FechaAltaObraSocialAnterior',array('value'=>$fechaAltaObraSocialAnterior,'default'=>$fechaAltaObraSocialAnterior));
 		echo $this->Form->hidden('FechaAltaARTAnterior',array('default'=>NULL));
 		echo $this->Form->hidden('PagaAsignacionEstimuloAnterior',array('value'=>$pagaAsignacionEstimuloAnterior,'default'=>$pagaAsignacionEstimuloAnterior));
