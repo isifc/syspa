@@ -19,7 +19,7 @@
             <script>
                $("#area_id").select2({
                 placeholder: "Area",
-                width:'150px'	
+                width:'250px'	
                 });
             </script>
         </fieldset>

@@ -21,9 +21,17 @@
                <script>
                    $( "button" ).button();
                </script>
-           </td>
-           
-           
+            </td>
+            <td valign="bottom">
+                <p align="right"> Nueva Postulación 
+                    <?php echo $this->html->image("mi_form/Add.png", 
+                        array('alt' => 'Agregar', 'title' =>"Agregar Postulación",'url' => 
+                        array('action' => 'add')
+                        )
+                        );
+                    ?>
+                </p>
+            </td>    
         </tr>
     </table>    
 	<table cellpadding="0" cellspacing="0">
@@ -46,7 +54,13 @@
 		<td class="tabla"><?php echo $this->Acortar->recortar_texto($postulacione['Alumno']['name'],30);?></td>
 		<td class="tabla"><?php echo $this->Acortar->recortar_texto($postulacione['Oferta']['OfertaDescripcion'],23);?></td>
 		<td class="tabla"><?php echo date("d-m-Y",strtotime($postulacione['Postulacione']['FechaPostulacion'])); ?>&nbsp;</td>
-		<td class="tabla"><?php echo date("d-m-Y",strtotime($postulacione['Postulacione']['FechaSeleccion'])); ?>&nbsp;</td>
+		<td class="tabla"><?php if (is_null($postulacione['Postulacione']['FechaSeleccion'])) {
+                                            echo "";
+                                        } else {
+                                            echo date("d-m-Y",strtotime($postulacione['Postulacione']['FechaSeleccion'])); 
+                                        }
+                                   ?>&nbsp;
+                </td>
 		<!--<td><?php echo h($postulacione['Postulacione']['CumpleRequisitosAcademicos']); ?>&nbsp;</td>-->
 		<td>
                     <?php echo $this->html->image("mi_form/view.png", 

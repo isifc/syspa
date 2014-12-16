@@ -7,7 +7,7 @@ App::uses('AppModel', 'Model');
  * @property Oferta $Oferta
  */
 class Postulacione extends AppModel {
-    public $name = 'Postulacione';
+   
 /**
  * Validation rules
  *

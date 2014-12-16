@@ -7,7 +7,7 @@ App::uses('AppController', 'Controller');
  * @property PaginatorComponent $Paginator
  */
 class PostulacionesController extends AppController {
-
+    
 /**
  * Components
  *
@@ -37,6 +37,7 @@ class PostulacionesController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+                $this->Postulacione->recursive = 2;
 		if (!$this->Postulacione->exists($id)) {
 			throw new NotFoundException(__('Invalid postulacione'));
 		}
@@ -59,8 +60,8 @@ class PostulacionesController extends AppController {
 				$this->Session->setFlash(__('The postulacione could not be saved. Please, try again.'));
 			}
 		}
-		$alumnos = $this->Postulacione->Alumno->find('list');
-		$ofertas = $this->Postulacione->Oferta->find('list');
+		$ofertas = $this->Postulacione->Oferta->find('list', array('fields' => array('OfertaDescripcion')));
+                $alumnos = $this->Postulacione->Alumno->find('list');
 		$this->set(compact('alumnos', 'ofertas'));
 	}
 
@@ -87,12 +88,8 @@ class PostulacionesController extends AppController {
 			$this->request->data = $this->Postulacione->find('first', $options);
 		}
 		$alumnos = $this->Postulacione->Alumno->find('list');
-                $this->LoadModel('Oferta');
-		$ofertas = $this->Oferta->find('first',array(
-                    'fields' => array('OfertaDescripcion')
-                    )
-                );
-		$this->set(compact('alumnos', 'ofertas'));
+		$ofertas = $this->Postulacione->Oferta->find('list', array('fields' => array('OfertaDescripcion')));
+                $this->set(compact('alumnos', 'ofertas'));
 	}
 
 /**
