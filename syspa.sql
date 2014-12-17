@@ -8500,7 +8500,9 @@ INSERT INTO `competencias` (`id`, `area_id`, `CompetenciaNombre`) VALUES
 (2, 2, 'Metodologías ágiles'),
 (3, 4, 'Conocimientos de Office'),
 (4, 1, 'Cableado de Redes LAN'),
-(5, 3, 'Java');
+(5, 3, 'Java'),
+(6, 4, 'Inglés técnico');
+
 -- --------------------------------------------------------
 
 --
@@ -14777,10 +14779,11 @@ INSERT INTO `ofertas` (`id`, `empresa_id`, `OfertaVigenciaDesde`, `OfertaVigenci
 (2, 1, '2014-11-17', '2014-12-18', 'Técnico en cableado estructurado'),
 (3, 2, '2014-11-20', '2014-12-30', 'Técnico de Hardware y Software'),
 (4, 1, '2014-11-18', '2014-12-26', 'Atención al público y mesa de ayuda'),
-(5, 14, '2014-11-25', '2014-12-01', 'Control de elaboración de bebidas'),
+(5, 14, '2014-11-25', '2014-12-20', 'Control de elaboración de bebidas'),
 (6, 7, '2014-11-24', '2014-12-18', 'Encargado de back up de base de datos'),
 (7, 1, '2014-12-25', '2015-01-10', 'Programador JAVA Semisenior'),
-(8, 1, '2014-12-02', '2014-12-09', 'Programador JAVA Web Junior');
+(8, 1, '2014-12-02', '2014-12-09', 'Programador JAVA Junior'),
+(9, 3, '2014-12-02', '2014-12-19', 'Asistencia en seguridad e higiene');
 
 -- --------------------------------------------------------
 
@@ -14802,22 +14805,20 @@ CREATE TABLE IF NOT EXISTS `ofertascarreras` (
 --
 
 INSERT INTO `ofertascarreras` (`id`, `oferta_id`, `carrera_id`) VALUES
-(1, 8, 34),
-(2, 8, 5),
-(3, 1, 34),
-(4, 1, 5),
-(5, 7, 34),
-(6, 7, 5),
-(7, 2, 34),
-(8, 2, 5),
-(9, 3, 34),
-(10, 3, 5),
-(11, 4, 34),
-(12, 4, 5),
-(13, 6, 34),
-(14, 6, 5),
-(15, 4, 27),
-(16, 5, 27);
+(1, 8, 5),
+(2, 8, 34),
+(3, 1, 5),
+(4, 1, 34),
+(5, 7, 5),
+(6, 7, 34),
+(7, 2, 5),
+(8, 2, 48),
+(9, 3, 5),
+(10, 3, 34),
+(11, 6, 5),
+(12, 5, 27),
+(13, 9, 27),
+(14, 9, 8);
 
 -- --------------------------------------------------------
 
@@ -14949,7 +14950,11 @@ INSERT INTO `requisitoscompetencias` (`id`, `oferta_id`, `competencia_id`) VALUE
 (5, 8, 5),
 (6, 8, 5),
 (7, 1, 2),
-(8, 2, 4);
+(8, 2, 4),
+(9, 1, 6),
+(10, 7, 6),
+(11, 8, 6),
+(12, 9, 6);
 
 -- --------------------------------------------------------
 
@@ -14972,10 +14977,11 @@ CREATE TABLE IF NOT EXISTS `requisitosmaterias` (
 --
 
 INSERT INTO `requisitosmaterias` (`id`, `ofertascarreras_id`, `materia_id`, `RequisitoMateriaCondicion`) VALUES
-(1, 1, 1, 'Aprobado'),
-(2, 1, 5, 'Regular'),
-(3, 2, 3, 'Regular'),
-(4, 6, 4, 'Aprobado');
+(1, 3, 1, 'Aprobado'),
+(2, 3, 5, 'Regular'),
+(3, 7, 3, 'Regular'),
+(4, 8, 8, 'Regular'),
+(5, 11, 4, 'Aprobado');
 ----------------------------------------------------------
 
 --
