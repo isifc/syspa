@@ -106,9 +106,15 @@ class ConveniosparticularesController extends AppController {
 		}
 		
 		$options = array('conditions' => array('Conveniosparticulare.' . $this->Conveniosparticulare->primaryKey => $id));
+		$this->set('conveniosparticulare', $this->Conveniosparticulare->find('first', $options));
+
 		$convenio=$this->Conveniosparticulare->find('first', $options);
 		$conveniosparticulare_id=$convenio['Conveniosparticulare']['id'];
-		$fechaFirmaConvenio=$convenio['Conveniosparticulare']['FechaFirmaConvenio'];
+		if (is_null($convenio['Conveniosparticulare']['FechaFirmaConvenio'])){
+			$fechaFirmaConvenio="0000-00-00";
+		}else{
+			$fechaFirmaConvenio=$convenio['Conveniosparticulare']['FechaFirmaConvenio'];
+		}
 		if (is_null($convenio['Conveniosparticulare']['NombreART'])){
 			$nombreArtAnterior="";
 		}else{
@@ -124,9 +130,18 @@ class ConveniosparticularesController extends AppController {
 		}else{
 			$importeARTAnterior=$convenio['Conveniosparticulare']['ImporteArt'];
 		}
+		if (is_null($convenio['Conveniosparticulare']['ImporteObraSocial'])){
+			$importeObraSocialAnterior=0;
+		}else{
+			$importeObraSocialAnterior=$convenio['Conveniosparticulare']['ImporteObraSocial'];
+		}
+		if (is_null($convenio['Conveniosparticulare']['ImporteAsignacionEstimulo'])){
+			$$importeAsignacionEstimuloAnterior=0;
+		}else{
+			$importeAsignacionEstimuloAnterior=$convenio['Conveniosparticulare']['ImporteAsignacionEstimulo'];
+		}
 		
-		$importeObraSocialAnterior=$convenio['Conveniosparticulare']['ImporteObraSocial'];
-		//$importeAsignacionEstimuloAnterior=$convenio['Conveniosparticulare']['ImporteAsignacionEstimulo'];
+		
 /*
 		if (is_null($convenio['Conveniosparticulare']['tutore_id'])){
 			$tutorIdAnterior=1;
@@ -146,14 +161,12 @@ class ConveniosparticularesController extends AppController {
 		}
 		
 		
-		$this->set('conveniosparticulare', $this->Conveniosparticulare->find('first', $options));
-
 		if ($this->request->is(array('post', 'put'))) {
 
 			
 			if ($this->Conveniosparticulare->save($this->request->data)) {
 				$this->Session->setFlash(__('Convenio guardado satisfactoriamente.'));
-						return $this->redirect(array('controller' => 'adendas','action' => 'add',
+				return $this->redirect(array('controller' => 'adendas','action' => 'add',
 													$conveniosparticulare_id,
 													$fechaFirmaConvenio,
 													//$adendaDescripcion,
@@ -161,7 +174,6 @@ class ConveniosparticularesController extends AppController {
 													$nombreObraSocialAnterior,
 													$importeObraSocialAnterior,
 													$importeAsignacionEstimuloAnterior,
-													
 													$fechaAltaObraSocialAnterior,
 													$pagaAsignacionEstimuloAnterior,
 													//$fechaAltaARTAnterior,

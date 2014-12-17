@@ -178,7 +178,7 @@
 		</tr>
 		<tr>
 			<td class="mitd">
-				<small>¿Paga asignacion estimulo?</small><?php echo $this->Form->checkbox('PagaAsignacionEstimulo'); ?>
+				<small>¿Paga asignacion estimulo?</small><?php echo $this->Form->checkbox('PagaAsignacionEstumulo'); ?>
 			</td>
 			<td class="mitd">
 				<?php echo $this->Form->input('ImporteAsignacionEstimulo',array('label'=>'Importe asignacion estimulo: ','min'=>0, 'max'=>9999));?>

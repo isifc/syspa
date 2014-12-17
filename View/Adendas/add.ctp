@@ -100,7 +100,13 @@
 				<dt><?php echo __('Paga Asignacion Estimulo'); ?></dt>
 					<dd>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<?php echo $pagaAsignacionEstimuloAnterior; ?>
+					<?php 
+						if ($pagaAsignacionEstimuloAnterior==0) {
+						 	echo "no";
+						 } else{
+						 	echo "si";
+						 }
+					 ?>
 					&nbsp;
 					</dd>
 
@@ -116,19 +122,7 @@
 					</dd>
 
 			</td>
-		</tr>
-		<tr class="mitdLeft">
-			<td class="mitdLeft">
-					<dt><?php echo __('Tutor'); ?></dt>
-					<dd>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<?php echo $tutorIdAnterior; ?>
-					&nbsp;
-					</dd>
-
-			</td>
-		</tr>
-
+		
 	</table>
 	</dl>
   </div>
